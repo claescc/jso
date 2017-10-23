@@ -23,7 +23,7 @@ var loonB = toetsenbord.question('Geef uw loonsverhoging in:  ');
 var getalA, getalB;
 
 getalA = parseInt(loonA);
-getalB = parseInt(loonB);
+getalB = parseInt(loonB); // parsefloat(getal1) wordt eens tring een commagetal 
 
-console.log('Uw nieuw loon is = %s ', (getalA+getalB));
+console.log('Uw nieuw loon is = %s ', (getalA+getalB)); // parsefloat (A) + parsefloat (B) = getal + getal = decimal getal
 
