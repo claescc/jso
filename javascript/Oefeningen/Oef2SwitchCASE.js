@@ -9,13 +9,13 @@ var ingaveA =  parseInt(toetsenbord.question("Geef eerste getal: "), 10);
 
 
 switch (true) {                 
-   case (ingaveA = 0 && ingaveA <=9 ) :               
+   case (ingaveA = 0 && ingaveA <=9 ) :        // ingave < 10       
        console.log("ovoldoende");
        break;            
-   case (ingaveA = 10 && ingaveA <=13 ) : 
+   case ingaveA <10  :                          // korten !! 
        console.log("voldoende");
        break;          
-   case (ingaveA = 14 && ingaveA <=15 ) : 
+   case ingaveA < 14:                           // korter !! 
        console.log("onderscheiding");
        break;   
     case (ingaveA = 16 && ingaveA <=17 ) : 
