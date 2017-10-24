@@ -1,27 +1,28 @@
 'use strict';
 var toetsenbord = require('readline-sync');
-var result, geslacht, leeftijd, jongeVrouwen = 0, oudeVrouwen = 0, jongeMannen = 0, oudeMannen = 0;
+var result, geslacht, leeftijd, jongeVrouwen = 0, realWoman = 0, jongeMannen = 0, realMen = 0;
 geslacht = toetsenbord.question("Geef geslacht (m/v): ");
-while ((geslacht == "m") || (geslacht == "v")) {
-    leeftijd = toetsenbord.question("Geef leeftijd: ");
+while ((geslacht == "m") || (geslacht == "v")) { // zowel het een m of een v is dan leeftijd
+    leeftijd = toetsenbord.question("Geef leeftijd: "); //maak getal van 
     leeftijd = parseInt(leeftijd);
-    if (geslacht == "m") {
+    if (geslacht == "m") {  // als m is dan check leeftijd
         if (leeftijd < 25) {
             jongeMannen = jongeMannen + 1;
         }
         else {
-            oudeMannen = oudeMannen + 1;
+            realMen = realMen + 1; // anders is het een Realman
         }
     }
-    else {
+    else { // is het een v dan check leeftijd
         if (leeftijd < 25) {
-            jongeVrouwen = jongeVrouwen + 1;
+            jongeVrouwen = jongeVrouwen + 1; // vrouw
         }
         else {
-            oudeVrouwen = oudeVrouwen + 1;
+            realWoman = realWoman + 1; // real woman 
         }
     }
     geslacht = toetsenbord.question("Geef geslacht (m/v): ");
 }
-result = "\t<25\t>=25\nmannen\t"+jongeMannen+"\t"+oudeMannen+"\nvrouwen\t"+jongeVrouwen+"\t"+oudeVrouwen;
-console.log(result);
+result = "\t<25\t>=25\nmannen\t"+jongeMannen+"\t"+realMen+"\nvrouwen\t"+jongeVrouwen+"\t"+realWoman;
+console.log(result);   // tab toets tussen "\t" dus '\t tex text'
+                        // new line '\n' dus '\n text text '
