@@ -5,7 +5,7 @@ var som;
 var resultaat1, resultaat2;
 
 som = x + y;
-console.log(som); // 3
+console.log(som); // 3  variabel achter of voor de ++
 som = som + x;
 console.log(som); // 4
 som += x;

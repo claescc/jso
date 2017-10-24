@@ -8,5 +8,5 @@ while (a != b) {
     if (a > b) a -= b;
     else b -= a;
 }
-result += a;
+result += a;                // += mag om string + getal te doen 
 console.log(result);

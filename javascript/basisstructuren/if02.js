@@ -2,7 +2,7 @@
 
 var datum = new Date();
 var uur = datum.getHours();
-if (uur == 9) { 		// gelijk aan is == en wordt is = 
+if (uur == 9) { 		// gelijk aan is == en wordt is = Kijkt niet naar TYPE
 	console.log("Tussen 9 en 10 kan je eens naar koffie zien");
 
 } else if (uur == 12) {

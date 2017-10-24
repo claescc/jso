@@ -35,7 +35,12 @@ if (uur < 12) {
 		console.log("Goedenamiddag"); // Dan wel goedemiddag als het 12 u is 
 	}
 
-//  
+// AND   
 if (uur >= 9 && uur <= 12) {			// && = AND .... moet voorwaarde voor && en na staan !
 	console.log("Nu is het werken tijd"); // als het na 9 is en voor 12
+}
+
+// OR   
+if (uur < 9 || uur > 18) {			// alt gr 1 ||  = OR .... moet voorwaarde voor || en na staan !
+	console.log("Buiten de werkuren"); // als het na 9 is en voor 12
 }
