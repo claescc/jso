@@ -1,10 +1,10 @@
 'use strict';
 
 function celsius(f){
-    return 5.0 / 9.0 * (f - 32);
+    return 5.0 / 9.0 * (f - 32); // mag zonder de 3 stappen te tonen 
 }
 
-function fahrenheit(c){
+function fahrenheit(c){             // korter geschreven !
     return 9.0 / 5.0 * c + 32;
 }
 

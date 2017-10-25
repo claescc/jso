@@ -1,7 +1,7 @@
 'use strict';
 
-var toetsenbord = require('readline-sync');
-const WISSELKOERS = 40.3399;
+var toetsenbord = require('readline-sync'); // constante in HOOFDLETTERS en waarde mag niet aangepast worden! 
+const WISSELKOERS = 40.3399;                // variabel van wisselkoers gemaakt wat als het changed?
 
 var prijs_brood, prijs_melk;
 
@@ -15,8 +15,9 @@ function EuroNaarBEF(bedrag) {
 }
 
 prijs_brood = toetsenbord.question("Tik de prijs (EUR) van een brood in: ");
-prijs_brood = parseFloat(prijs_brood);
+prijs_brood = parseFloat(prijs_brood); // decimaal getal
 console.log("Voor 01/01/2002 kostte dat brood %d BEF.",EuroNaarBEF(prijs_brood));
+
 prijs_melk = toetsenbord.question("Tik de prijs (EUR) van een liter melk in:");
 prijs_melk = parseFloat(prijs_melk);
 console.log("Voor 01/01/2002 kostte die melk %d BEF.", EuroNaarBEF(prijs_melk));
