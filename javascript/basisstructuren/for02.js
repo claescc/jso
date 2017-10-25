@@ -11,3 +11,8 @@ console.log("De letter \"i\" komt " + teller + " maal voor");
                     // nog ni einde van text \"i\" Of 'i' 
                    // console.log("De letter 'i' komt " + teller + " maal voor");
 // _________________________________________________________________________
+for (var i = 0; i < tekst.length; i++) {
+    if (tekst.charAt(i) == 'i') teller++;
+}
+console.log("De letter \"i\" komt " + teller + " maal voor");
+console.log('De letter "i" komt ' + teller + " maal voor");
