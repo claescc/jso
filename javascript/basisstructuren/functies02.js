@@ -28,7 +28,6 @@ console.log("Het getal %d vermenigvuldigd met zichzelf is %d", getal1, macht);
 getal2 = toetsenbord.question("Geef tweede getal: ");  
 macht = berekenTweedeMacht(getal2);
 console.log("Het getal %d vermenigvuldigd met zichzelf is %d", getal2, macht);
-<<<<<<< HEAD
 
 //------------------------------------------------------------------------------
 
@@ -52,7 +51,5 @@ macht = berekenMacht(getal1+5, 2*getal2+8); // rekent eerst uit (1+5) komt in pl
     // de parameters  of argumenten mogen ook berekeningen zijn  // (2*getal2+8) is dan de exponent
 
 
-=======
 macht = berekenMacht(getal1-1, getal2);   // als argument mag een berekening doorgegeven worden
 console.log("%d tot de %de macht is %d", getal1, getal2, macht); 
->>>>>>> 4ad56391ef77eec73c02971a59a96200a9285f79
