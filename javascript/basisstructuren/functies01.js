@@ -26,7 +26,7 @@ function faculteit(x) {             // welk getal is x ?
     for (var j = 2; j<= x ; j++){   // x mag gebruikt worden voor berekening
         result *= j;                // herhaald worden aantal x keer 
     }                                   
-    return result:            // return zorgt ervoor dat functie gedaan is end calc  
+    return result;            // return zorgt ervoor dat functie gedaan is end calc  
 }
 
 //__________________________________________________________________________
@@ -35,3 +35,16 @@ function faculteit(x) {             // welk getal is x ?
 
 resultaat = faculteit(getal) // oproep: wordt berekend.
 // som = functieNaam(x)  
+console.log(resultaat);         // geeft de uitkomst$
+
+// OF 
+console.log(faculteit(getal));   // resultaat ineeens in write 
+
+//__________________________________________________________________________
+
+// functie oefeningen 
+
+console.log(faculteit(getal));
+if ( faculteit(10) > 300000){
+    console.log("10! is groter dan 30000")
+}
