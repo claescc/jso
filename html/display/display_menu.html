@@ -4,13 +4,13 @@
         <title></title>
         <style>
             .menu{
-                list-style-type: none;
+                list-style-type: none; /* Lijn onder het menu */
                 border-style: solid;
                 padding: 0px;
-                border-width: 0 0 1px 0;
+                border-width: 0 0 1px 0;    /* Lijn enkel 1px bottom*/
             }
             .menu li{
-                display: inline-block;
+                display: inline-block;      /* Een echt menu naast elkaar ipv onder elkaar */
                 border-style: solid;
                 border-color: black;
                 border-width: 1px 1px 0px 1px;
@@ -20,7 +20,7 @@
                 margin: 0 1px;
                 background-color: lightblue;
             }
-            .menu li.active{
+            .menu li.active{    /* Hoe specifieker hoe hoger in ranglijst van opmaak */
                 color: white;
                 background-color: darkblue;
             }
@@ -30,8 +30,8 @@
     <body>
         <header>
             <nav>
-                <ul class="menu">
-                    <li class="active"><a>Eerste item</a></li>
+                <ul class="menu">  <!-- Eerste class -->
+                    <li class="active"><a>Eerste item</a></li>  <!-- Tweede class -->
                     <li><a>Tweede item</a></li>
                     <li><a>Derde item</a></li>
                     <li><a>Vierde item</a></li>

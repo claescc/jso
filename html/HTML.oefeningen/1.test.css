@@ -1,15 +1,40 @@
-html {
-    background-color: darkorchid;
-    color: white;
-}
+/* STYLESHEET CSS */
 
-body {
-    font-family: Helvetica, sans-serif;
-   
-}
 
-ul {
-    color: fuchsia;
-    font-size: 2rem;
-    
-}
+/* BUTTON LINK 
+
+a {
+    text-decoration: none;
+    }
+
+a.button {
+    background-color: rgb(221,221,221);
+    padding: 1px 6px;
+    border-color: rgb(221,221,221);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 1px;
+    color: #000;
+    font-size: 0.83333em;
+    text-align: center;
+    }
+
+a.button:active{
+    border-style:inset;
+    }
+       /* Het body element is 110px hoog. Schrijf css code voor een div element dat
+     100px hoog en 100px breed moet zijn. Rond het div element moet er een zwarte rand 
+     zijn die overal 5px breed is. Het div element moet horizontaal en verticaal in het
+      midden van het body element komen te staan (wat niet noodzakelijk ook het midden van het 
+      browserscherm is). 
+       
+     Test je code uit in Visual Code en plak ze in het antwoord vak. */
+
+
+     #doosje {
+        border-color: black;
+        border-width: 5px;
+        width: 100px;
+        height: 100px;
+       box-sizing: border-box;
+    }

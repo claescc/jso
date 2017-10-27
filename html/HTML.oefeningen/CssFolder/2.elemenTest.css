@@ -1,0 +1,91 @@
+/* STYLESHEET CSS */
+
+body {
+    font-family: Helvetica, sans-serif;
+   
+}
+
+#first em {
+ text-decoration: underline;
+}
+
+#first, #third {
+    background-color: lightcoral;
+}
+
+.second {
+    background-color: lavenderblush;
+    
+}
+a {
+    text-decoration: none;
+}
+a:link{
+ color: palevioletred
+}
+
+a:visited {
+    color: orchid;
+}
+a:hover{
+    background-color: lavender;
+}
+a:active {
+    font-weight: bold;
+}
+#first, .second{
+    display: inline-block;
+}
+#first {
+    border-color: hotpink;
+    border-width: 5px;
+    width: 500px; 
+    margin-right:  40px;
+  
+  /*  margin: auto;            Width moet gekend zijn voor auto margin align */
+    box-sizing: border-box;  /* IN CSS BOVENAAN *{ box-sizing: border-box;} telt voor heel de pagina nu */
+}
+
+.second{
+    border-color: hotpink;
+    border-width: 5px;
+    width: 500px;
+    box-sizing: border-box;
+}
+
+p{
+    background-color: lightpink;
+    border-color: hotpink;
+    border-width: 5px;
+    border-style: solid;
+   
+    } 
+
+    
+
+/*  icoontje na de link pseudo-callse a::after  NA ALLE LINKS NU !
+
+Bepaal je of ervoor of erna de      
+
+ICON  <a href=""></a>  ICON   
+
+a[href^="http://"]::after {
+    content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+    margin: 0 0 0 5px; /* marge van 5px 
+    
+    Enkel de http linken krijgen nu een icoon, #top link  enz hebben geen http  
+    }
+
+    
+    a::after {
+        content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+        margin: 0 0 0 5px;  */
+        
+        
+  /*   a::extern {
+        content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+        margin: 0 0 0 5px; */
+   
+      
+        
+ 
