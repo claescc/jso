@@ -98,3 +98,5 @@ console.log("Stop : GGD= ", ingaveA );
 console.log('        |   Mannen  |    Vrouwen |');
 console.log(' <25    |    %s     |      %s    |', mannenJong, vrouwenJong);
 console.log('  25<   |    %s     |      %s    |', mannenOud, vrouwenOud);
+
+
