@@ -5,61 +5,34 @@ body {
    
 }
 
-#first em {
- text-decoration: underline;
-}
-
-#first, #third {
-    background-color: lightcoral;
-}
-
-.second {
-    background-color: lavenderblush;
-    
-}
-a {
-    text-decoration: none;
-}
-a:link{
- color: palevioletred
-}
-
-a:visited {
-    color: orchid;
-}
-a:hover{
-    background-color: lavender;
-}
-a:active {
-    font-weight: bold;
-}
-#first, .second{
-    display: inline-block;
-}
-#first {
-    border-color: hotpink;
-    border-width: 5px;
-    width: 500px; 
-    margin-right:  40px;
-  
-  /*  margin: auto;            Width moet gekend zijn voor auto margin align */
-    box-sizing: border-box;  /* IN CSS BOVENAAN *{ box-sizing: border-box;} telt voor heel de pagina nu */
-}
-
-.second{
-    border-color: hotpink;
-    border-width: 5px;
-    width: 500px;
-    box-sizing: border-box;
-}
-
-p{
-    background-color: lightpink;
-    border-color: hotpink;
-    border-width: 5px;
-    border-style: solid;
+    #flexbox {
+    display: flex;
+    /* justify-content: flex-start; // default */
+    /*justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between; */
+    justify-content: space-around;
    
-    } 
+    border: 1px solid hotpink ;
+    }
+
+    #first {
+    background-color: lightpink;
+    height: 300px;
+    flex: 0 1 300px;
+    }
+
+    #second {
+    background: fuchsia;
+    height: 300px;
+    flex: 0 1 300px;
+    }
+    #third {
+    background:lavenderblush;
+    height: 300px;
+    flex: 0 1 300px;
+    }
+/*
 
     
 
