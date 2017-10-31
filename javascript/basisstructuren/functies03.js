@@ -17,3 +17,16 @@ tekenHuisje();
 // klassikale oef.:
 // schrijf een functie om een vierkant met doorgegeven
 // zijde te tekenen
+
+function tekenVierkant(zijde){
+    var resultaat;
+    for   ( var rij = 1; rij <= zijde; rij++){
+        resultaat = "";
+        for ( var i=1; i <= zijde; i++){        // 1 rij met aantal steretjes 
+            resultaat += "*";
+      }
+      console.log(resultaat);
+    }                                     // aantal rijen 
+   
+}
+tekenVierkant(4);
