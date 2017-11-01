@@ -12,14 +12,14 @@ for (var i = 0; i < 5; i++) {
     verhoogGlobaleVar();
     console.log(getal);
 }
-
+//------------------------------------------------------------------------- 
 /*
 function fieMetLokaleVar(){
     // een functie kan lokale var declareren, d.i.
     // var die enkel in de fie gekend zijn
     // var verplicht bij decl van lokale var!!!
     // will. getal ts 0 (incl) en 1 (excl)
-    var lokaal = Math.random();  // kommagetal tussen 0 en 1
+    var lokaal = Math.random();                      // kommagetal tussen 0 en 1
     lokaal *= 100;
     lokaal = Math.floor(lokaal);
     console.log("in de fie heeft lokaal waarde %d", lokaal);
@@ -30,7 +30,10 @@ fieMetLokaleVar();
 // want een lokale var is niet gekend buiten de fie
 */
 
+//----------------------------------------------------------------------------
+
 /*
+
 function fieMetNieuweGlobaleVar(){
     // dit kan enkel zonder 'use strict'!
     // als in een fie een toekenning aan een niet-gedecl var
@@ -43,4 +46,5 @@ function fieMetNieuweGlobaleVar(){
 
 fieMetNieuweGlobaleVar();
 console.log(globaal);
+
 */

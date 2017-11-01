@@ -1,0 +1,64 @@
+/* STYLESHEET CSS */
+
+body {
+    font-family: Helvetica, sans-serif;
+   
+}
+
+    #flexbox {
+    display: flex;
+    /* justify-content: flex-start; // default */
+    /*justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between; */
+    justify-content: space-around;
+   
+    border: 1px solid hotpink ;
+    }
+
+    #first {
+    background-color: lightpink;
+    height: 300px;
+    flex: 0 1 300px;
+    }
+
+    #second {
+    background: fuchsia;
+    height: 300px;
+    flex: 0 1 300px;
+    }
+    #third {
+    background:lavenderblush;
+    height: 300px;
+    flex: 0 1 300px;
+    }
+/*
+
+    
+
+/*  icoontje na de link pseudo-callse a::after  NA ALLE LINKS NU !
+
+Bepaal je of ervoor of erna de      
+
+ICON  <a href=""></a>  ICON   
+
+a[href^="http://"]::after {
+    content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+    margin: 0 0 0 5px; /* marge van 5px 
+    
+    Enkel de http linken krijgen nu een icoon, #top link  enz hebben geen http  
+    }
+
+    
+    a::after {
+        content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+        margin: 0 0 0 5px;  */
+        
+        
+  /*   a::extern {
+        content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+        margin: 0 0 0 5px; */
+   
+      
+        
+ 

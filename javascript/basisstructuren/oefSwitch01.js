@@ -1,9 +1,9 @@
 'use strict';
 
 var toetsenbord = require('readline-sync');
-
-var getal1 = parseInt(toetsenbord.question("Geef eerste getal: "), 10);
-var getal2 = parseInt(toetsenbord.question("Geef tweede getal: "), 10);
+// parseInt( keyboard...) maakt de string ineens een integer !!!
+var getal1 = parseInt(toetsenbord.question("Geef eerste getal: "), 10); // 10 getalstelsel o-10 
+var getal2 = parseInt(toetsenbord.question("Geef tweede getal: "), 10); // 16 is hex , 2 is binair !
 var operator = toetsenbord.question("Geef bewerking (+,-,* of /): ");
 switch (operator) {
     case "+":
