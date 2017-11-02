@@ -43,9 +43,9 @@ waarbij de even getallen gebruikt worden voor vrouwen en de oneven getallen voor
 function genderRijksNr(x) {      // geef man of vrouw 
     var evenOneven = x.slice(6, 9);     //446
     var result = evenOneven % 2;
-    if (result == 0) {
-        result = "Female";
-        return result;
+    if (result == 0) {          // VRAAGTEKEN OPERATOR ??????? VEEL KORTER
+        result = "Female";      
+        return result;          // 
     } else {
         result = "Male";
         return result;
@@ -55,19 +55,27 @@ function genderRijksNr(x) {      // geef man of vrouw
 
 function leeftijdRijksNr(x) {        // geef leeftijd terug     88 06 02
                                                        //       01 23 45
+// var vandaag = new Date();
+// var huidigeDag = vandaag.getDate();
+// var huidigeMaand = vandaag.getMonth()+1; // javascript telt 0 erbij dus +1
+// var huidigJaar = vandaag.getFullYear();
     var jaar = x.slice(0,2);
-    var maand = x.slice(2,4);
+    var maand = x.slice(2,4);       // slice() = substring() = substr() -> neemt stuk eruit
     var dag = x.slice(4,6);
-    jaar = parseInt(jaar);
+    jaar = parseInt(jaar);      //controle laatste 2 cijfers nog insteken 
     var result =  117 -jaar;                                     // 117 = (2017 - 1900)
    // var result = "Jaar " + jaar + " maand " + maand + " dag " +dag; 
     return result;
+    // return 1900 + 
+    //en ook loop of return 2000+
+
+    // REEDS VERJAARD? Zie Ann haar berekening Oef string 09.
 }
 
 /*
 DATUM CONTROLE MOET ANDERS !!!
 
-// laatste 2 cijfers van rrn vormen controlegetal
+// laatste 2 cijfers van rrn (rijksregisternummer) vormen controlegetal
 
 // Noem getal bestaande uit eerste 9 cijfers g, dan geldt
 
