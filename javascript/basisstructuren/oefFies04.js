@@ -9,23 +9,23 @@ function geefGetal(bovengrens) {
 }
 
 function evalueerProduct(getal1, getal2, uitkomst) {
-	return getal1 * getal2 == uitkomst;
+	return getal1 * getal2 == uitkomst;  // kan een true of false zetten na een functie !!
 }
 
-function toonMeldingBijUitkomst(juist) {
+function toonMeldingBijUitkomst(juist) {			// functie if juist else fout
 	var antwoordnr = geefGetal(4);
-	if (juist) {
+	if (juist == true) {
 		switch (antwoordnr) {
-			case 1: console.log("Goed zo !"); break;
+			case 1: console.log("Goed zo !"); break;		// if juist toon random antwoord
 			case 2: console.log("Uitstekend !"); break;
 			case 3: console.log("Knap gedaan !"); break;
 			case 4: console.log("Flink gewerkt !"); break;
 		}
-	}
-	else {
+	}	
+	else { // FOUT
 		switch (antwoordnr) {
 			case 1: console.log("Verkeerd !"); break;
-			case 2: console.log("Dit is niet juist !"); break;
+			case 2: console.log("Dit is niet juist !"); break;		// if fout toon random antwoord
 			case 3: console.log("Fout !"); break;
 			case 4: console.log("Niet goed !"); break;
 		}
@@ -48,16 +48,18 @@ function toonMeldingBijTotaal(getal) {
 }
 
 // hoofdprogramma
-maxGetal = parseInt(toetsenbord.question("Tik bovengrens in: "));
-for (teller = 1; teller <= 10; teller++) {
-	getal1 = geefGetal(maxGetal);
-	getal2 = geefGetal(maxGetal);
-	uitkomst = parseInt(toetsenbord.question("Hoeveel is " + getal1 + " x " + getal2 + "? "));
+maxGetal = parseInt(toetsenbord.question("Tik bovengrens in: "));  // 1 x bovengrens in
+for (teller = 1; teller <= 10; teller++) {							// 10 x product vragen
+	getal1 = geefGetal(maxGetal);								// random 1 en random 2
+	getal2 = geefGetal(maxGetal);								// en random 2
+	uitkomst = parseInt(toetsenbord.question("Hoeveel is " + getal1 + " x " + getal2 + "? ")); 
+	// var juist wordt = functie uitkomst (true/false)
 	juist = evalueerProduct(getal1, getal2, uitkomst);
 	toonMeldingBijUitkomst(juist);
-	if (juist) {
+	if (juist == true) {
 		aantalJuist++;
 	}
 }
 console.log("Je hebt %d op 10", aantalJuist);
 toonMeldingBijTotaal(aantalJuist);
+

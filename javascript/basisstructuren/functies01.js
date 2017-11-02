@@ -56,13 +56,13 @@ if ( faculteit(10) > 300000){
 // gebruiken we een functie:
 
 // functiedefinitie/-declaratie:
-function faculteit(x) {
+function faculteit(x) {                     // reserveert blok voor deze functie (3)  // 10
     console.log("functie wordt uitgevoerd")
-    var result = 1;
-    for (var j = 2; j <= x; j++) {
-        result *= j;
+    var result = 1;     // new lokale var result    (tijdelijk)
+    for (var j = 2; j <= x; j++) {  // new var j  (tijdelijk)       x is 3   // x is 10
+        result *= j;    // 6                    (tijdelijk)
     }
-    return result;
+    return result;      // geef 6Terug      // geef facul10Terug
     // return
     // => beeindig functie en geef waarde die achter return staat terug als uitkomst
     // (als een fie geen expliciete returnwaarde heeft, 
@@ -71,9 +71,9 @@ function faculteit(x) {
 
 
 // functie oproep:
-var resultaat = faculteit(getal);
+var resultaat = faculteit(getal);          //6Terug    // oproep functie + geheugeplaats voor elke parameter
 console.log(resultaat);
-console.log(faculteit(10));
+console.log(faculteit(10));         // geef facul10Terug
 if( faculteit(5) < 20){
     console.log("5! is kleiner dan 20");
 }

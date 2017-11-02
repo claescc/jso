@@ -17,7 +17,6 @@ tekenHuisje();
 // klassikale oef.:
 // schrijf een functie om een vierkant met doorgegeven
 // zijde te tekenen
-<<<<<<< HEAD
 
 function tekenVierkant(zijde){
     var resultaat;
@@ -31,7 +30,6 @@ function tekenVierkant(zijde){
    
 }
 tekenVierkant(4);
-=======
 function tekenVierkant(zijde) {
     var resultaat;
     for (var rij = 1; rij <= zijde; rij++) {
@@ -45,4 +43,3 @@ function tekenVierkant(zijde) {
 
 tekenVierkant(4);
 tekenVierkant(10);
->>>>>>> 62344867b3559164b1fe169e25032eabfd6d1ac4

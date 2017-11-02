@@ -21,6 +21,7 @@ function geefGetal(bovenG) {
     x *= ( bovenG -1);                   // -1 omdat het tussen 0-10 is dus 10 moet ni weergeven worden.
     x = Math.floor( 1 + x );            // +1 is voor geen 0 te krijgen. Floor = x afronde naar beneden
     console.log("De bovengrens is %d", x);
+    return x;
 }
 */ 
 

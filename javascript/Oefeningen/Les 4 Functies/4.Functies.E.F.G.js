@@ -34,6 +34,26 @@ function geefGetalB(bovenG) {
     console.log("Random getal is %d", x);
     return x;
 }
+*/
+function toonMeldingBijUitkomst(TF) {  // TF TRUE/FALSE
+	var antwoordnr = geefGetal(4);
+	if (TF == true) {
+		switch (antwoordnr) {
+			case 1: console.log("Goed zo !"); break;
+			case 2: console.log("Uitstekend !"); break;
+			case 3: console.log("Knap gedaan !"); break;
+			case 4: console.log("Flink gewerkt !"); break;
+		}
+	}
+	else {
+		switch (antwoordnr) {
+			case 1: console.log("Verkeerd !"); break;
+			case 2: console.log("Dit is niet juist !"); break;
+			case 3: console.log("Fout !"); break;
+			case 4: console.log("Niet goed !"); break;
+		}
+	}
+}
 
 
 // -------------------------------functies--------------------------------------
@@ -102,18 +122,8 @@ function toonMeldingBijTotaal(x) {
 } 
 // bereken Product:
 function evalueerProduct(x,y,z) {
-    var tellerJuist = 0;
-    var tellerFout = 0;
-    var product = ( x * y);
-    if (product === z) {
-     
-        console.log("JUIST         %s x %s = %s ", x, y, product);
-        
-    } else {
-       
-        console.log("FOUT          %s x %s = %s ", x, y, product);
-    }
-     
+    return x * y == z;  // kan een true of false zetten na een functie !!
+    // return is z --> dus kan je oproepen!!
 } 
 
 // Geef random tot bovengrens
@@ -140,7 +150,8 @@ for (var i = 1; i <= 4; i++) {
     var a = geefGetalB(x);
     var b = geefGetalB(x);
     var c = parseInt(toetsenbord.question("Wat is " + a + " x " + b + " =  ")); 
-    evalueerProduct(a,b,c);
+    var trueFalse =  evalueerProduct(a,b,c);  //uitkomst calc zetten in trueFalse in functie is = (z)
+    toonMeldingBijUitkomst(trueFalse);
 
    // read word ??  if bv (bank.toUpperCase() != "KAUPTHING") ???
     // var cijfer = 
@@ -151,3 +162,12 @@ for (var i = 1; i <= 4; i++) {
 toonMeldingBijTotaal(cijfer);
 
 console.log("The End."); 
+
+
+//___________________________________________________________________________________________________
+/* 
+
+g. Pas de functie toonMeldingBijUitkomst aan zodat niet steeds hetzelfde bericht getoond wordt als een berekening goed of fout opgelost is.  Dit kun je doen door b.v. 4 goede en 4 foute “berichten” te voorzien.  Genereer een willekeurig getal tussen 1 en 4 om te bepalen welke van die 4 berichten je toont. */
+//___________________________________________________________________________________________________
+
+
