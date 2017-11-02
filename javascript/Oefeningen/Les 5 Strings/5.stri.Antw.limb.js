@@ -18,17 +18,27 @@ console.log('   PROGRAMMA: ANTWERP & LIMBURG    ')
 var toetsenbord = require('readline-sync');
 var stringX = toetsenbord.question("Geef een zin in: ");
 
-// To perform a global search and replace, include the g switch in the regular expression.
+var vertalingA = naarAntwerps(stringX);
+console.log("ANT: ", vertalingA);
 
-var controle = stringX.replace(/g/g,'#');
-
-
-console.log(stringX);
-console.log(controle4);
+var vertalingL = naarALimburgs(stringX);
+console.log("LIM: ", vertalingL);
 
 
 
 //-----------------------Functies-----------------------------
-function naarAntwerps(x){
-                                                // 
+function naarAntwerps(x) {
+
+    var result = x.replace(/h/g, '');
+    return result;
 }
+
+function naarALimburgs(x) {
+
+    var x1 = x.replace(/e/g, 'ee');
+    var x2 = x1.replace(/a/g, 'aa');
+    var x3 = x2.replace(/i/g, 'ii');
+    var x4 = x3.replace(/o/g, 'oo');
+    var result = x4.replace(/u/g, 'uu');
+    return result;
+}                            
