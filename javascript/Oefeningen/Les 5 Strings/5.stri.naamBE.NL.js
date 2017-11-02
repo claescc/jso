@@ -57,8 +57,20 @@ function nederlandseNaam(x,y){
 
 /*
 
-function splitString(stringToSplit, separator) {
-    var arrayOfStrings = stringToSplit.split(separator)}
+
+function nederlandseNaam(voornaam, achternaam) {
+    return gesplitsteNaam(achternaam) + ", " + voornaam; // schrijf functie voor gesplitsenaam
+}
+
+function gesplitsteNaam(naam) {                        // zoek in naam laatste index van spatie 
+    var laatsteSpatie = naam.lastIndexOf(' '); // " " spatie 
+    var result = naam;                          // voorlopig omdat achrenaam 1 woord kan zijn
+    if (laatsteSpatie != -1) { // geen spatie 1 woord = -1
+        result = naam.substring(laatsteSpatie + 1) + ", " + // ik wil stukje (vanaf laatste spatie + 1)
+            naam.substring(0, laatsteSpatie); // ik wil uit naam een stukje  start 0 tot valkvoor positie
+    }
+    return result;
+}
 
 
 
