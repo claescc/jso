@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Een eenvoudige form</title>
+    <title>sollicitatieformulier</title>
+    <style>
+            input:required{
+            border-color: red;
+            border-width: 2px;
+            }
+            input[type="number"]:invalid, input[pattern]:invalid{
+                border-color: red;
+                border-width: 2px;
+            }
+            </style>
 </head>
-<body>
-<form action="http://www.google.be/search" method="GET">
-<input type="text" name="q"/>
-<input type="submit" name="btnK"value="Google zoeken"/>
-<input type="submit" name="btnI" value="Ik voel mij gelukkig"/>
-<p><label>Telefoon: <input type="tel"/></label></p>
-<p><label>E-mail: <input type="email"/></label></p>
-<p><label>URL: <input type="url"/></label></p>
-<p><label>Getal: <input type="number"/></label></p>
-<p><label>Paswoord: <input type="password"/></label></p>
-<p><label>Zoeken: <input type=“search"/></label></p>
-<p><input type="submit"/></p>
-</form>
+<body>  
+    <form action="sollicitatie.php" method="POST">
+        <p><label>Naam: <input type="text" required name="txtnaam"/></label></p>
+
+        <p><label></label> geboortedatum: <input type="date" name="gebDatum"></label></p>
+     
+        <p>Rijbewijs:<br>
+                <label><input type="radio" name="rijbewijs"/>Ja</label>
+                <label><input type="radio" name="rijbewijs" checked/>Nee</label> </p>
+        <p>Nederlands:<br> 
+                <label><input type="radio" name="taal" value="Goed" checked/>Goed</label>
+                <label><input type="radio"  name="taal" value="middelmatig" />middelmatig</label>
+                <label><input type="radio"  name="taal" value="slecht"/>slecht</label> 
+        
+        <p><label>Beschrijving: <br>
+            <textarea name="beschrijving" rows="5" cols="40"></textarea></label></p>
+
+        <p><label>Postnummer: <input type="text" pattern="\d{4}" name="txtPostnr"/></label></p>
+       
+        <p><input type="submit" name="btn" value="Solliciteren!"/></p>
+    </form>
 </body>
 </html>
+
+
+
+<!-- Maak in HTML een sollicitatieformulier. De informatie moet via een POST worden verstuurd naar sollicitatie.php. Probeer je oplossing uit in Visual Code en plak je antwoord in het antwoordvak. Zorg ook voor de juiste validaties. Dit programma verwacht de volgende informatie :(je ziet telkens de naam van het veld met tussen haakjes eventueel het label en de validaties)
+
+txtNaam (naam, verplicht)
+
+gebDatum (geboortedatum, niet verplicht)
+
+rijbewijs (heb je een rijbewijs B)
+
+nederlands (hoe goed is je Nederlands? Keuze uit Goed(stuur "goed" naar de server), Middelmatig(middelmatig), Slecht(slecht), verplicht)
+
+beschrijving (geef een korte beschrijving van jezelf, niet verplicht)
+
+postcode (postcode, niet verplicht, maar wanneer het veld ingevuld is, moet het bestaan uit vier cijfers)
