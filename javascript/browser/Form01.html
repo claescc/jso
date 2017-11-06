@@ -6,9 +6,9 @@
 'use strict';
 
 function toonNaam(form){
-	var naam = form.naamVeld.value;
-	if (naam == "") naam = " vreemdeling";
-	alert("Dag "+naam);
+	var naam = form.naamVeld.value;      
+	if (naam == "") naam = " vreemdeling"; 
+	alert("Dag "+naam);                 
 }
 
 function toonNaamZonderParams2() {
@@ -17,10 +17,11 @@ function toonNaamZonderParams2() {
     alert("Dag " + naam);
 }
 
-function toonNaamZonderParams() {
+function toonNaamZonderParams() { //vraag op =  form + name + string value opvragen
     var naam = frm.naamVeld.value;
-    if (naam == "") naam = " vreemdeling";
+    if (naam == "") naam = " vreemdeling"; // lege string = vreemdeling
     alert("Dag " + naam);
+    frm.naamVeld.value = "smurf"; // value veranderen dat in txtvak staat
 }
 
 </script>
@@ -29,8 +30,8 @@ function toonNaamZonderParams() {
 <form name="frm">
 Naam: <input type="text" name="naamVeld" />
 <!-- unobtrusive (JavaScript en html door elkaar) -->
-<!-- <input type="button" value="klik" onclick="toonNaam(this.form);" /> -->
-<input type="button" value="klik" onclick="toonNaamZonderParams();" />
+ <input type="button" value="klik" onclick="toonNaam(this.form);" /> 
+<!-- <input type="button" value="klik" onclick="toonNaamZonderParams();" />-->
 </form>
 </body>
 </html>

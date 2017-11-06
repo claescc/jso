@@ -4,13 +4,13 @@
     <title>Zevende voorbeeld</title>
 <script type="text/javascript">
 	function invoerVragen(){
-		var naam = prompt("Geef naam","je naam");
+		var naam = prompt("Geef naam","je naam"); // user moet zelfg iets antwoorden
 		if (naam != null){
 			// OK geklikt
-			var naamOk = confirm("Heet je echt " + naam + "?");
-			if (naamOk){
+			var naamOk = confirm("Heet je echt " + naam + "?"); // vraagstelling enkel ok of cancel
+			if (naamOk){				//bestiging vragen	// true ok, false annulatie
 				// OK geklikt
-				alert("Welkom, "+naam);
+				alert("Welkom, "+naam); // melding te tonen = undefined terug
 			}
 		}
 	}

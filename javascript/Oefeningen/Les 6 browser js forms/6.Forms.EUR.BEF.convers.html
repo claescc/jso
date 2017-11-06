@@ -1,0 +1,72 @@
+<!-- Oefening
+Maak een form in HTML met 2 inputvelden en twee knoppen. De eerste knop geef je als label “naar Euro”; de tweede knop geef je als label “naar BEF”. Wanneer de gebruiker in het eerste veld een waarde in BEF invult en op de knop “naar Euro” klikt, moet in het tweede veld de overeenkomstige waarde in EURO verschijnen. Wanneer de gebruiker in het tweede veld een waarde in EURO invult, en op de knop “naar BEF” klikt moet de in het eerste veld de waarde in BEF verschijnen.  (1 EURO = 40.3399 BEF) -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test html js</title>
+    <script>
+        'use strict';
+        function getalBefnaarEuro() {
+            var getalA = parseInt(frm.getalBEF.value); 
+            var conversie =  (getalA/40.3399) ; // invoer text 
+            frm.pasteBEF.value = conversie.toFixed(2);      // value van paste = text van invoer !
+                 //geen return nodig !! was fout   
+        }
+
+        function getalEuronaarBef() {
+            var getalA = parseInt(frm.getalEUR.value); 
+            var conversie =  (getalA*40.3399)  // invoer text 
+            frm.pasteEUR.value = conversie.toFixed(2);      // value van paste = text van invoer !
+                    //geen return nodig !! was fout 
+        }
+
+        function init() {
+            var btn1 = frm.btn1;
+            btn1.onclick = getalBefnaarEuro;        // als er wordt gelickt dan copyPASTE inhoud ! 
+            var btn2 = frm.btn2;
+            btn2.onclick = getalEuronaarBef;        // als er wordt gelickt dan copyPASTE inhoud ! 
+        }
+
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <p> Belgische Frank naar Euro</p>
+        <input type="text" name="getalBEF" />  <!-- INVOER VELD -->
+        <input type="button" value="Naar Euro" name="btn1" /> <!-- KNOP BEF NAAR EURO -->
+        <input type="text" name="pasteBEF" /> <!-- PLAK VELD -->
+        
+        <br>
+        <p> Euro naar Belgische Frank</p>
+       
+        <input type="text" name="getalEUR" /> <!-- INVOER VELD -->
+        <input type="button" value="Naar BEF" name="btn2" /> <!-- NAAR EURO van invoer  -->
+        <input type="text" name="pasteEUR" />   <!-- PLAK VELD -->
+     
+    </form>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
