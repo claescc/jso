@@ -6,7 +6,7 @@ var myList;
 myList = new Array();  // array constructor 
 
 // SNELLER 
-myArray = [];  // array constructor 
+var myArray = [];  // array constructor 
 myArray.push("Appel");
 myArray.push("Annanas");
 
