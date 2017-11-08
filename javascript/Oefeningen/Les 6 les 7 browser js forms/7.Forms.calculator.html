@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test calculator</title>
+<script>
+'use strict';
+function somGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA+getalB;       // value van paste = text van invoer !
+   // return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+function minGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA-getalB;      // value van paste = text van invoer !
+    //return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+function divGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA/getalB;       // value van paste = text van invoer !
+  //  return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+function mulGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA*getalB;       // value van paste = text van invoer !
+  //  return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+
+function init(){
+    var btnSom = frm.btnSom;
+    var btnMin = frm.btnMin;
+    var btnDiv = frm.btnDiv;
+    var btnMul = frm.btnMul;
+    btnSom.onclick = somGetallen;        // als er wordt gelickt dan copyPASTE inhoud ! 
+    btnMin.onclick = minGetallen;
+    btnDiv.onclick = divGetallen;
+    btnMul.onclick = mulGetallen;
+}
+
+window.onload = init;
+</script>
+
+</head>
+<body>
+        <form name="frm">
+                <input type="text" name="getal1" />    <!-- INVOER VELD --> <br>    <br>
+                <input type="text" name="getal2" />      <br>    <br>    <!-- INVOER VELD -->
+                <input type="button" value="+" name="btnSom"/>   <br>  <br> <!-- SOM van invoer  -->
+                <input type="button" value="-" name="btnMin"/>   <br>  <br> <!-- MINUS van invoer  -->
+                <input type="button" value="/" name="btnDiv"/>   <br>  <br> <!-- DIVISION van invoer  -->
+                <input type="button" value="*" name="btnMul"/>   <br>  <br> <!-- MULTIPLY van invoer  -->
+                <input type="text" name="pasteVeld" /> <!-- PLAK VELD -->
+                </form>
+</body>
+</html>

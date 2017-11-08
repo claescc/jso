@@ -1,0 +1,93 @@
+<!-- Oefening
+Genereer een random getal tussen 1 en 100. Maak een formulier met twee tekstvakken en een knop “controleer”. Wanneer de gebruiker een getal invult in het eerste tekstvak en op de knop klikt, moet er gecontroleerd worden of het gegenereerde getal hoger, lager of gelijk aan het ingegeven getal is. Wanneer het gegenereerde getal hoger is, moet de tekst “hoger” verschijnen in een alert-window. Wanneer het gegenereerde getal lager is, moet de tekst “lager” verschijnen in een alert-window. Wanneer het getal juist is, moet de tekst “juist” verschijnen in het tweede tekstvak. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test big vs small js</title>
+    <script>
+        'use strict';
+        // RANDOM GETAL MOET GLOBAAL ZIJN or Number keeps changing each guess !
+     var getalB = randomNumbers();
+     var guess = 0;
+
+        function randomNumbers() {
+            var getalB = Math.random();
+           getalB *= 10; 
+             // +1 is voor geen 0 te krijgen Floor = getal afronde nr beneden 
+            return getalB = Math.floor(1 + getalB);     //  return in getal2 veld
+            
+        }
+
+        function grootsteGetal(){
+            var x = frm.getal1.value;
+            var y = getalB;
+            if (x > y) {
+               // frm.pasteVeld.value = x;
+                alert("Lager");
+            }
+            else if (x < y) {                          // 66 = 66  OF 99> 66   --> grooter en gelijkaan 
+           // frm.pasteVeld.value = y;
+            alert("Hoger");
+            }
+            else {
+                alert ("Juist");
+                guess++;
+                frm.pasteVeld.value = "Tries: " +guess;
+                frm.btnBigSmall.disabled = true;        // DISABLE BUTTON
+            }
+            
+        }
+       
+        function pogingenTeller(){
+            guess++;
+            if (guess === 5) {          // wat als op poging 5 het correct is ??
+                
+                frm.pasteVeld.value = "Tries: " +guess;
+            } else {
+               
+            }
+            
+        }
+
+        function init() {
+            var btnBigSmall = frm.btnBigSmall;
+           // btnBigSmall.onclick = grootsteGetal;
+            btnBigSmall.addEventListener("click", grootsteGetal);
+            btnBigSmall.addEventListener("click", pogingenTeller);
+
+            //  var btnRand = frm.btnRand;
+           // btnRand.onclick = randomNumbers;
+        }
+
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        
+       
+        <p> Geef een getal in tussen 0-100:</p>
+        <input type="text" name="getal1" />
+        <br><br>
+       <!--Knop Random 
+        <input type="button" value="Random" name="btnRand" />
+        <br><br>
+        <input type="text" name="getal2" />  
+        <br>  <br> -->
+
+        <!-- INVOER VELD -->
+        <input type="button" value="Guess Number" name="btnBigSmall" />
+        <br>  <br>
+       
+        <!-- van invoer  -->
+        <input type="text" name="pasteVeld" />
+        <!-- PLAK VELD -->
+    </form>
+</body>
+
+</html>

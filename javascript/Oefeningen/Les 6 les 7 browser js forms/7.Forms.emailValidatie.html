@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test email</title>
+    <script>
+
+        function checkEmail() {
+            var stringX = frm.email.value;
+            var controle = stringX.indexOf("@");
+            if (controle == -1) {
+                frm.pasteVeld.value = "Error";
+                alert('error');
+                // return frm.pasteVeld.value;
+            } else {
+                frm.pasteVeld.value = "Correct";
+                //return frm.pasteVeld.value;
+            }
+        }
+
+        function init() {
+            var btn = frm.emailbtn;
+            btn.onclick = checkEmail;        // als er wordt gelickt dan copyPASTE inhoud ! 
+        }
+
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <input type="text" name="email" />
+        <br>
+        <br>
+        <input type="button" value="Email ingeven" name="emailbtn" />
+        <br>
+        <br>
+
+        <!-- uitslag van invoer  -->
+        <input type="text" name="pasteVeld" />
+        <!-- PLAK VELD -->
+
+    </form>
+</body>
+
+</html>

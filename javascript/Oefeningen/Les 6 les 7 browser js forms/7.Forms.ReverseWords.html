@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test html js</title>
+    <script>
+        'use strict';
+
+        /*  function reverseString(str) {
+             return str.split( '' ).reverse( ).join( '' );
+            }
+        
+        */
+        function reverseString() {
+            var reverse = "";
+            var text = frm.copyVeld.value;   // invoer text 
+            for (var i = text.length - 1; i >= 0; i--)
+                reverse += text[i];
+                frm.pasteVeld.value = reverse;        // value van paste = text van invoer !
+            // return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+        }
+
+        function init() {
+            var btn = frm.btn;
+            btn.onclick = reverseString;        // als er wordt gelickt dan reverse inhoud ! 
+        }
+
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <input type="text" name="copyVeld" />
+        <!-- INVOER VELD -->
+        <input type="button" value="Reverse" name="btn" />
+        <!-- Kopier van invoer  -->
+        <input type="text" name="pasteVeld" />
+        <!-- PLAK VELD -->
+    </form>
+</body>
+
+</html>
