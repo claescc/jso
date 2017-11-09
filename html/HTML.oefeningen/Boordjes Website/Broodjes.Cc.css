@@ -1,0 +1,147 @@
+
+* {
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box; 
+  }
+
+  /* -------------------- TOP MENU NAVIGATION --------------------------*/
+/*
+.logo {
+  
+  text-decoration: wavy underline lightsalmon;
+}*/
+  .topnav {
+   
+    overflow: hidden;
+    background-color:lightcoral;
+    height:59px;
+  }
+
+  .topnav a {
+    height: 59px;
+    float: left; 
+    display: block;
+    color:white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  
+  .topnav a:hover {
+   
+    background-color:salmon;
+    color:white;
+  }
+  
+  .topnav a.logo {
+    height: 59px;
+      background-color:#f08080;
+      color: white;
+  }
+
+  /*------------------ HTML ---------------------------------*/
+ 
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+  }
+  #main {
+    color: white;
+    display: flex;
+    flex: 1;
+    background-image: url(coral2.png);
+    background-size: cover; 
+  }
+  #main > article {
+    padding: 10px;
+    flex: 1;
+       /* background-image: url(coral2.png); */
+   
+  
+  }
+  
+  #main > aside {
+    padding: 10px;
+    flex: 0 0 30vw;
+    display: flex;
+    justify-content: center;
+   /* background-image: url(coral2.png); */
+  
+  
+  }
+
+  footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background:salmon;
+    height: 59px;
+  }
+   /*------------------ MAIN   BROODJES ---------------------------------*/
+
+
+   .wrapper {
+      max-width: 1024px;
+     display: flex;
+     flex-wrap: wrap;
+     Justify-content: space-around; 
+     align-content: center;
+
+   }
+
+   .stick {
+     text-align: center;
+    padding: 10px;
+    flex: 0 1 250px;
+      margin: 10px 0px;
+    height: 220px;
+    background-color:lightcoral;
+    border: 3px solid lightsalmon;
+   }
+   .img{
+    border: 1px solid white;
+   }
+
+/*------------------ ASIDE ---------------------------------*/
+
+.stickPromo {
+  font-size: 1.5rem;
+  text-align: center;
+ padding: 10px;
+width: 330px;
+   margin: 10px 0px;
+ background-color:lightcoral;
+ border: 5px solid hotpink;
+  outline: none;
+  box-shadow: 0 0 30px hotpink;
+}
+.img{
+  border: 1px solid white;
+ }
+ #prijs {
+   font-size: 2rem;
+ }
+
+ /* --BUTTON --*/
+ .buttonBuy {
+   font-weight: bold;
+  height: 50px;
+  width: 180px;
+  color: lightcoral;
+  background-color:white;
+  border: 5px solid hotpink;
+ 
+}
+
+.buttonBuy:hover {
+  background-color: lightcoral;
+  color: white;
+  border: 2px solid white;
+  
+ 
+}
+/*------------------ FOOTER ---------------------------------*/
