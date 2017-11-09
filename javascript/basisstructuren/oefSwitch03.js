@@ -2,9 +2,9 @@
 
 var toetsenbord = require('readline-sync');
 var punten = toetsenbord.question("punten: ");
-var graad = "";
-switch (true) {
-    case punten < 0:
+var graad = "";                 // 0-9 is eigenlijk -9
+switch (true) {                 // '0-9' string moet lettermijk getypt worden '0-9' en niet een cijfer 
+    case punten < 0:            // switch ( true ) het is waar als volgende volgt waar is 
     case punten > 20:
         graad = "ongeldige score";
         break;

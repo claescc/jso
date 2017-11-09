@@ -12,7 +12,7 @@ geheelGetal = 2016;
 
 // nietGedeclareerd = "dit mag niet !!!";  // fout bij uitvoering
 
-//een voor een afdrukken:
+//een voor een afdrukken:  // in PSD ==> write 'geheelGetal = ', geheelGetal
 console.log("geheelGetal          = " + geheelGetal);
 console.log("grootsteGeheelGetal   = " + grootsteGeheelGetal);
 console.log("decimaalGetal   = " + decimaalGetal);
