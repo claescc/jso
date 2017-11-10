@@ -28,7 +28,13 @@ for (var i = 1; i < aantalNo; i++) {        // 4 keer nog want reeds 1 getal geg
     uniekeGettalen[i] = y;
    
 }
-// console.log(uniekeGettalen);
+
+/* Gewisseld BUBBLE SORT  --- DO-WHILE LOOP / For loop / IF
+
+1 en 2 vergelijk --> Dan 2 en 3 -- > dan 3 en 4 
+
+ZIE OPLOSSING OefArray04.js     */
+
 
 // SORTEREN van KLEIN naar GROOT !! 
 uniekeGettalen.sort(kleinGroot); // Array Sorteer (Functie ) = Array now becomes small to big
@@ -38,6 +44,6 @@ console.log("Van klein naar Groot: %s ",uniekeGettalen);
 
 //------------------FUNCTIES------------------------------------------
 
-function kleinGroot(x,y){
-    return x-y;
+function kleinGroot(x,y){       //      30 , 10
+    return x-y;                 //      30 - 10
 }

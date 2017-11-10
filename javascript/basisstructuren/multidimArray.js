@@ -36,4 +36,27 @@ leesTweeDimTabel(puntenTabel, "Geef punten voor vak ");
 toonTweeDimTabel(puntenTabel, "Behaalde punten");
 
 /* oefening: */
-// console.log("Het maximum = %d", maximum(puntenTabel));
+// geef hoogst behaalde cijfer terug van alle punten 
+
+console.log(puntenTabel);
+
+console.log("__________________________");
+console.log("Het maximum = %d", maximum(puntenTabel));
+
+
+//console.log("hoogtse cijfer = %s", hoogsteCijfer);
+
+
+function maximum(){ // Not a Number ??
+  var hoogsteCijfer = 0;
+  for (var rij = 0; rij < puntenTabel.length; rij++){                // rij overlopen // rij++
+    for (var kolom= 0; kolom <puntenTabel[rij].length; kolom++){  // Kolommen overlopen
+                 if (hoogsteCijfer<puntenTabel[rij][kolom] ) {  // rij = 0 kolom ++
+                   hoogsteCijfer = puntenTabel[rij][kolom] ;    // kolom op rij 0 
+                 }                                              // kolom op rij 1
+  
+    }    
+  }
+return hoogsteCijfer;
+
+}
