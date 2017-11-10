@@ -26,6 +26,24 @@ function toonTweeDimTabel(tabel, hoofding) {
 }
 
 
+/* oefening */
+function maximum(tabel) {
+  var max = tabel[0][0];
+  for (var rij = 0; rij < tabel.length; rij++) {
+    /*
+	  for(var kol=0; kol<tabel[rij].length; kol++){
+		  if (max < tabel[rij][kol]){
+			  max = tabel[rij][kol];
+			}
+		}	
+    */
+    // korter in ES6
+    max = Math.max(...tabel[rij], max);
+  }
+  return max;
+}
+
+
 /****** HOOFDPROGRAMMA ******/
 // allocatie van kolommen van tabel
 for (vak = 0; vak < aantalVakken; vak++) {
@@ -36,6 +54,7 @@ leesTweeDimTabel(puntenTabel, "Geef punten voor vak ");
 toonTweeDimTabel(puntenTabel, "Behaalde punten");
 
 /* oefening: */
+<<<<<<< HEAD
 // geef hoogst behaalde cijfer terug van alle punten 
 
 console.log(puntenTabel);
@@ -60,3 +79,6 @@ function maximum(){ // Not a Number ??
 return hoogsteCijfer;
 
 }
+=======
+console.log("Het maximum = %d", maximum(puntenTabel));
+>>>>>>> 760402dafc1b7e57fab7707312ee0f6ca0d344b5
