@@ -1,0 +1,84 @@
+.container{
+    max-width:240px;
+    margin:0 auto;
+    }
+    figure{
+    margin: 1em 0px;
+    }
+
+.main, .navigation, .content{
+         display: flex;
+        }
+
+#logo{
+    
+        background-color: #888;
+        color:#EEE;
+        text-align: center;
+        font-size: 1.2em;
+        }
+.social{
+        display:block;
+
+        font-size: 1.2em;
+        margin: 0.67em 0;
+        
+        }
+        .icon{
+             
+                margin: 0 10px 0 0;
+                }
+
+nav>a{
+                 text-decoration: none;
+                
+                  text-align: center;
+                  color: #333;
+                  }
+                                
+                  .ads>figure{ 
+                  
+                        text-align: center;
+                        }
+
+                        .masthead > figure >img{
+                                max-width:100%;
+                                height:auto;
+                                }
+
+                                .masthead > figure{
+                                text-align: center;
+                                }
+/*
+                                @media screen and (min-width:600px){
+                                        .container{
+                                        max-width: 600px;
+                                        }
+                                        .navigation > nav, .navigation .ads{
+                                        width: 50%;
+                                        float: left;
+                                        }
+                                        }
+
+
+@media screen and (min-width:960px){
+        .container{
+                 max-width: 1024px;
+                 }
+        .navigation{
+                 float: left;
+                 width: 15%;
+                 }
+        .content{
+                  float: left;
+                 width: 85%;
+                 }
+         .navigation> nav, .navigation >ads,
+         .navigation > nav> a, .navigation> .ads > .ad {
+                  width: 100%;
+                  }
+        .ads > figure, nav>a{
+                  text-align: left;
+                    }
+    }
+    */

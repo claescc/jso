@@ -4,9 +4,54 @@
 <head>
     <title>Sollicitatie</title>
     <!--<link rel="stylesheet" href="grid.css">-->
+<<<<<<< HEAD
+    <link rel="stylesheet" href="flex.css">
+    <!--<link rel="stylesheet" href="float.css">-->
+=======
     <!--<link rel="stylesheet" href="flex.css">-->
     <link rel="stylesheet" href="float.css">
+>>>>>>> 12b0b347527bf378227181a4d2ca8307b136be7f
 </head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .formcontainer{
+        width: 400px;
+        display: inline-block;
+     
+    
+    }
+    .formlabel{
+        text-align: right;
+      
+        width: 200px;
+       float: left;
+       padding: 0px 5px 0px 0px;
+
+    
+    }
+    .forminput{
+        display: inline-block;
+        width:200px;
+      
+    }
+    .form-radiogroup{
+      flex: wrap;
+        float: right;
+        width: 200px;
+      
+  
+    }
+    #txtbox{
+        height: 60px;
+    }
+    .formbutton{
+        float:right;
+        text-align: center;
+    width: 200px;
+    }
+</style>
 
 <body>
     <form class="formcontainer" action="sollicitatie.php" method="POST">
@@ -16,12 +61,12 @@
         <input class="forminput" name="gebDatum" type="date" id="gebDatum" />
         <label class="formlabel">Rijbewijs</label><label class="forminput">
             <input type="checkbox" name="rijbewijs">Ik heb een rijbewijs B</label>
-        <label class="formlabel">Hoe goed is je Nederlands?</label>
+        <label id="txtbox" class="formlabel">Hoe goed is je Nederlands?</label>
         <div class="form-radiogroup">
             <label>
-                <input type="radio" name="nederlands" value="goed" checked>Goed</label>
+                <input type="radio" name="nederlands" value="goed" checked>Goed</label><br>
             <label>
-                <input type="radio" name="nederlands" value="middelmatig">Middelmatig</label>
+                <input type="radio" name="nederlands" value="middelmatig">Middelmatig</label><br>
             <label>
                 <input type="radio" name="nederlands" value="slecht">Slecht</label>
         </div>

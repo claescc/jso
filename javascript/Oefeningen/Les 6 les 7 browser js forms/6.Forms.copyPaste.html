@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test html js</title>
+<script>
+'use strict';
+function copyPasta() {
+    var text = frm.copyVeld.value;   // invoer text 
+    frm.pasteVeld.value = text;        // value van paste = text van invoer !
+    return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+
+function init(){
+    var btn = frm.btn;
+    btn.onclick = copyPasta;        // als er wordt gelickt dan copyPASTE inhoud ! 
+}
+
+window.onload = init;
+</script>
+
+</head>
+<body>
+        <form name="frm">
+                <input type="text" name="copyVeld" />       <!-- INVOER VELD -->
+                <input type="button" value="CopyPaste" name="btn"/> <!-- Kopier van invoer  -->
+                <input type="text" name="pasteVeld" /> <!-- PLAK VELD -->
+                </form>
+</body>
+</html>

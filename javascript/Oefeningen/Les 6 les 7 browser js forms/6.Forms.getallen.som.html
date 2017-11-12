@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test html js</title>
+<script>
+'use strict';
+function somGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA+getalB       // value van paste = text van invoer !
+    return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+
+function init(){
+    var btn = frm.btn;
+    btn.onclick = somGetallen;        // als er wordt gelickt dan copyPASTE inhoud ! 
+}
+
+window.onload = init;
+</script>
+
+</head>
+<body>
+        <form name="frm">
+                <input type="text" name="getal1" />  
+                <p> + </p>    <!-- INVOER VELD -->
+                <input type="text" name="getal2" />      <br>    <br>    <!-- INVOER VELD -->
+                <input type="button" value="=" name="btn"/>   <br>  <br> <!-- SOM van invoer  -->
+                <input type="text" name="pasteVeld" /> <!-- PLAK VELD -->
+                </form>
+</body>
+</html>
