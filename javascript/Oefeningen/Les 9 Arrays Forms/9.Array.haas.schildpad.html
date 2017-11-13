@@ -1,0 +1,107 @@
+<!--Simuleer de wedstrijd tussen een haas en een schildpad. Beiden moeten een parcours afleggen van 70 vakjes en starten in vakje 0. De stappen van elk dier worden bepaald door een random generator via het volgende model:
+Schildpad:	in 50% van de gevallen	3 vakjes vooruit
+ 		in 20% van de gevallen	6 vakjes achteruit
+ 		in 30 % van de gevallen	1 vakje vooruit
+Haas:		in 20 % van de gevallen	niets (in slaap gevallen)
+ 		in 20 % van de gevallen	9 vakjes vooruit
+ 		in 10 % van de gevallen	12 vakjes achteruit
+ 		in 30% van de gevallen	1 vakje vooruit
+ 		in 20% van de gevallen	2 vakjes achteruit
+Maak een loop waarbij binnen de loop telkens de volgende positie van de haas en de schildpad wordt berekend. Schrijf de posities weg in het XHTML-document door een blanco te zetten wanneer geen van beide dieren op een vakje staan, een ‘H’ wanneer de haas op het vakje staat en een ‘S’ wanneer de schildpad op het vakje staat. Wanneer ze beiden op hetzelfde vakje zouden staan, bijt de schildpad de haas en verschijnt het woordje ‘Ai’. Wanneer een dier de eindstreep heeft bereikt, stopt het programma en druk je af wie gewonnen heeft. Wanneer een dier op een positie lager dan 0 zou terechtkomen, laat je het op positie 0 staan. Tip: gebruik een array van 70 elementen die je in elke loop invult en afdrukt. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HAAS SCHILDPAD</title>
+	<script>
+		'use strict';
+		var parcour70 = new Array(70);	// 70 vakjes lang 
+		var schildpad = 0;
+		var haas = 0;
+		var gras = ",,";
+
+		for (var i = 0; i < parcour70.length; i++) { // Teken gras in elk vakje 
+			parcour70[i] = gras;
+		}
+
+		function positieSchildpad() {// SCHILDPAD positie
+			parcour70[schildpad] = ",,";  // oude positie vervangen met gras bv 0
+			var random = Math.random() * 100;
+			switch (true) {
+				case random >= 50:schildpad += 3;break;
+				case random <= 20:schildpad -= 6;break;
+				default:schildpad += 1;break;
+			}
+			if (schildpad < 0) {
+				schildpad = 0;
+			}
+			if (schildpad > 70) {
+				schildpad = 70;
+			}
+			parcour70[schildpad] = "🐢";	// teken S op nieuwe positie
+		}
+
+		function positieHaas() {	// HAAS positie
+			var slaap = haas;
+			parcour70[haas] = ",,";		//oude positie wordt terug gras
+			var random = Math.random() * 100;
+			switch (true) {
+				case random <= 20:haas = slaap;break;
+				case random <= 40:haas += 9;break;
+				case random <= 50:haas -= 12;break;
+				case random <= 80:haas += 1;break;
+				default: haas -= 2;break;
+			}
+			if (haas < 0) {		// onder de nul terug naar nul
+				haas = 0;
+			}
+			if (haas > 70) {		// boven de 70 terug naar 70
+				haas = 70;
+			}
+			parcour70[haas] = "🐇";		// teken op nieuwe locatie
+		}
+
+		function tekenParcour() {
+			for (var i = 0; i < parcour70.length; i++) {
+				document.write(parcour70[i]);		// parcour = haas + schildpad steken er al IN ! 
+			}
+			document.write("<br/>");		// stop 
+		}
+
+		while (haas < 70 && schildpad < 70) {
+			//random  
+			positieSchildpad();
+			positieHaas();
+			if (parcour70[haas] == parcour70[schildpad]) {
+				var bots = haas;
+				parcour70[bots] = "💥";
+			}
+			tekenParcour();
+		}
+		if (haas == 70) {
+			frm.pasteVeld.value ="De haas wint!";
+		} else if (schildpad == 70) {
+			frm.pasteVeld.value ="De Schildpad wint!";
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<style>
+		body {
+			color: greenyellow;
+		}
+		.win {
+			color: black;
+		}
+	</style>
+	 <form class="win" id="frm">
+			<input  type="text" id="pasteVeld" /> <!-- PLAK VELD -->
+			</form>
+
+</body>
+
+</html>

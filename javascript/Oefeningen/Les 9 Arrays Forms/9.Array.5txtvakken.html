@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test html js</title>
+    <script>
+        'use strict';
+        var arrayNamen = [];
+
+        function sorteer() {
+            var naam1 = frm.naam1.value;   // invoer text 
+            var naam2 = frm.naam2.value;   // invoer text 
+            var naam3 = frm.naam3.value;   // invoer text 
+            var naam4 = frm.naam4.value;   // invoer text 
+            var naam5 = frm.naam5.value;   // invoer text 
+            // SORTEER DE 5 NAMEN!!! of FUNCTIE ALFABETISCH
+            arrayNamen = [naam1, naam2, naam3, naam4, naam5];
+            arrayNamen.sort();
+            frm.pasteVeld.value = arrayNamen.toString();
+        }
+      
+        //______________________________________________________________________________________
+        function init() {
+            var btn = frm.btn;
+            btn.onclick = sorteer;        // als er wordt gelickt dan copyPASTE inhoud ! 
+        }
+        window.onload = init;
+//______________________________________________________________________________________
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <input type="text" name="naam1" />
+        <!-- INVOER VELD -->
+        <input type="text" name="naam2" />
+        <!-- INVOER VELD -->
+        <input type="text" name="naam3" />
+        <!-- INVOER VELD -->
+        <input type="text" name="naam4" />
+        <!-- INVOER VELD -->
+        <input type="text" name="naam5" />
+        <!-- INVOER VELD -->
+        <input type="button" value="Sorteer" name="btn" />
+        <!-- Kopier van invoer  -->
+        <input type="text" name="pasteVeld" />
+        <!-- PLAK VELD -->
+    </form>
+</body>
+
+</html>

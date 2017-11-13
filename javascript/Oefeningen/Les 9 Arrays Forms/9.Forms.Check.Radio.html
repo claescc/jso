@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test calculator</title>
+    <script>
+        'use strict';
+
+        function bereken() {
+            if (frm.btn[0].checked) {  // NIET --> selectedIndex[] MAAR == cijfer van index !!! 
+            frm.lijst.selectedIndex = 0;
+
+            } else if (frm.btn[1].checked){
+                frm.lijst.selectedIndex = 1;  // dan value 2 steken in paste...
+            }
+        }
+
+        function init() {
+            frm.btnCalc.onclick = bereken;        // als er wordt gelickt dan copyPASTE inhoud ! 
+
+        // document.getElementById("btnCalc").onclick = bereken;
+        }
+    
+
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <!-- VALUE kort houden moet elke keer verstuurd worden -->
+        <label>
+            <input type="radio" value="1" name="btn" /> Dog </label> <br><br>
+        <label>
+            <input type="radio" value="2" name="btn" /> Cat </label><br><br>
+       
+
+        <input type="button" value="Press" name="btnCalc" /><br><br>
+        <select name="lijst">
+                <option value="k1">Dog person</option>
+                <!-- index 0   value k1-->
+                <option value="k2">Cat person</option>
+                <!-- index 1   value k2-->
+            </select>
+        <!--calc -->
+    </form>
+
+    
+</body>
+
+</html>
