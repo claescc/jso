@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validatie (onsubmit)</title>
+    <style type="text/css">
+        .hideMe {
+            visibility: hidden;
+        }
+
+        .show {
+            color: red;
+            visibility: visible;
+        }
+    </style>
+
+    <script>
+        function controleerInput() {
+            console.log("begin functie");
+            var error = document.getElementById("error");
+            var validated = true;
+
+            if (form1.q.value == "") {
+                console.log("zoekstring leeg");
+                error.className = "show";
+                error.innerHTML = "Niets ingevuld";
+                validated = false;      // niets in dan stopt hij 
+            }
+            if (form1.age.value == "") {
+                console.log("leeftijd leeg");
+                error.className = "show";
+                error.innerHTML = "Leeftijd niet ingevuld";
+                validated = false;
+            }
+            if (isNaN(form1.age.value)) { // is het geen cijfer ? 
+                console.log("leeftijd geen nummer");
+                error.className = "show";
+                error.innerHTML = "Vul een cijfer in";
+                validated = false;
+            }
+            if (form1.age.value < 18) {
+                console.log("leeftijd 18");
+                error.className = "show";
+                error.innerHTML = "Je bent te jong";
+                error.style.borderStyle = "solid";
+                validated = false;
+            }
+            return validated;
+        }
+
+        function init() {
+            form1.onsubmit = controleerInput; // on submitcheck !!
+
+        }
+
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+    <form id="form1" action="http://www.google.be/search" method="get">
+        zoekterm :
+        <input type="text" name="q" />
+        <br /> leeftijd :
+        <input type="text" name="age" />
+        <span id="error" class="hideMe"> </span>
+        <br />
+        <input type="submit" name="knop" value="klikken" />
+    </form>
+</body>
+
+</html>

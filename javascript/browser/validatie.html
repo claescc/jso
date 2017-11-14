@@ -4,11 +4,12 @@
    <title>Validatie (onsubmit)</title>
 <script>
 	function controleerInput(){
-		return form1.q.value != "";
-	}
+		return form1.q.value != "";		// geeft true alles klopt anders False !!
+	}		// is iets ingevuld ? 
+	
 	
 	function init(){
-		form1.onsubmit = controleerInput;
+		form1.onsubmit = controleerInput; // on submitcheck !!
 	}
 	
 	window.onload = init;

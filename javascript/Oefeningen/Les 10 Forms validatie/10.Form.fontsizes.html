@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test calculator</title>
+<script>
+'use strict';
+
+function funcFillMeUpBaby() {
+    var arraySizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
+    var getEntireForm = document.getElementById('frm');
+    var getSelectTag = frm.lijst;
+    for (var i = 0; i < arraySizes.length; i++) {
+        var option = document.createElement('option'); // voor elk element option maken 
+        option.value = arraySizes[i];
+        option.text = arraySizes[i];
+       getSelectTag.add(option);
+        
+    }
+}
+
+function funcSize(){
+    if (frm.lijst.selectedIndex == 0){      // als index 0 wordt geslecteerd  
+        changedZin.style.fontSize = 10 + "px";  // verander dan font van span chnagedZIn
+    }else if (frm.lijst.selectedIndex == 1){
+        changedZin.style.fontSize = 16 + "px"; 
+    }else if (frm.lijst.selectedIndex == 2){
+        changedZin.style.fontSize = 20 + "px"; 
+    }else if (frm.lijst.selectedIndex == 3){
+        changedZin.style.fontSize = 30 + "px"; 
+    }else if (frm.lijst.selectedIndex == 4){
+        changedZin.style.fontSize = 40 + "px";  
+    }else if (frm.lijst.selectedIndex == 5){
+        changedZin.style.fontSize = 50 + "px";  
+    }else if (frm.lijst.selectedIndex == 6){
+        changedZin.style.fontSize = 60 + "px";   
+    }
+}
+
+function init(){
+    funcFillMeUpBaby();
+    frm.sizeChange.onclick = funcSize;        // als er wordt gelickt dan direct berekening
+}
+window.onload = init;
+</script>
+</head>
+<body>
+<form name="frm" id="frm">
+    <select name="lijst"></select>
+
+    <input type="button" value="Wijzig Grootte" name="sizeChange"/>   <br>  <br> <!-- bereken van invoer  -->
+    
+    <span id="changedZin">This sentence needs to change in size...</span>
+    
+</form>              
+</body>
+</html>
