@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Events 2</title>
+</head>
+
+<body>
+    <script>
+        function funcUnBlurr() {
+            var prent = document.getElementById("zero")
+            prent.src = "zero.jpg";
+        }
+
+        function init() {
+           zero.onclick = funcUnBlurr;  // geen haakjes !!
+
+        }
+        window.onload = init;
+    </script>
+
+
+
+    <h1>Raad wie of wat op onderstaande figuur staat. Klik op de figuur om je antwoord te controleren.</h1>
+   
+        <img id="zero" src="zeroblur.jpg">
+
+</body>
+
+</html>
