@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Select en option</title>
+
+<script type="text/javascript" >
+function voegNaamToe(){
+	var naam = frm.naamVeld.value;
+	var nieuweOption = document.createElement('option'); // add element to DOM in <option> tag !
+	nieuweOption.value = naam;
+	nieuweOption.text = naam;
+	frm.namen1.add(nieuweOption);	// vakje toevoegen
+}
+
+function naamOut(){ 
+    var idx = frm.namen1.selectedIndex; // geeft CIJFER dus index terug die geslecteerd is !! 
+    var gekozenOptie = frm.namen1.options[idx];         // ANN[0] = form.tabel.optiestabs[0] in de tabel
+    var naam = gekozenOptie.value;                      // naam = ANN[0].value  --> geeft de naam !
+    // DELETE UIT LIJST 
+    frm.namen1.remove(idx);
+    // NIEUWE OPTIONS TOEVOEGEN AAN TABEL2
+    var nieuweOption = document.createElement('option'); // add element to DOM in <option>tag ELKE KEER!
+	nieuweOption.value = naam;
+    nieuweOption.text = naam;
+	frm.namen2.add(nieuweOption);	// vakje toevoegen
+}
+
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// DIT KAN KORTER KIJK NAAR OefDOM13 van ANN !!! 
+
+
+function naamBack(){ 
+    var idx = frm.namen2.selectedIndex; // geeft CIJFER dus index terug die geslecteerd is !! 
+    var gekozenOptie = frm.namen2.options[idx]; // entire <option.. ANN[1] = form.tabel.optiestabs[1] in de tabel
+    var naam = gekozenOptie.value;                      // naam = ANN[1].value  --> geeft de naam !
+      // DELETE UIT LIJST 
+    frm.namen2.remove(idx);
+    // NIEUWE OPTIONS TOEVOEGEN AAN TABEL1
+    var nieuweOption = document.createElement('option'); // add element to DOM in <option> tag !
+	nieuweOption.value = naam;
+	nieuweOption.text = naam;
+	frm.namen1.add(nieuweOption);	// vakje toevoegen
+}
+
+
+function init(){
+    frm.btnAdd.onclick = voegNaamToe;
+    frm.btnOut.onclick = naamOut;
+   frm.btnIn.onclick = naamBack;
+}
+
+window.onload = init;
+</script>
+</head>
+<body>
+<form name="frm">
+Naam: <input type="text" name="naamVeld" /> 
+<input type="button" value="Toevoegen" name="btnAdd"/>
+<br> <br>
+<select name="namen1" size="5" style="width:100px"></select>
+<input type="button" value=">" name="btnOut"/> 
+<input type="button" value="<" name="btnIn"/>
+
+<select name="namen2" size="5" style="width:100px">
+    </select>
+</form>
+</body>
+</html>

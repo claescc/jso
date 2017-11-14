@@ -5,11 +5,11 @@
 <script type="text/javascript" >
 function voegNaamToe(){
 	var naam = frm.naamVeld.value;
-	var nieuweOption = document.createElement('option');
+	var nieuweOption = document.createElement('option'); // add element to DOM in <option> tag !
 	nieuweOption.value = naam;
 	nieuweOption.text = naam;
-	frm.namen.add(nieuweOption);
-//	frm.namen.options[frm.namen.options.length]=nieuweOption;
+	frm.namen.add(nieuweOption);	// vakje toevoegen
+//	frm.namen.options[frm.namen.options.length]=nieuweOption; // vakje toevoegen
 //	frm.naamVeld.value="";
 }
 
