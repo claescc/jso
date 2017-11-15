@@ -12,11 +12,11 @@ height:100px;
 </style>
 
 <script>
-window.onload = function(){
-	var area = document.getElementById("area");
-	area.onmousemove = function(e){
-		var bericht = document.getElementById("bericht");
-		var x = e.pageX;
+window.onload = function(){	// als pagina geladen is 
+	var area = document.getElementById("area");		// is grijze div 
+	area.onmousemove = function(e){		// elke keer als de muis beweegt + ananonieme functie 
+		var bericht = document.getElementById("bericht"); // span van bericht: aanpassen text 
+		var x = e.pageX;	
 		var y = e.pageY;
 		bericht.innerHTML = "huidige muispositie: " + x + ", " + y;
 	}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Follow the leader</title>
+  <style>
+
+  </style>
+  <script>
+
+	function funcFollow(e){		// elke keer als de muis beweegt moet <p> volgen 
+		var bericht = document.getElementById("bericht"); //  
+		var x = e.pageX;	// de nieuwe coordes
+		var y = e.pageY;
+		bericht.style.left = x + "px"; // nieuwe coords / pixel = nieuwe positie
+		bericht.style.top = y + "px"; 
+		bericht.style.position = "relative";
+	}
+	function funcNoStalk(e) {
+		var bericht = document.getElementById("bericht"); //  
+		var x = e.pageX;	
+		var y = e.pageY;
+		bericht.style.left = x + "px"; // nieuwe coords / pixel = nieuwe positie
+		bericht.style.top = y + "px"; 
+		bericht.style.position = "fixed";
+		
+	}
+
+	
+	function init() {
+		document.onmousemove = funcFollow; //EENDER WAAR ZE OOK CLICKEN 
+		document.onmousedown = funcFollow; //EENDER WAAR ZE OOK CLICKEN 
+		document.ondblclick = funcNoStalk; //
+		
+	}
+	
+			window.onload = init;
+  </script>
+</head>
+<body>
+<p id="bericht">Follow the leader... leader..</p>
+
+</body>
+</html>
