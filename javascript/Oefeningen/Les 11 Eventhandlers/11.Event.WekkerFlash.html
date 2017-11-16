@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <title>Events 6 </title>
+  <meta charset="utf-8">
+  <script>
+      setTimeout(wakkerWorden, 1000);		// fuctie en MILLISECONDEN (3sec)
+
+function wakkerWorden(){
+	alert('Wakker worden!!!');
+ //   setInterval(flasheu, 1000);
+ //   setInterval(flashAI, 400);
+    //setTimeout(countDown, 100);		// fuctie en MILLISECONDEN (3sec)
+    countDown();
+    }
+
+	function countDown(){
+      setInterval(writeWrite, 1000);
+    }
+    var i = 5;
+    function writeWrite(){
+        document.open();
+        document.write(i--);
+        
+    }
+	
+    var e = true;
+	function flasheu() {
+   var body = document.getElementsByTagName("body")[0];
+		if (e) {
+			//document.body.style.backgroundColor = 'pink';
+			body.style.backgroundColor = 'red';
+			e = false;
+		} else {
+            document.body.style.backgroundColor = 'blue';
+			e = true;
+		}
+	}
+	function flashAI() {
+   var body = document.getElementsByTagName("body")[0];
+		if (e) {
+			//document.body.style.backgroundColor = 'pink';
+			body.style.backgroundColor = 'yellow';
+			e = false;
+		} else {
+            document.body.style.backgroundColor = 'green';
+			e = true;
+		}
+	}
+	
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

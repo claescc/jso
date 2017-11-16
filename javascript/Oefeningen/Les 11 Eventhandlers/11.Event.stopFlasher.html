@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stop FLASHER</title>
+
+    <script>
+        'use strict'
+        var start = null;
+
+        function flasheu() {
+          start = setInterval(flashBox, 300);
+        }
+
+        var e = true;
+        function flashBox() {
+            var body = document.getElementsByTagName("body")[0];
+            if (e) {
+                //document.body.style.backgroundColor = 'pink';
+                body.style.backgroundColor = 'pink';
+                e = false;
+            } else {
+                document.body.style.backgroundColor = 'hotpink';
+                e = true;
+            }
+
+        }
+
+        function stopFlash() {
+            if (start != null){
+                clearInterval(start);
+                }
+        }
+
+
+        function init() {
+            document.getElementById("btnStart").onclick = flasheu;
+            document.getElementById("btnStop").onclick = stopFlash;
+        }
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <input type="button" value="Flasher" id="btnStart" />
+    <input type="button" value="Geen Flasher" id="btnStop" />
+</body>

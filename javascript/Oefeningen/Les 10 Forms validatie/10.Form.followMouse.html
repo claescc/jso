@@ -7,29 +7,31 @@
 
   </style>
   <script>
+	  var followL = false;
 
 	function funcFollow(e){		// elke keer als de muis beweegt moet <p> volgen 
+		if(followL == true){
 		var bericht = document.getElementById("bericht"); //  
 		var x = e.pageX;	// de nieuwe coordes
 		var y = e.pageY;
 		bericht.style.left = x + "px"; // nieuwe coords / pixel = nieuwe positie
 		bericht.style.top = y + "px"; 
 		bericht.style.position = "relative";
+		}
 	}
 	function funcNoStalk(e) {
-		var bericht = document.getElementById("bericht"); //  
-		var x = e.pageX;	
-		var y = e.pageY;
-		bericht.style.left = x + "px"; // nieuwe coords / pixel = nieuwe positie
-		bericht.style.top = y + "px"; 
-		bericht.style.position = "fixed";
-		
+		followL = false;
+	
+	}
+	function funcYesStalk(e) {
+		followL = true;	
+	
 	}
 
 	
 	function init() {
 		document.onmousemove = funcFollow; //EENDER WAAR ZE OOK CLICKEN 
-		document.onmousedown = funcFollow; //EENDER WAAR ZE OOK CLICKEN 
+		document.onmousedown = funcYesStalk; //EENDER WAAR ZE OOK CLICKEN 
 		document.ondblclick = funcNoStalk; //
 		
 	}

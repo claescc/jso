@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LoadingBar</title>
+
+    <script>
+        'use strict';
+        var start = null;
+
+
+        function loadingBar() {
+            start = setInterval(loadingBoxes, 200);
+        }
+
+        var w = 0;
+        var e = true;
+        function loadingBoxes() {
+            var box = document.getElementById('loading');
+            var maxBreedte = document.getElementsByTagName('body')[0].clientWidth;
+            w += 50;
+           if ( w >= maxBreedte ){// als W grooter is dan scherm....????
+            //stop
+           } else{
+            if (e) {
+                box.style.backgroundColor = 'lightgreen';
+                box.style.heigth = 100 + 'px';
+                box.style.width = w + 'px';
+                e = false;
+            } else {
+                box.style.backgroundColor = 'lightgreen';
+                box.style.heigth = 100 + 'px';
+                box.style.width = w + 'px';
+                e = true;
+            }
+           }               
+        }
+
+        function init() {
+            document.getElementById("btnStart").onclick = loadingBar;
+
+        }
+        window.onload = init;
+
+    </script>
+</head>
+
+<body>
+    <div id="loading">
+        ...
+    </div>
+    <br>
+    <br>
+    <input type="button" value="Start Download" id="btnStart" />
+
+</body>
+
+</html>
