@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>RadioCheckAll</title>
+    <script>
+        'use strict';
+
+function selectAll() {  // CHECK ALL RADIOBUTTONS     
+    var form = document.forms[0];  // alle form elementen van heel html (array) vraag [0] eerste geven
+	for (var i=0;i<form.elements.length;i++){	// form.elements = alle INVOERVELDEN 
+        if(form.elements[i].type == 'checkbox'){
+            form.elements[i].checked = true;
+            
+        }
+    }				
+ }
+
+function init() {
+     frm.btnCalc.onclick = selectAll;      
+ } 
+window.onload = init;
+
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <!-- VALUE kort houden moet elke keer verstuurd worden -->
+        <label><input type="checkbox" value="1" name="btn" /> Dog </label> <br><br>
+        <label><input type="checkbox" value="2" name="btn" /> Cat </label><br><br>
+        <label><input type="checkbox" value="3" name="btn" /> Bird </label><br><br>
+        <label><input type="checkbox" value="4" name="btn" /> Turtle </label><br><br>
+        <label><input type="checkbox" value="5" name="btn" /> Rabbit </label><br><br>
+        <label><input type="checkbox" value="6" name="btn1" /> Orca </label><br><br>
+
+        
+       
+        <input type="button" value="Press" name="btnCalc" /><br><br>
+    
+    </form>
+
+    
+</body>
+
+</html>

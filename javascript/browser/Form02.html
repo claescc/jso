@@ -3,16 +3,17 @@
 <head>
 <title>Elementen in form overlopen</title>
 <script>
-function toonElementen(){
+function toonElementen(){		// toon alles 
 	var tekst="";
-	var form = document.forms[0];
-	for (var i=0;i<form.elements.length;i++){
+	var form = document.forms[0];  // alle form elementen van heel html (array) vraag [0] eerste geven
+	for (var i=0;i<form.elements.length;i++){	// form.elements = alle invoervelden, knoppen, buttons enbz..
 		tekst = tekst + form.elements[i].type + ": "+ form.elements[i].value +"\n";
-	}
-	alert(tekst);
+	}					// geef mij (i) invoerveld ==> type text   +  ':' Claes
+						// geef mij (i) invoerveld ==> type Button +   :  ON
+	alert(tekst);		// tonen in bericht 
 }
 function init(){
-	var btn = document.getElementById("btn");
+	var btn = document.getElementById("btn"); // vraag knop op
 	btn.onclick = toonElementen;
 }
 window.onload = init;

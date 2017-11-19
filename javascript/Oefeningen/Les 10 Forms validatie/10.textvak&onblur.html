@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Events 3</title>
+
+    <script>
+
+
+        function init() {
+            var namenArray = document.getElementsByTagName("input");
+            for (var i = 0; i < namenArray.length; i++) {
+                if (namenArray[i].type == 'text') { // Check of het RADIO, BUTTON, CHECKBOX is !!
+                namenArray[i].onblur = funcANDreplace;
+                }
+            }
+        }
+
+        function funcANDreplace(e) { // ALLES bv heel de button !!!
+            var textVak = e.target; // zowel Textvak als text alles tezamen 
+            var text = textVak.value;       // neem de value -> dus ENKEL de text uit het vak ! 
+            var changeAND = text.replace(/&/g, 'and');           // string van text REPLACE 
+            textVak.value = changeAND;  // nieuwe string toevogen aan textvak !
+            // frm.naam.value = changeAND;
+        }
+
+        window.onload = init;
+    </script>
+
+
+</head>
+
+<body>
+    <h1>& --> and </h1>
+    <br>
+    <form name="frm">
+        Naam:
+        <input type="text" id="naam" />
+        <!-- INVOER VELD -->
+        Voornaam:
+        <input type="text" id="naam" />
+        <!-- INVOER VELD -->
+        <input type="button" value="j&j" />
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HAAS SCHILDPAD</title>
+    <script>
+        'use strict';
+        var parcour70 = new Array(70);	// 70 vakjes lang 
+        var winnaar = null;
+        var schildpad = 0;
+        var haas = 0;
+        var gras = ",,";
+
+        // ____________________Gras in string 70lang ____________________________________________________
+        for (var i = 0; i < parcour70.length; i++) { // Teken gras in elk vakje 
+            parcour70[i] = gras;
+        }
+
+        // ____________________POSITIE HAAS SCHILDPAD ____________________________________________________
+
+        function positieSchildpad() {// SCHILDPAD positie
+            parcour70[schildpad] = ",,";  // oude positie vervangen met gras bv 0
+            var random = Math.random() * 100;
+            switch (true) {
+                case random >= 50: schildpad += 3; break;
+                case random <= 20: schildpad -= 6; break;
+                default: schildpad += 1; break;
+            }
+            if (schildpad < 0) {
+                schildpad = 0;
+            }
+            if (schildpad > 70) {
+                schildpad = 70;
+            }
+            parcour70[schildpad] = "🐢";	// teken S op nieuwe positie
+        }
+
+        function positieHaas() {	// HAAS positie
+            var slaap = haas;
+            parcour70[haas] = ",,";		//oude positie wordt terug gras
+            var random = Math.random() * 100;
+            switch (true) {
+                case random <= 20: haas = slaap; break;
+                case random <= 40: haas += 9; break;
+                case random <= 50: haas -= 12; break;
+                case random <= 80: haas += 1; break;
+                default: haas -= 2; break;
+            }
+            if (haas < 0) {		// onder de nul terug naar nul
+                haas = 0;
+            }
+            if (haas > 70) {		// boven de 70 terug naar 70
+                haas = 70;
+            }
+            parcour70[haas] = "🐇";		// teken op nieuwe locatie
+        }
+
+        // ____________________TEKEN 70 KEER PARCOUR ____________________________________________________
+        var start = null;
+        var pos = 0;
+        function startSpel() {
+            start = setInterval(tekenParcour, 100);
+        }
+
+        function tekenParcour() {
+            document.getElementById("loopBaan").innerHTML = "";
+
+            for (var i = 0; i < parcour70.length; i++) {
+                document.getElementById("loopBaan").innerHTML += parcour70[i];		// parcour = haas + schildpad steken er al IN ! 
+			}
+
+            if (haas < 70 && schildpad < 70) {
+                //random  
+                positieSchildpad();
+                positieHaas();
+                if (parcour70[haas] == parcour70[schildpad]) {
+                    var bots = haas;
+                    parcour70[bots] = "💥";
+                }
+              //  tekenParcour();
+            }
+            if (haas == 70) {
+                winnaar = "HAAS";
+                document.getElementById("msg").innerHTML = ("De winnaar is de " + winnaar);
+            } else if (schildpad == 70) {
+                winnaar = "SCHILDPAD";
+                document.getElementById("msg").innerHTML = ("De winnaar is de " + winnaar);
+            }
+
+        }
+        function init() {
+            document.getElementById("btnStart").onclick = startSpel;
+
+        }
+        window.onload = init;
+    </script>
+
+</head>
+
+<body>
+    <input type="button" value="Start Spel" id="btnStart" />
+    <style>
+        body {
+            color: rgb(117, 189, 2);
+        }
+
+        .win {
+            color: black;
+        }
+    </style>
+    <div id="loopBaan"></div>
+    <div id='msg'></div>
+
+</body>
+
+</html>

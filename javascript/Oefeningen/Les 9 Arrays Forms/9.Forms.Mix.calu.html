@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test calculator</title>
+<script>
+'use strict';
+function somGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA+getalB;       // value van paste = text van invoer !
+   // return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+function minGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA-getalB;      // value van paste = text van invoer !
+    //return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+function divGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA/getalB;       // value van paste = text van invoer !
+  //  return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+function mulGetallen() {
+    var getalA = parseInt(frm.getal1.value);   // invoer text 
+    var getalB = parseInt(frm.getal2.value);   // invoer text 
+    frm.pasteVeld.value = getalA*getalB;       // value van paste = text van invoer !
+  //  return frm.pasteVeld.value;         // paste in Plakveld  frm.pasteVeld.value = text
+}
+
+function bereken(){
+ if( frm.btn[0].checked){
+     somGetallen();
+ } else if (frm.btn[1].checked){
+    minGetallen();
+ }else if (frm.btn[2].checked){
+    divGetallen();
+ }else if (frm.btn[3].checked){
+    mulGetallen();
+ }
+}
+
+function init(){
+    frm.btnCalc.onclick = bereken;        // als er wordt gelickt dan direct berekening
+}
+
+window.onload = init;
+</script>
+
+</head>
+<body>
+        <form name="frm">
+                <input type="text" name="getal1" />    <!-- INVOER VELD --> <br>    <br>
+                <input type="text" name="getal2" />      <br>    <br>    <!-- INVOER VELD -->
+            
+                <label><input type="radio" value="+" name="btn" checked/> + </label> <br>  <br> 
+                <label><input type="radio" value="-" name="btn"/> - </label> <br>  <br> 
+                <label><input type="radio" value="/" name="btn"/> / </label>  <br>  <br>
+                <label><input type="radio" value="*" name="btn"/> * </label> <br>  <br> 
+              
+               
+                <input type="button" value="=" name="btnCalc"/>   <br>  <br> <!-- bereken van invoer  -->
+
+                <input type="text" name="pasteVeld" /> <!-- PLAK VELD -->
+                </form>
+</body>
+</html>

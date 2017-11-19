@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Events 5</title>
+<script>
+
+// confirm 
+
+function closingTime(){
+    window.close();
+}
+
+function alertClosing(){
+   var okCancel = confirm('Closing in 5 sec');
+    if (okCancel == true){
+        setTimeout(closingTime, 5000);
+    }
+    		
+}
+
+</script>
+</head>
+<body>
+<script>
+function init(){
+    frm.btnCalc.onclick = alertClosing;        // als er wordt gelickt dan direct berekening
+}
+
+window.onload = init;
+</script>
+
+</head>
+<body>
+        <form name="frm">
+                <input type="button" value="Push me!" name="btnCalc"/>   <br>  <br> <!-- bereken van invoer  -->
+                </form>
+
+</body>
+</html>

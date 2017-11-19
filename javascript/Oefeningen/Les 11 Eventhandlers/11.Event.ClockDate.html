@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Events 6 </title>
+    <meta charset="utf-8">
+    <style>
+div {
+        margin: 150px;
+        font-size: 50px;
+        color: hotpink;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+    }
+    </style>
+    <script>
+    var week = ['zondag','Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'vrijdag', 'zaterdag'];
+      
+
+        function clock() {
+            
+            var time = new Date();
+            var tDate = time.getDate();
+            var tDay = time.getDay();
+            tDay = week[tDay];
+
+            var tHours = time.getHours();
+            var tMinutes = time.getMinutes();
+            if (tMinutes<10){
+                tMinutes = '0' + tMinutes;
+            }
+            var tSeconds = time.getSeconds();
+            if (tSeconds<10){
+                tSeconds = '0' + tSeconds;
+            }
+            document.getElementById("klokkespel").innerHTML = (tDate + '.' + tDay + "  |  " + tHours + ":" + tMinutes + ":" + tSeconds);
+        }               // verander text van id klokkespel innnerhtml--> 10:20:00
+
+        setInterval(clock, 1000);
+
+
+    </script>
+</head>
+
+<body>
+   <!--  <input type="button" onclick="clock()" value="Display Clock" /> -->
+    <div id="klokkespel">Hier komt KLOK</div>
+</body>
+
+</html>
