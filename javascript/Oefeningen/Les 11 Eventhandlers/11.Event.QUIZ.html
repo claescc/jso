@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>QUIZ</title>
+    <style type="text/css">
+        .hideMe {
+            visibility: hidden;
+        }
+
+        .show {
+            color: red;
+            visibility: visible;
+        }
+    </style>
+    <script>
+        'use strict';
+        var tellerCorrect = 0;
+
+        function controleQ() {
+            controleQ1();
+            controleQ2();
+            controleQ3();
+            alert("U heeft "+ tellerCorrect + " vragen correct!");
+
+        }
+//-----------------------------------------------------------------------
+        var validated = true;
+//-----------------------------------------------------------------------
+        function controleQ1() {  // CHECK 1 RADIOBUTTONS 
+            var correctAnsw = document.getElementById("11").checked;
+            if (correctAnsw == true) {
+                tellerCorrect++;
+            
+            }else {
+                var error = document.getElementById("error1");
+                error.className = "show";
+                error.innerHTML = "Fout";
+                validated = false;
+                return validated;
+            }
+
+        }
+        function controleQ2() {  // CHECK 1 RADIOBUTTONS 
+            var correctAnsw2 = document.getElementById("20").checked;
+            if (correctAnsw2 == true) {
+                tellerCorrect++;
+            }
+        }
+        function controleQ3() {  // CHECK 1 RADIOBUTTONS 
+            var correctAnsw3 = document.getElementById("3").checked;
+            if (correctAnsw3 == true) {
+                tellerCorrect++;
+            }
+        }
+
+        function init() {
+            frm.btnCalc.onclick = controleQ;
+            frm.btnCalc.onclick = controleerInput;
+
+        }
+        window.onload = init;
+
+    </script>
+
+</head>
+
+<body>
+    <form name="frm">
+        <p>Welk 50 dieren heeft een crazy ---Lady bij haar thuis?</p>
+        <br><span id="error1" class="hideMe"> </span>
+        <!-- VALUE kort houden moet elke keer verstuurd worden -->
+        <label>
+            <input type="radio" id="10" name="btn" /> Dog </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="11" name="btn" /> Cat </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="12" name="btn" /> Bird </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="13" name="btn" /> Rabbit </label>
+        <br>
+        <br>
+        <!--  ________________________________________________ -->
+
+        <p>Wat is Rood?</p>
+        <br><span id="error2" class="hideMe"> </span>
+        <input type="radio" id="20" name="btn2" />Een Kleur </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="21" name="btn2" /> Een Rendierneus </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="22" name="btn2" /> Bloed </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="23" name="btn2" /> Lava </label>
+        <br>
+        <br>
+        <!--  ________________________________________________ -->
+
+        <p>Wat is een vrouw?</p>
+        <br><span id="error3" class="hideMe"> </span>
+        <input type="radio" id="0" name="btn3" />Kristofa </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="1" name="btn3" />Frederica</label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="2" name="btn3" /> Willemina </label>
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="3" name="btn3" /> Woutia </label>
+        <br>
+        <br>
+        <!--  ________________________________________________ -->
+        <input type="button" value="Check Question" name="btnCalc" />
+        <br>
+        <br>
+
+    </form>
+
+
+</body>
+
+</html>

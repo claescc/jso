@@ -19,21 +19,21 @@
             var box = document.getElementById('loading');
             var maxBreedte = document.getElementsByTagName('body')[0].clientWidth;
             w += 50;
-           if ( w >= maxBreedte ){// als W grooter is dan scherm....????
-            //stop
-           } else{
-            if (e) {
-                box.style.backgroundColor = 'lightgreen';
-                box.style.heigth = 100 + 'px';
-                box.style.width = w + 'px';
-                e = false;
+            if (w >= maxBreedte) {// als W grooter is dan scherm....????
+                //stop
             } else {
-                box.style.backgroundColor = 'lightgreen';
-                box.style.heigth = 100 + 'px';
-                box.style.width = w + 'px';
-                e = true;
+                if (e) {
+                    box.style.backgroundColor = 'lightgreen';
+                    box.style.heigth = 100 + 'px';
+                    box.style.width = w + 'px';
+                    e = false;
+                } else {
+                    box.style.backgroundColor = 'lightgreen';
+                    box.style.heigth = 100 + 'px';
+                    box.style.width = w + 'px';
+                    e = true;
+                }
             }
-           }               
         }
 
         function init() {
