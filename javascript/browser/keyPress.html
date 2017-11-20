@@ -3,16 +3,16 @@
 <head>
     <title>JavaScript: onkeypress</title>
     <script>
-        function schrijf(e) {
+        function schrijf(e) { // welke toets is ingedrukt en welke letter
             var keynum;
             var keychar;
-            if (window.event) {  // IE
+            if (window.event) {  // IE --> op welke toets? 
                 keynum = e.keyCode;
             }
-            else if (e.which) {  // Netscape/FireFox/Opera
+            else if (e.which) {  // Netscape/FireFox/Opera   -->    welke toets??
             keynum = e.which;
         }
-        keychar = String.fromCharCode(keynum);
+        keychar = String.fromCharCode(keynum); // letterlijk STRING schrijven !!
         document.getElementById("result").innerHTML += keynum + "= " + keychar + "<br />";
         }
         function init(){
