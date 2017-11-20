@@ -10,6 +10,7 @@
         }
 
         .show {
+            font-size: 20px;
             color: red;
             visibility: visible;
         }
@@ -22,42 +23,67 @@
             controleQ1();
             controleQ2();
             controleQ3();
-            alert("U heeft "+ tellerCorrect + " vragen correct!");
+            alert("U heeft " + tellerCorrect + " correct!");
 
         }
-//-----------------------------------------------------------------------
-        var validated = true;
-//-----------------------------------------------------------------------
-        function controleQ1() {  // CHECK 1 RADIOBUTTONS 
+        //-----------------------------------------------------------------------
+        function controleQ1() {  // CHECK 1 RADIOBUTTON 
             var correctAnsw = document.getElementById("11").checked;
+            var error1 = document.getElementById("error1");
+            var validated = true;
             if (correctAnsw == true) {
                 tellerCorrect++;
-            
-            }else {
-                var error = document.getElementById("error1");
-                error.className = "show";
-                error.innerHTML = "Fout";
+
+            } else {
+                error1.className = "show";
+                error1.innerHTML = "DEZE VRAAG IS FOUT!";
                 validated = false;
-                return validated;
+            
             }
 
         }
-        function controleQ2() {  // CHECK 1 RADIOBUTTONS 
+    //-----------------------------------------------------------------------
+        function controleQ2() {  // CHECK 2 RADIOBUTTON
             var correctAnsw2 = document.getElementById("20").checked;
+            var error2 = document.getElementById("error2");
+            var validated = true;
             if (correctAnsw2 == true) {
                 tellerCorrect++;
+            } else {
+                error2.className = "show";
+                error2.innerHTML = "DEZE VRAAG IS FOUT!";
+                validated = false;
+            
             }
         }
-        function controleQ3() {  // CHECK 1 RADIOBUTTONS 
+    //-----------------------------------------------------------------------
+        function controleQ3() {  // CHECK 3 RADIOBUTTON
             var correctAnsw3 = document.getElementById("3").checked;
+            var error3 = document.getElementById("error3");
+            var validated = true;
             if (correctAnsw3 == true) {
                 tellerCorrect++;
+            } else {
+                error3.className = "show";
+                error3.innerHTML = "DEZE VRAAG IS FOUT!";
+                validated = false;
+            
             }
         }
+    //-----------------------------------------------------------------------
+    function tijdVerlopen(){
+     setTimeout(alertOnbeschikbaar, 1000);
+    }
+    function alertOnbeschikbaar(){
+   //document.getElementById("btnCalc").disabled = true;
+        alert("De tijd is verstreken");
+    }
+    //-----------------------------------------------------------------------
 
         function init() {
+            tijdVerlopen();
             frm.btnCalc.onclick = controleQ;
-            frm.btnCalc.onclick = controleerInput;
+            //  frm.btnCalc.onclick = controleerInput;
 
         }
         window.onload = init;
@@ -68,8 +94,9 @@
 
 <body>
     <form name="frm">
-        <p>Welk 50 dieren heeft een crazy ---Lady bij haar thuis?</p>
-        <br><span id="error1" class="hideMe"> </span>
+        <span><strong>Welk 50 dieren heeft een crazy ---Lady bij haar thuis?</strong></span>
+        <span id="error1" class="hideMe"> </span>
+        <br>
         <!-- VALUE kort houden moet elke keer verstuurd worden -->
         <label>
             <input type="radio" id="10" name="btn" /> Dog </label>
@@ -89,8 +116,8 @@
         <br>
         <!--  ________________________________________________ -->
 
-        <p>Wat is Rood?</p>
-        <br><span id="error2" class="hideMe"> </span>
+        <span><strong> is Rood?</strong></span>  
+        <span id="error2" class="hideMe"> </span> <br>
         <input type="radio" id="20" name="btn2" />Een Kleur </label>
         <br>
         <br>
@@ -108,8 +135,8 @@
         <br>
         <!--  ________________________________________________ -->
 
-        <p>Wat is een vrouw?</p>
-        <br><span id="error3" class="hideMe"> </span>
+        <span><strong>Wie is een vrouw?</strong></span>
+        <span id="error3" class="hideMe"> </span><br>
         <input type="radio" id="0" name="btn3" />Kristofa </label>
         <br>
         <br>
@@ -126,7 +153,7 @@
         <br>
         <br>
         <!--  ________________________________________________ -->
-        <input type="button" value="Check Question" name="btnCalc" />
+        <input type="button" value="Check Questions" name="btnCalc" />
         <br>
         <br>
 
