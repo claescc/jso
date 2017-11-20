@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Alle spaties</title>
+    <script>
+'use strict';
+
+function changeAllspaties(){
+var stringX = frm.invoer.value;
+var oneSpatie = stringX.replace(/ +/g,' ');
+frm.pasteVeld.value = oneSpatie;
+}
+
+
+//______________________________________________________________________________________
+function init() {
+    var btn = frm.btnChange;
+    btn.onclick = changeAllspaties;        // als er wordt gelickt dan copyPASTE inhoud !  
+}
+
+window.onload = init;
+//___________________________________________________________________________________END
+    </script>
+
+</head>
+<body>
+    <form name="frm">
+        Change me: <input type="text" name="invoer" />
+        <br>
+        <br>
+        <!-- Kopier van invoer  -->
+        <input type="button" value="changeMe" name="btnChange" />
+       <br><br>
+        <input type="text" name="pasteVeld" />
+        <!-- PLAK VELD -->
+
+    </form>
+</body>
+
+</html>

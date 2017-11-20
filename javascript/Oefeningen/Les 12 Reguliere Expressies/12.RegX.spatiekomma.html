@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Komma spatie</title>
+    <script>
+'use strict';
+
+function changeAll(){
+var stringX = frm.invoer.value;
+var changedAlles = stringX.replace(/,/g,', ');
+frm.pasteVeld.value = changedAlles;
+}
+
+
+//______________________________________________________________________________________
+function init() {
+    var btn = frm.btnChange;
+    btn.onclick = changeAll;        // als er wordt gelickt dan copyPASTE inhoud !  
+}
+
+window.onload = init;
+//___________________________________________________________________________________END
+    </script>
+
+</head>
+<body>
+    <form name="frm">
+        Fill me: <input type="text" name="invoer" />
+        <br>
+        <br>
+        <!-- Kopier van invoer  -->
+        <input type="button" value="changeMe" name="btnChange" />
+       <br><br>
+        <input type="text" name="pasteVeld" />
+        <!-- PLAK VELD -->
+
+    </form>
+</body>
+
+</html>
+

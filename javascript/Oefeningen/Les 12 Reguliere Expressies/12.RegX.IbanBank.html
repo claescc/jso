@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>RijksregisterNr</title>
+    <script>
+        'use strict';
+
+        function controleIBAN() {
+            var invoerI = frm.iban.value;
+            var regX = new RegExp(/^BE[0-9]{2}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/); // 
+            if (regX.test(invoerI)) {      // true of false terug
+                var checkD = "Correcte IBAN";
+                frm.pasteVeld0.value = checkD;
+            } else {
+                var checkD = "Fout: geen IBAN!";
+                frm.pasteVeld0.value = checkD;
+            }
+        }
+        
+        function controle10Cijfers() {
+            var stringSpatiecijfers = frm.iban.value; // 0123-5678-10111213-15161718
+            var string10 = stringSpatiecijfers.replace(/ /g, '');
+            var slice10 = parseInt(string10.slice(4, 14));
+            var slice97 = parseInt(string10.slice(14, 16));
+            var result = slice10 % 97;
+            if (result == slice97) {
+                frm.pasteVeld1.value = "Controle: OK!";
+
+            } else {
+                frm.pasteVeld1.value = "Controle: FOUT!";
+            }
+
+        }
+
+        //______________________________________________________________________________________
+        function init() {
+            var btnA = frm.btnControle;
+            btnA.onclick = controleIBAN;
+            btnA.onclick = controle10Cijfers;
+            // btnA.onclick = controleXXX;
+
+        }
+
+        window.onload = init;
+//___________________________________________________________________________________END
+    </script>
+</head>
+
+<body>
+    <form name="frm">
+        <p>BExx xxxx xxxx xxxx</p>
+        IBAN:
+        <input type="text" name="iban" />
+        <br>
+        <br>
+        <input type="button" value="Controle" name="btnControle" />
+        <br>
+        <br>
+        <input type="text" name="pasteVeld0" style="width: 300px" />
+        <br>
+        <br>
+        <input type="text" name="pasteVeld1" style="width: 300px" />
+        <br>
+        <br>
+        <input type="text" name="pasteVeld2" style="width: 300px" />
+        <br>
+        <br>
+
+
+    </form>
+</body>
+
+</html>

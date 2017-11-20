@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test html js</title>
+    <script>
+        'use strict';
+        var arrayNamen = [];
+
+        function controleVelden() {
+            var inV = frm.invoer.value;   // invoer text 
+            //   var regX = new RegExp(frm.regExpres.value);   // invoer text 
+ var regX = frm.btnCaps.checked ? new RegExp(frm.regExpres.value) : new RegExp(frm.regExpres.value, 'i');   // i = niet hoofdletter gevoelig
+
+            // CONTROLE reguliere expressie?? 
+            if (regX.test(inV)) {// true of false terug
+                alert("Correct !!\ninvoer : " + inV + "\nregulier expressie : " + regX);
+            } else {
+                alert("FOUT !!\ninvoer : " + inV + "\nregulier expressie : " + regX);
+            }
+
+        }
+
+     
+    				
+ 
+
+      
+        //______________________________________________________________________________________
+        function init() {
+            var btn = frm.btnSort;
+            btn.onclick = controleVelden;        // als er wordt gelickt dan copyPASTE inhoud ! 
+            btn.onclick = capsCheck;        // als er wordt gelickt dan copyPASTE inhoud ! 
+        }
+        window.onload = init;
+//______________________________________________________________________________________
+    </script>
+
+</head>
+<style>
+    box {
+        Width: 300px;
+    }
+</style>
+
+<body>
+    <form name="frm">
+        Invoer:
+        <input type="text" name="invoer" />
+        <br>
+        <label>
+            <input type="checkbox" value="1" name="btnCaps" /> Hoofdletter Gevoelig </label>
+        <br>
+        <!-- INVOER VELD -->
+        Regulier expressie:
+        <input style="width:300px" type="text" name="regExpres" />
+        <br>
+        <!-- Kopier van invoer  -->
+        <input type="button" value="controleer" name="btnSort" />
+
+    </form>
+</body>
+
+</html>

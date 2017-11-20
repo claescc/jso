@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Antwerps Limb</title>
+    <script>
+'use strict';
+
+function naarAntwerps() {
+    var stringX = frm.invoer.value;
+    var antwerps = stringX.replace(/h/g,'');
+    frm.pasteVeld.value = antwerps;
+}
+
+function naarLimburgs() {
+    var x = frm.invoer.value;
+    var x1 = x.replace(/([aeiou])/g, '$1$1'); // alle klinkers 2x
+   /* var x1 = x.replace(/e/g, 'ee');
+    var x2 = x1.replace(/a/g, 'aa');
+    var x3 = x2.replace(/i/g, 'ii');
+    var x4 = x3.replace(/o/g, 'oo');
+    var limburgs = x4.replace(/u/g, 'uu'); 
+    frm.pasteVeld.value = limburgs;*/
+    frm.pasteVeld.value = x1;
+} 
+
+//______________________________________________________________________________________
+function init() {
+    var btnA = frm.btnAntw;
+    var btnB = frm.btnLimb;
+    btnA.onclick = naarAntwerps;        // als er wordt gelickt dan copyPASTE inhoud !  
+    btnB.onclick = naarLimburgs;
+}
+
+window.onload = init;
+//___________________________________________________________________________________END
+    </script>
+
+</head>
+<body>
+    <form name="frm">
+        Change me: <input type="text" name="invoer" />
+        <br>
+        <br>
+        <!-- Kopier van invoer  -->
+        <input type="button" value="Antwerps" name="btnAntw" />
+       <br><br>
+        <input type="button" value="Limburgs" name="btnLimb" />
+       <br><br>
+        <input type="text" name="pasteVeld" style="width: 300px"/>
+        <!-- PLAK VELD -->
+
+    </form>
+</body>
+
+</html>
