@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 2 - deel 2 - vraag 3</title>
+</head>
+<script>
+
+    //-----------------------Functies-----------------------------
+    function pigLatin() {
+        var x = frm.txtInvoer.value;
+        x = "p" + x;                                            
+        var controle = x.replace(/p/g, '#');                 // eerst alle p's omzetten Reserve#
+        var controle2 = controle.replace(/ /g, ' p');       // bij elke spatie een spatie+p
+        var controle3 = controle2.replace(/#/g, 'p');       // Reserve# omzetten naar origine p
+        var result = controle3.replace(/ pp/g, ' p');       // dubbels mag niet terugzetten
+        frm.txtVertaling.value = result;
+
+    }
+    function init() {
+        var btnPig = frm.btnVertaal;
+        btnPig.onclick = pigLatin;        // als er wordt gelickt dan copyPASTE inhoud !  
+
+    }
+
+    window.onload = init;
+
+</script>
+
+<body>
+    <form name="frm">
+        <label for="txtInvoer">Originele zin: </label>
+        <input type="text" id="txtInvoer" name="txtInvoer" placeholder="Zin om te vertalen naar pigLatin"
+        />
+        <input type="button" value="Vertaal naar pigLatin" id="btnVertaal" />
+        <label for="txtVertaling">Vertaling: </label>
+        <input type="text" id="txtVertaling" name="txtVertaling" readonly />
+    </form>
+</body>
+
+</html>
