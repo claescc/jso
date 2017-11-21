@@ -3,7 +3,13 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>RijksregisterNr</title>
+    <title>IBAN Nr</title>
+    <style>
+            form {
+                width: 400px;
+                margin: 100px auto;
+            }
+        </style>
     <script>
         'use strict';
 
@@ -26,20 +32,25 @@
             var slice97 = parseInt(string10.slice(14, 16));
             var result = slice10 % 97;
             if (result == slice97) {
-                frm.pasteVeld1.value = "Controle: OK!";
+                frm.pasteVeld1.value = "Controle 10 cijfers: IDENTIFICATIE NR CORRECT!";
 
             } else {
-                frm.pasteVeld1.value = "Controle: FOUT!";
+                frm.pasteVeld1.value = "Controle 10 cijfers: FOUT!";
             }
 
         }
+        // CONTROLE 3 nog 
 
+        
         //______________________________________________________________________________________
         function init() {
-            var btnA = frm.btnControle;
-            btnA.onclick = controleIBAN;
-            btnA.onclick = controle10Cijfers;
-            // btnA.onclick = controleXXX;
+            var btn0 = frm.btnControle0;
+            var btn1 = frm.btnControle1;
+           // var btn2 = frm.btnControle2;
+            btn0.onclick = controleIBAN;
+            btn1.onclick = controle10Cijfers;
+           // btn2.onclick = ;
+
 
         }
 
@@ -55,13 +66,19 @@
         <input type="text" name="iban" />
         <br>
         <br>
-        <input type="button" value="Controle" name="btnControle" />
+        <input type="button" value="Controle IBAN" name="btnControle0" />
         <br>
         <br>
         <input type="text" name="pasteVeld0" style="width: 300px" />
         <br>
         <br>
+        <input type="button" value="Controle 10 cijfers" name="btnControle1" />
+        <br>
+        <br>
         <input type="text" name="pasteVeld1" style="width: 300px" />
+        <br>
+        <br>
+        <input type="button" value="Controle" name="btnControle2" />
         <br>
         <br>
         <input type="text" name="pasteVeld2" style="width: 300px" />
