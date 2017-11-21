@@ -3,10 +3,10 @@ function isAnagram(s1, s2) {
     var copyOfs2 = s2.replace(/ /g, "").toLowerCase();
     var status = true;
 
-    if (copyOfs1.length != copyOfs2.length)
+    if (copyOfs1.length != copyOfs2.length)     // moet zelfde lengte zijn !!
         return false;
-    for (var i = 0; i < copyOfs1.length; i++) {
-        var index = copyOfs2.indexOf(copyOfs1.charAt(i));
+    for (var i = 0; i < copyOfs1.length; i++) {     // doorloop alle letters in de string 
+        var index = copyOfs2.indexOf(copyOfs1.charAt(i)); // i1 terug in s2
         if (index != -1) {
             copyOfs2 = copyOfs2.substring(0, index) + 
             copyOfs2.substring(index + 1, copyOfs2.length);
