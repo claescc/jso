@@ -5,13 +5,13 @@
 
 var verrassing = "and?";
 {
-	var verrassing = "what did you expect?";
+	var verrassing = "what did you expect?"; // niet in fucntie!!!
 }
 console.log(verrassing);  // what did you expect?
 
 var verrassing2 = "and?";
 function f(){
-	var verrassing2 = "what did you expect?";
+	var verrassing2 = "what did you expect?"; // local variable in functie !! 
 }
 console.log(verrassing2);  // and?
 

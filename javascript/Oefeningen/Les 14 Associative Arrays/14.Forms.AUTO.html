@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Auto's Tuut tuut</title>
+<style>
+    form {
+        width: 400px;
+        margin: 100px auto;
+    }
+</style>
+<script>
+'use strict';
+var autoArray = ["BMW", "FIAT", "MERCEDES"];
+var modelBMWArray = ["1", "5", "6"];
+var modelFIATArray = ["500", "500CC", "Abarth"];
+var modelMERCEDESArray = ["CLA", "A", "SLA"];
+var kleurArray = ["Rood", "Blauw", "Zwart"];
+var allModels = [modelBMWArray, modelFIATArray, modelMERCEDESArray];
+
+function funcFillMeUpWithCars() {
+    var autoArray = ["BMW", "FIAT", "MERCEDES"];
+    var getEntireForm = document.getElementById('frm');
+    var dropDownCars = frm.listCars;
+    for (var i = 0; i < autoArray.length; i++) {
+        var option = document.createElement('option'); // voor elk element option maken 
+        option.value = autoArray[i];
+        option.text = autoArray[i];
+       dropDownCars.add(option);  
+    }
+}
+function funcColorsDropDown() {
+    var kleurArray = ["Rood", "Blauw", "Zwart"];
+    var getEntireForm = document.getElementById('frm');
+    var dropDownColors = frm.listColors;
+    for (var i = 0; i < kleurArray.length; i++) {
+        var option = document.createElement('option'); // voor elk element option maken 
+        option.value = kleurArray[i];
+        option.text = kleurArray[i];
+       dropDownColors.add(option);  
+    }
+}
+
+function selectCarmodelArray(){
+ var indexCars =  frm.listCars.selectedIndex; // neem de geselecteerde array
+ return allModels[indexCars]; // geef die array terug 
+}
+
+function funCarModels() {
+    var getEntireForm = document.getElementById('frm');
+    var dropDownModels = frm.listModels;
+    var x = selectCarmodelArray(); //array doorgegeven nu in vakjes plaatsen 
+    for (var i = 0; i < x.length; i++) {
+        var option = document.createElement('option'); // voor elk element option maken 
+        option.value = x[i];
+        option.text = x[i];
+       dropDownModels.remove(option);  
+    }
+    for (var i = 0; i < x.length; i++) {
+        var option = document.createElement('option'); // voor elk element option maken 
+        option.value = x[i];
+        option.text = x[i];
+       dropDownModels.add(option);
+        
+    }
+}
+
+function alertSelectedChoices(){
+    var optionCar = document.getElementById("carsList");  // haal uit document option
+    var optionModel = document.getElementById("modelList");  // haal uit document option
+    var optionColor = document.getElementById("colorList");  // haal uit document option
+    var selectedCaroption = optionCar.options[optionCar.selectedIndex]; // uit option option index
+    var selectedModeloption = optionModel.options[optionModel.selectedIndex]; // uit option index
+    var selectedColoroption = optionColor.options[optionColor.selectedIndex]; // uit option index
+    let deAuto = selectedCaroption.text; // object omzetten naar text !! 
+    let hetModel = selectedModeloption.text;
+    let deKleur = selectedColoroption.text;
+    let bouwJ = frm.bouwjaar.value;
+
+    let standKmString = frm.kmstand.value;
+    let afstandString = frm.afstand.value;
+    let newKmstand = parseInt(standKmString)+parseInt(afstandString);
+    frm.kmstand.value = newKmstand;
+    
+    let cabrio = "Nee";
+    let checkUnchecked = frm.btnCabrio.checked
+    if (checkUnchecked == true){
+        cabrio = "Ja";
+    }
+
+    alert("Merk: " + deAuto+ "\nModel: "+ hetModel +"\nKleur: "+ deKleur +  "\nCabrio: "+ cabrio +  "\nBouwjaar: "+ bouwJ);  
+}
+
+function init(){
+    funcColorsDropDown();
+    funcFillMeUpWithCars(); 
+    funCarModels();
+    var btnDrive = frm.btnRijd;
+    btnDrive.onclick = alertSelectedChoices;
+    document.getElementById("carsList").onchange = function (){funCarModels()};
+}
+
+window.onload = init;
+</script>
+
+</head>
+<body>
+        <form name="frm">
+ 
+
+                Merk: <select name="listCars" id="carsList"> </select>
+                <br>
+                <br>
+                Model:<select name="listModels" id="modelList"> </select>
+                <br>
+                <br>
+                Kleur:<select name="listColors" id="colorList"> </select>
+                <br>
+                <br>
+                Bouwjaar:<input type="text" name="bouwjaar" />
+                <br>
+                <br>
+                Kmstand:<input type="text" name="kmstand" />
+                <br>
+                <br>
+                Cabrio:<input type="checkbox" value="1" name="btnCabrio" />
+                <br>
+                <br>
+                <input type="button" value="Rijd" name="btnRijd"/> 
+                Afstand:<input type="text" name="afstand" />
+                </form>
+
+                
+</body>
+</html>
