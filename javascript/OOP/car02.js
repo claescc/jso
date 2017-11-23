@@ -14,7 +14,7 @@ var fiat = {
     stop: function() {
 		this.started = false;
 	},
-    drive: function(distance = 0) {
+    drive: function(distance = 0) { // vervang waarde !! 
 		//
 		// if we use started instead of this.started, 
 		// our code doesn't work!
