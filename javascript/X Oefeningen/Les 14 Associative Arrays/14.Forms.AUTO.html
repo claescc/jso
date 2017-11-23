@@ -65,6 +65,7 @@ function funCarModels() {
     }
 }
 
+
 function alertSelectedChoices(){
     var optionCar = document.getElementById("carsList");  // haal uit document option
     var optionModel = document.getElementById("modelList");  // haal uit document option
@@ -72,6 +73,7 @@ function alertSelectedChoices(){
     var selectedCaroption = optionCar.options[optionCar.selectedIndex]; // uit option option index
     var selectedModeloption = optionModel.options[optionModel.selectedIndex]; // uit option index
     var selectedColoroption = optionColor.options[optionColor.selectedIndex]; // uit option index
+
     let deAuto = selectedCaroption.text; // object omzetten naar text !! 
     let hetModel = selectedModeloption.text;
     let deKleur = selectedColoroption.text;
@@ -81,12 +83,16 @@ function alertSelectedChoices(){
     let afstandString = frm.afstand.value;
     let newKmstand = parseInt(standKmString)+parseInt(afstandString);
     frm.kmstand.value = newKmstand;
-    
+
+    /*
     let cabrio = "Nee";
     let checkUnchecked = frm.btnCabrio.checked
     if (checkUnchecked == true){
         cabrio = "Ja";
-    }
+    }*/
+    var cabrio = document.getElementById("btnCabrio").checked ? " Ja " : "Nee ";
+
+
 
     alert("Merk: " + deAuto+ "\nModel: "+ hetModel +"\nKleur: "+ deKleur +  "\nCabrio: "+ cabrio +  "\nBouwjaar: "+ bouwJ);  
 }
@@ -123,7 +129,7 @@ window.onload = init;
                 Kmstand:<input type="text" name="kmstand" />
                 <br>
                 <br>
-                Cabrio:<input type="checkbox" value="1" name="btnCabrio" />
+                Cabrio:<input type="checkbox" value="1" name="btnCabrio" id="btnCabrio" />
                 <br>
                 <br>
                 <input type="button" value="Rijd" name="btnRijd"/> 
