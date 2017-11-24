@@ -54,7 +54,6 @@ leesTweeDimTabel(puntenTabel, "Geef punten voor vak ");
 toonTweeDimTabel(puntenTabel, "Behaalde punten");
 
 /* oefening: */
-<<<<<<< HEAD
 // geef hoogst behaalde cijfer terug van alle punten 
 
 console.log(puntenTabel);
@@ -79,6 +78,4 @@ function maximum(){ // Not a Number ??
 return hoogsteCijfer;
 
 }
-=======
 console.log("Het maximum = %d", maximum(puntenTabel));
->>>>>>> 760402dafc1b7e57fab7707312ee0f6ca0d344b5

@@ -23,7 +23,7 @@ var fileName = "hallo.txt";
 openFile(fileName);
 try {
     writeFile(fileName);
-    console.log("klaar met schrijven");
+    console.log("klaar met schrijven"); 
 }
 catch(exception){
     console.log("oeps...");
