@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<script>
+    window.onload = function (){
+        let elt = document.body;
+        elt = document.head;
+        elt = document.getElementsByTagName('p')[0];
+        let result = "";
+        result = "element type is " + elt.nodeType + "\n"; // 1
+        result += "element type is " + elt.nodeName + "\n"; // p
+        result += "element type is " + elt.nodeValue;   // 0
+        alert(result)
+
+        let btn = document.getElementById('btn');
+        btn.onclick = toonChildrenBody;
+    }
+
+    function toonChildrenBody(){
+        var body = document.body;    // tabs en text komen er ook bij (3 #text) moet .child excl dan !
+      //  var kids = body.childNodes; // array kan van elk element 
+        var kids = body.children; // array kan van elk element  ENKEL DIRECTE KIDS NU !
+        for(var i= 0; i <kids.length; i++){
+            console.log(kids[i].nodeType, kids[i].nodeName, kids[i].nodeValue);
+            if(kids[i].hasAttributes()){
+                console.log(kids[i].nodeName+"heeft minstens 1 attribuut");
+                console.log("attribuut value heeft waarde: ",kids[i].getAttribute("value"));
+                kids[i].setAttribute("value", "done"); // knop aangepast nu !!
+            }
+        }
+    }    // F12
+    
+
+</script>
+
+<head>
+    <title>Voorbeeld</title>
+</head>
+<body>
+    <h1>Een voorbeeld</h1>
+    <p>Dit is een<em> belangrijke</em> tekst</p>
+    <input type="button" id="btn" value="click">
+</body>
+</html>
