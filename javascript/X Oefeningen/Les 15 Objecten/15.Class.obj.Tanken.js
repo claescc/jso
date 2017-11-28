@@ -26,7 +26,15 @@ console.log(tankbeurten);
 
 //_____________________________________________
 //ClassTankbeurt.prototype.verbruik100km = function(){}
-
+var somAfstand=0;
+var somHoeveelheid = 0;
+for(var i=0; i < tankbeurten.length; i++){
+    somAfstand += tankbeurten[i].afstand;
+    somHoeveelheid += tankbeurten[i].inhoud;
+}
+console.log('Totale hoeveelheid brandstof = %d', somHoeveelheid);
+console.log('Totale afstand = %d', somAfstand);
+console.log('Verbruik per 100km = %d', 100 * somHoeveelheid/somAfstand);
 
 //_____________________________________________
 
