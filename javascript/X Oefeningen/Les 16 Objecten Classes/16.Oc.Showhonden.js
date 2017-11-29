@@ -51,11 +51,12 @@ for (var i = 0; i < honden.length; i++) {
 
 //-----------------------UITBREIDING-----------------------------
 
-function ShowHond(name, race, weigth, prijzen) {    // constructor overrloading
-    Hond.apply(this, arguments);
+function ShowHond(name, race, weigth, prijzen) {    // constructor overrloading Overwriting
+    Hond.apply(this, arguments); // all properties Object
     // Hond.call(this, name, race, weigth);
     this.aantalPrijzen = prijzen;
 }
+// copy all constructor functions / methods of the HOND-Object
 ShowHond.prototype = new Hond(); // voor properties en Method over te erven (blaf inc)
 
 ShowHond.prototype.paradeer = function (wijze) {
