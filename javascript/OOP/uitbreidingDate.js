@@ -16,6 +16,7 @@
 	return leeftijd;
 }
 
+
 Date.prototype.geefLeeftijd = geefLeeftijd;
 var geboorteDatum = new Date(2000, 11, 11);  // 11 december 2000
 var refDatum = new Date(2017, 11, 10);  // 10 december 2017

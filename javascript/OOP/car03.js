@@ -31,7 +31,7 @@ function Car(make, model, year, color, passengers, convertible, mileage) {
 }
 
 var chevy = new Car("Chevy", "Bel Air", 1957, "red", 2, false, 1021);
-chevy.drive();
+//chevy.drive();
 
 var cadi = new Car("GM", "Cadillac", 1955, "tan", 5, false, 12892);
 var taxi = new Car("Webville Motors", "Taxi", 1955, "yellow", 4, false, 281341);
@@ -39,11 +39,14 @@ var fiat = new Car("Fiat", "500", 1957, "Medium Blue", 2, false, 88000);
 
 var testCar = new Car("Webville Motors", "Test Car", 2014, "marine", 2, true, 21);
 
-var cars = [chevy, cadi, taxi, fiat, testCar];
+var carsArray = [chevy, cadi, taxi, fiat, testCar];
 
-for(var i = 0; i < cars.length; i++) {
-    cars[i].start();
-    cars[i].drive();
-    cars[i].drive();
-    cars[i].stop();
+//cars.push(new cars("BMX", "X6", 2017, "silver", 6, "true", 5));
+
+for(var i = 0; i < carsArray.length; i++) {
+//	let cars = carsArray[i];
+    carsArray[i].start();
+    carsArray[i].drive();
+    carsArray[i].drive();
+    carsArray[i].stop();
 }
