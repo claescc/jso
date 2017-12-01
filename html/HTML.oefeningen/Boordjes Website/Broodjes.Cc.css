@@ -1,6 +1,6 @@
 
 * {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Arial',Verdana, sans-serif;
     box-sizing: border-box; 
   }
 
@@ -30,7 +30,7 @@
   
   .topnav a:hover {
    
-    background-color:salmon;
+    background-color:rgb(252, 143, 130);
     color:white;
   }
   
@@ -120,7 +120,7 @@
 width: 330px;
    margin: 10px 0px;
   /* background: lightcoral; */
-  background-image: url(carton4.jpg); 
+  background-image: url(karton4.jpg); 
  border: 1px solid hotpink;
   outline: none;
   box-shadow: 0 0 30px hotpink;

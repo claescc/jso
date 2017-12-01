@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM manipulatie: voorbeeld 1</title>
+    <script>
+        var lijstje = ["brood", "kaas", "boter", "ham"];
+
+        window.onload = function () {
+            maakHoofding();
+            maakLijst();
+            maakCheckbox();
+            maakKnop();
+            init();
+        }
+        function init() {
+            var btn = frm.btn;
+            btn.onclick = voegToe;        // als er wordt gelickt dan copyPASTE inhoud ! 
+           
+        }
+
+
+        function maakHoofding() {
+            var h2 = document.createElement("h2");
+            h2.innerText = "Boodschappenlijstje";
+            document.body.appendChild(h2);
+        }
+
+        function maakLijst() {
+            var ul = document.createElement("ul");
+            document.body.appendChild(ul);
+            var li;
+            for (var i = 0; i < lijstje.length; i++) {
+                li = document.createElement("li");
+                li.innerText = lijstje[i];
+                ul.appendChild(li);
+            }
+        }
+        function maakCheckbox() {
+            let label = document.createElement("label");
+            label.innerText = "Melkallergie";
+            document.body.appendChild(label);
+            var btn = document.createElement("input");
+            btn.type = "checkbox";
+            btn.id = "melkCheck";
+            document.body.appendChild(btn);
+        }
+
+        let zuivel = ["melk", "boter", "kaas", "yogurt", "brood"];
+        function deleteMelk() {
+            var ul = document.getElementsByTagName("ul")[0];
+            var li = ul.getElementsByTagName('li');
+            for (var i = li.length - 1; i >= 0; i--) {
+                if (zuivel.indexOf(li[i].innerText) !== -1) {// if zuivel delete:
+                    ul.removeChild(li[i]);
+                }
+            }
+        }
+
+
+        function voegToe() {
+            var ul = document.getElementsByTagName("ul")[0]; // is een
+            var li = document.createElement('li');
+            li.innerText = frm.boodschappen.value;
+            ul.appendChild(li);
+         
+        }
+
+        function maakKnop() { // maak knop in HTML document 
+            var btn = document.createElement("input");
+            btn.type = "button";
+            btn.value = "bestellen";
+            btn.onclick = function () {
+                //verwijderLijst();
+            var melkControle = document.getElementById("melkCheck").checked; // gives true or false 
+            if (melkControle) { deleteMelk() }  /// if true 
+                alert("uw bestelling wordt verwerkt");
+            }
+            document.body.appendChild(btn);
+        }
+/*
+        function verwijderLijst() {
+            var ul = document.getElementsByTagName("ul")[0];
+            if (ul) {
+                var li = ul.getElementsByTagName('li');
+                for (var i = li.length - 1; i >= 0; i--) {
+                    ul.removeChild(li[i]);
+                }
+            }
+
+        }
+*/
+    </script>
+</head>
+
+<body>
+    <h1>Onderstaande elementen zijn dynamisch toegevoegd</h1>
+    <form name="frm">
+        <input type="text" name="boodschappen" />
+        <input type="button" value="Toevoegen" name="btn" />
+    </form>
+</body>
+
+</html>

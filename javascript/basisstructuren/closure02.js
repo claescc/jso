@@ -12,5 +12,7 @@ function outer(){
 
 var test = outer();
 test.verhoogTeller();
+
 var tel = test.getTeller();
 console.log(tel);
+

@@ -4,7 +4,7 @@
 
 var fs = [];
 for(var i =0; i<10; i++){
-	fs.push( () => console.log(i) );
+	fs.push( () => console.log(i) ); // 10 functie defenities erin stoppen
 }
 /**/console.log(fs[0])
 fs.forEach( f => f());  // 10 keer 10

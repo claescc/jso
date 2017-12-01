@@ -1,6 +1,6 @@
 // bron: https://egghead.io/lessons/arrow-function?course=learn-es6-ecmascript-2015
 
-var greeting = function(message, name){
+var greeting = function(message, name){ // var X = functie (func expressie)
 	return message + ", " + name;
 }; 
 console.log(greeting("Hello", "Baptist"));

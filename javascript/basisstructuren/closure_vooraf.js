@@ -1,7 +1,7 @@
 /* herhaling: lokale vs globale var */
 'use strict';
 
-var naam = "Joske";
+var naam = "Joske";  // globaal
 schrijfGlobaleVar();
 schrijfLokaleVar();
 
@@ -10,7 +10,7 @@ function schrijfGlobaleVar(){
 }
 
 function schrijfLokaleVar(){
-    var naam = "Jeanne";
+    var naam = "Jeanne"; // lokaal
     var naam2 = "Geraar";
     console.log(naam);
     console.log(naam2);

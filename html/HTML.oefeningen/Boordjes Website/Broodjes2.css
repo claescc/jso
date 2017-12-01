@@ -1,6 +1,6 @@
 
 * {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Arial',Verdana, sans-serif;
     box-sizing: border-box; 
   }
 
@@ -27,7 +27,7 @@
   
   .topnav a:hover {
    
-    background-color:salmon;
+    background-color:rgb(252, 143, 130);
     color:white;
   }
   

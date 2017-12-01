@@ -16,8 +16,8 @@ function verwijderKnop(){
 
 function verwijderParagrafen(){
     var div = document.getElementById("eenDiv");
-    if(div){
-        var pars = div.getElementsByTagName("p");
+    if(div){ // als we het vinden doe het volgende : 
+        var pars = div.getElementsByTagName("p");       // komt array uit 
         for(var i=pars.length - 1; i >= 0; i--){
             div.removeChild(pars[i])
         }
@@ -26,7 +26,7 @@ function verwijderParagrafen(){
 
 function verwijderDiv(){
     var div = document.getElementById("eenDiv");
-    if(div){
+    if(div){ // als we het vinden doe :
         document.body.removeChild(div);
     }
 }
