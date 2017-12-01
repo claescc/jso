@@ -45,9 +45,15 @@ function wijzigLijstitemsInButtons(){       // wijzig alle buttons van TYPE !!!
     var btn;
     for(var i=0; i< ul.childNodes.length; i++){     // elke ul node (li) omzetten nr button
         btn = document.createElement("button");
+<<<<<<< HEAD
         btn.type="button";
         btn.innerText= ul.childNodes[i].innerText; // text van li naar btn 
         div.appendChild(btn);           /// zet onder div (DIV NOG NI IN DOM!!!)
+=======
+        // btn.type="button";  // zinloos
+        btn.innerText= ul.childNodes[i].innerText;
+        div.appendChild(btn);
+>>>>>>> ff54407ec9742ecee7822443ff2d1318897f2f57
     }
     document.body.replaceChild(div, ul);    // change in body (childNew, childOld)
 }
