@@ -29,7 +29,6 @@ function init() {
 }
 
 function changeBackground() {
-    console.log("boe");
     let color = frm.color.value;
     localStorage.setItem('background', color); //save storage
     document.body.style.backgroundColor = color; // set bg
