@@ -1,0 +1,38 @@
+#wrapper {
+    border: 3px solid black;
+    width: 600px;
+    height: 150px;
+    margin: 0px auto;
+}
+h1 {
+    color: white;
+    position: relative;
+    top: 14px;
+    margin: 100px 20px 0px 300px;
+    text-shadow: 2px 2px black;
+}
+
+form {
+    margin-top: 30px;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    vertical-align: top;
+    text-align: right;
+}
+
+input, select {
+    width: 200px;
+}
+label {
+    width: 400px;
+}
+#images {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+label > select, label>input{
+    display: relative;
+    left: 200px;
+    margin-left: 20px;
+}
