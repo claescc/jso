@@ -41,13 +41,14 @@ function schudkaarten() {
 
 
 function Hand (){
-    this.speelkaarten = speelkaarten;
+    this.speelkaarten = [];
 }
 
 Hand.prototype.voegKaartToe(){};
 Hand.prototype.punten(){};
 Hand.prototype.magStoppen(){};
 Hand.prototype.isKapot(){};
+Hand.prototype.factoren(){};
 
 /*
 Schrijf een klasse Hand. Een hand kan meerdere speelkaarten bevatten.  Met methode voegKaartToe voeg je de doorgegeven kaart toe aan de kaarten van de hand.  Methode punten geeft terug hoeveel punten de hand waard is.  Dit bereken je door de som van de punten van de kaarten van de hand te berekenen, waarbij een kaart met waarde 1 voor 1 punt staat, een kaart met waarde 2 voor 2 punten staat, een kaart met waarde 3 voor 3 punten staat, enz.  Een boer is 11 punten waard, een dame 12 punten, en een heer 13 punten.  Methode magStoppen geeft true terug als de punten van de hand minstens 17 zijn.  Methode isKapot geeft true terug als de punten van de hand meer dan 21 zijn.  Methode factor geeft een getal terug afhankelijk van de punten van de hand: bij 21 punten is het resultaat 3, bij 20 punten is het resultaat 2, bij 19 punten is het resultaat 1, en bij alle andere punten is het resultaat 0.
