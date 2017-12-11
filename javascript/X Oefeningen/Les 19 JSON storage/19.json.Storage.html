@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Storage - voorbeeld 3</title>
+</head>
+
+<body onload="storeLocalStorage()">
+    <h1>JSON object in web storage</h1>
+    <form>
+        <label for="naam">Naam:</label>
+        <input type="text" id="naam" placeholder="Tik hier uw naam">
+        <br/>
+        <label for="voornaam">Voornaam:</label>
+        <input type="text" id="voornaam" placeholder="Tik hier uw voornaam">
+        <br/>
+        <input type="button" value="Voeg Toe" onclick="bewaarPersoonInLocalStorage(this.form.naam.value, this.form.voornaam.value)">
+        <input type="button" value="Toon" onclick="toonArray()">
+    </form>
+    <h1>Overzicht Personen</h1>
+    <ul></ul>
+</body>
+<script>
+    storeLocalStorage();
+    var personenStorage = JSON.parse(localStorage.getItem('persoon'));//[];
+
+    function Persoon(naam, voornaam){
+        this.naam = naam;
+        this.voornaam = voornaam;
+    }
+    function storeLocalStorage() { // test of er iets in zit !!! 
+			var value = localStorage.persoon;
+			if (value == null) {// key does not exist
+				localStorage.persoon =JSON.stringify([]);
+			}
+		}
+
+    function bewaarPersoonInLocalStorage(naam, voornaam) {
+        let newPersoon = new Persoon(naam, voornaam);
+        personenStorage.push(newPersoon);
+        localStorage.setItem('persoon', JSON.stringify(personenStorage));
+    }
+
+    function toonArray() {
+        var persoon = JSON.parse(localStorage.getItem('persoon'));
+        var ul = document.getElementsByTagName("ul")[0]; 
+        var li = document.createElement('li');
+        verwijderLijst();
+        for (var i = 0; i < personenStorage.length; i++) {
+                li = document.createElement("li");
+                li.innerText = personenStorage[i].naam+" "+personenStorage[i].voornaam;
+                ul.appendChild(li);
+            }
+    }
+    function verwijderLijst() {
+            var ul = document.getElementsByTagName("ul")[0];
+            if (ul) {
+                var li = ul.getElementsByTagName('li');
+                for (var i = li.length - 1; i >= 0; i--) {
+                    ul.removeChild(li[i]);
+                }
+            }
+
+        }
+   
+
+</script>
+
+</html>

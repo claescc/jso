@@ -9,7 +9,7 @@
 <tr><th>naam</th><th>nummer</th><th>aantal doelpunten</th></tr>
 
 <xsl:for-each select="speler">
-<xsl:sort select="naam" />
+<xsl:sort select="naam" /> <!-- sorteer alle ploegleden op speler/naam -->
 <tr>
 <td><xsl:apply-templates select="naam" /></td>
 <td><xsl:apply-templates select="nummer" /></td>

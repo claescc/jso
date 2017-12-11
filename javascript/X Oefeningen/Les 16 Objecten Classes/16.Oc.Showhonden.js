@@ -51,6 +51,7 @@ for (var i = 0; i < honden.length; i++) {
 
 //-----------------------UITBREIDING-----------------------------
 
+<<<<<<< HEAD
 
 function ShowHond(name, race, weigth, prijzen) {    // constructor overrloading Overwriting
     Hond.apply(this, arguments); // all properties Object
@@ -58,6 +59,13 @@ function ShowHond(name, race, weigth, prijzen) {    // constructor overrloading 
     this.aantalPrijzen = prijzen;
 }
 // copy all constructor functions / methods of the HOND-Object
+=======
+function ShowHond(name, race, weigth, prijzen) {    // constructor overrloading
+    Hond.apply(this, arguments);
+    // Hond.call(this, name, race, weigth);
+    this.aantalPrijzen = prijzen;
+}
+>>>>>>> 0a58f659876b1d3013f0e8e3d6133a63dfb167eb
 ShowHond.prototype = new Hond(); // voor properties en Method over te erven (blaf inc)
 
 ShowHond.prototype.paradeer = function (wijze) {

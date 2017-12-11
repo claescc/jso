@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>XML DOM-tree</title>
+    <script src="xmlUtil.js"></script>
+    <script>
+        'use strict';
+        const FILENAME = "XML-bestanden/itemspuur.xml";
+
+
+        function voetbal() {
+            var doc = loadXMLDoc("ploeg.xml");
+            var spelers = doc.getElementsByTagName("speler");
+            spelers = spelers.length;
+            spelers = "Er zijn " + spelers + " spelers in de ploeg";
+            alert(spelers);
+        }
+
+        function werknemersF() {
+            let doX = loadXMLDoc("werknemers.xml");
+            //  var werknemers = doc.getElementsByTagName("werknemers");
+            let werknemers = doX.getElementsByTagName("werknemer");
+            werknemers = werknemers.length;
+            werknemers = "Er zijn: " + werknemers + " werknemers";
+            alert(werknemers);
+        }
+
+        function loonF() {
+            let doX = loadXMLDoc("werknemers.xml");
+            let werknemer = doX.getElementsByTagName("werknemer");
+            let loon = 0;
+            for (var i = 0; i < werknemer.length; i++) {
+                loon += parseInt(werknemer[i].getAttribute('loon'));
+            }
+            alert(loon);
+        }
+
+        function valutaF() {
+            let doX = loadXMLDoc("werknemers.xml");
+            let werknemer = doX.getElementsByTagName("werknemer");
+            let BEF = "BEF";
+            let loonBef = 0;
+            let loonEur = 0;
+            for (var i = 0; i < werknemer.length; i++) {
+                let valuta = werknemer[i].getAttribute('valuta')
+                if (BEF == valuta) {
+                    loonBef += parseInt(werknemer[i].getAttribute('loon'));
+                } else {
+
+                    loonEur += parseInt(werknemer[i].getAttribute('loon'));
+                }
+            }
+            loonBef /= 40.399;
+            loonEur += Math.round(loonBef);
+            alert(loonEur);
+        }
+
+        function geefLoon(afdeling, filenaam) {
+            let doX = loadXMLDoc("werknemers.xml");
+            let werknemer = doX.getElementsByTagName("werknemer");
+            let BEF = "BEF";
+            let loonBef = 0;
+            let loonEur = 0;
+            for (var i = 0; i < werknemer.length; i++) {
+                let valuta = werknemer[i].getAttribute('valuta')
+                if (BEF == valuta) {
+                    loonBef += parseInt(werknemer[i].getAttribute('loon'));
+                } else {
+
+                    loonEur += parseInt(werknemer[i].getAttribute('loon'));
+                }
+            }
+            loonBef /= 40.399;
+            loonEur += Math.round(loonBef);
+            alert(loonEur);
+        }
+
+        function init() {
+            let btn1 = frm.btn1;
+            let btn2 = frm.btn2;
+            let btn3 = frm.btn3;
+            let btn4 = frm.btn4;
+            let btn5 = frm.btn5;
+            btn1.onclick = voetbal;
+            btn2.onclick = werknemersF;
+            btn3.onclick = loonF;
+            btn4.onclick = valutaF;
+            btn5.onclick = geefLoon;
+        }
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+    <p>Oefening XML 1-7 </p>
+    <form name="frm">
+        <input type="button" name="btn1" value="Voetbal">
+        <input type="button" name="btn2" value="werknemers">
+        <input type="button" name="btn3" value="Loon">
+        <input type="button" name="btn4" value="Valuta">
+        <input type="button" name="btn5" value="Afdeling loon">
+        <input type="button" name="btn6" value="?">
+        <input type="button" name="btn7" value="?">
+    </form>
+
+</body>
+
+</html>

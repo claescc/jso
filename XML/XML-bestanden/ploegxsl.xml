@@ -3,9 +3,10 @@
 <!--waarbij xsl gebruikt wordt om de gegevens te-->
 <!-- transformeren --> 
 	
+
 <!--Vervang op onderstaande lijn desgevallend de-->
 <!--bestandsnaam bij het attribuut href-->
-<?xml-stylesheet type="text/xsl" href="ploeg.xsl"?>
+<?xml-stylesheet type="text/xsl" href="ploeg6.xsl"?>
 <ploeg naam="Kegel">
   <speler id="K1">
     <naam>Louis Verbrugge</naam>

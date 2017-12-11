@@ -162,7 +162,7 @@ function oefening09(){
 
 function oefening10(){
     var doc = loadXMLDoc("XML-bestanden/itemspuur.xml");
-    var prijzen = doc.querySelectorAll("prijs");
+    var prijzen = doc.querySelectorAll("prijs");        // array 
     for(var i=0; i< prijzen.length; i++){
         prijzen[i].textContent = 1.05 * prijzen[i].textContent;
     }

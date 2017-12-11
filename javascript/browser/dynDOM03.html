@@ -39,17 +39,23 @@ function maakKnop(){
     document.body.appendChild(btn);
 }
 
-function wijzigLijstitemsInButtons(){
-    var div = document.createElement("div");
+function wijzigLijstitemsInButtons(){       // wijzig alle buttons van TYPE !!!
+    var div = document.createElement("div");    // de UL moet een DIV worden 
     var ul = document.getElementsByTagName("ul")[0];
     var btn;
-    for(var i=0; i< ul.childNodes.length; i++){
+    for(var i=0; i< ul.childNodes.length; i++){     // elke ul node (li) omzetten nr button
         btn = document.createElement("button");
+<<<<<<< HEAD
+        btn.type="button";
+        btn.innerText= ul.childNodes[i].innerText; // text van li naar btn 
+        div.appendChild(btn);           /// zet onder div (DIV NOG NI IN DOM!!!)
+=======
         // btn.type="button";  // zinloos
         btn.innerText= ul.childNodes[i].innerText;
         div.appendChild(btn);
+>>>>>>> ff54407ec9742ecee7822443ff2d1318897f2f57
     }
-    document.body.replaceChild(div, ul);
+    document.body.replaceChild(div, ul);    // change in body (childNew, childOld)
 }
 </script>
 </head>
