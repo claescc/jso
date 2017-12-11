@@ -10,7 +10,7 @@
         var XMLPATH = "XML-bestanden/";
         // om veiligheidsreden geeft een <input type="file"> het pad van het bestand standaard niet terug
 
-        function loadXMLDocIE(filename) {
+        function loadXMLDocIE(filename) { // load xml doc old browser !!
             var xhttp = new ActiveXObject("Msxml2.XMLHTTP");
             xhttp.open("GET", filename, false);
             try { xhttp.responseType = "msxml-document" } catch (err) { } // Helping IE11
@@ -26,26 +26,26 @@
             document.getElementById("result").innerHTML = result;
         }
 
-        function transform(xmlFile, xslFile) {
-            var xml = loadXMLDoc(XMLPATH + xmlFile);
-            var xsl = loadXMLDoc(XMLPATH + xslFile);
-            var xsltProcessor = new XSLTProcessor();
-            xsltProcessor.importStylesheet(xsl);
+        function transform(xmlFile, xslFile) { // twee dom trees nodig 
+            var xml = loadXMLDoc(XMLPATH + xmlFile); // dom voor xml
+            var xsl = loadXMLDoc(XMLPATH + xslFile); // dom voor xsl
+            var xsltProcessor = new XSLTProcessor();//
+            xsltProcessor.importStylesheet(xsl); // volgens regels van deze xsl
             var resultDocument = xsltProcessor.transformToDocument(xml);
             // afhankelijk van de output method in de stylesheet geeft transformToDocument
             // een HTMLDocument (HTML DOM-tree) of een XMLDocument (XML DOM-tree) terug
             document.getElementById("result").innerHTML = resultDocument.documentElement.outerHTML;
-        }
+        } // alles opvragen outerhtml dom tree
 
         window.onload = function () {
             document.getElementById("btnTransform").onclick = function () {
-                var xmlFile = document.getElementById("xmlFile").files[0].name;
+                var xmlFile = document.getElementById("xmlFile").files[0].name;//meerdere files mogelijk
                 var xslFile = document.getElementById("xslFile").files[0].name;
                 if ("ActiveXObject" in window) {
-                    // IE
+                    // IE oude explorer
                     transformIE(xmlFile, xslFile);
                 }
-                else {
+                else { // normaal enkel deze lijn en functie oproepen 
                     transform(xmlFile, xslFile);
                 }
             }
