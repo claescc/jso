@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Elements</title>
+    <script src="xmlUtil.js"></script>
+    <link href="quiz.css" rel="stylesheet">
+    <script>
+        'use strict';
+        const FILENAME = "XML-bestanden/allelements.xml";
+
+
+        function guessElement() {
+
+        }
+
+        function getElement() {
+            let doc = loadXMLDoc(FILENAME);
+            let atoms = doc.getElementsByTagName("atom");
+            // let atom = [];
+            for (var i = 0; atoms.length; i++) {
+                let atom = atoms[i].getElementsByTagName('name');
+                alert(atom);
+            }
+            alert("the end");
+        }
+
+        function init() {
+            let btnP = frm.playbtn;
+            //  let btnG = frm.guessbtn;
+            btnP.onlick = getElement;
+            // btnG.onlick = guessElement;
+        }
+
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+    <form name="frm">
+        <br>
+        <br>
+        <span> De afkorting: </span>
+        <input type="text" name="afkorting">
+        <br>
+        <br>
+        <span>Welk element is het? </span>
+        <input type="text" name="raden">
+        <br>
+        <br>
+        <input class="buttons" type="button" value="Play" name="playbtn" />
+        <input class="buttons" type="button" value="Is my guess correct?" name="guessbtn" />
+    </form>
+</body>
+
+</html>
