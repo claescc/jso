@@ -58,6 +58,7 @@
 
         function geefLoon(afdeling, filenaam) {
             let doX = loadXMLDoc("oef5.xml");
+       //   var werknemers = DoX.querySelectorAll("afdeling[id=" + afdeling + "] > arbeider");
             let werknemer = doX.getElementsByTagName("werknemer");
             let BEF = "BEF";
             let loonBef = 0;
