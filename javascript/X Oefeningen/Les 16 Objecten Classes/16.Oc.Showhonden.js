@@ -51,6 +51,7 @@ for (var i = 0; i < honden.length; i++) {
 
 //-----------------------UITBREIDING-----------------------------
 
+
 function ShowHond(name, race, weigth, prijzen) {    // constructor overrloading Overwriting
     Hond.apply(this, arguments); // all properties Object
     // Hond.call(this, name, race, weigth);
