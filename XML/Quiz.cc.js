@@ -65,6 +65,7 @@ function getNext(){
 
 
 function guessElement(e){ 
+    // startTijd = Date.now();
     if (e.keyCode == 13){ // 13 is ENTER toets!
         let myGuess = frm.afkorting.value;
         let symbol = play10[teller].symbol;
