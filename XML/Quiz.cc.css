@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(245, 172, 46);
+}
+
+form {
+    padding: 10px;
+    background-color:white;
+   width: 500px;
+   margin: 100px auto;
+   height: 300px;
+}
+
+.buttons {
+    width: 200px;
+}
+
+table {
+    border: 1px solid orangered;
+}

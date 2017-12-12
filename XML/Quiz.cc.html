@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Elements</title>
+    <script src="xmlUtil.js"></script>
+    <link href="Quiz.cc.css" rel="stylesheet">
+    <script src="Quiz.cc.js"></script> </script>
+</head>
+
+<body>
+    <form name="frm">
+        <span>Naam speler:</span>
+        <input type="text" name="speler">
+        <br>
+        <br>
+        <input class="buttons" id="end1" type="button" value="Start Game" name="playbtn" />
+        <br>
+        <br>
+        <span>Element: </span>
+        <input type="text" name="element">
+        <br>
+        <br>
+        <span>Guess: </span>
+        <input type="text" name="afkorting">
+        <br>
+        <br>
+        <div id="feedback"></div>
+        <div id="feedbackEnd"></div>
+        <br>
+        <br>
+        <table>
+                <tr id="scorebord">
+                    <td>Player</td>
+                    <td>Score</td>
+                </tr>
+            </table>
+    </form>
+    
+</body>
+
+</html>
