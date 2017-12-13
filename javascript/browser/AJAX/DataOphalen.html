@@ -25,9 +25,10 @@
 
         function dataOphalen() {
             if (xmlHttp) {
-                xmlHttp.open("GET", "data.txt");
+                xmlHttp.open("GET", "ploeg.xml");
                 xmlHttp.onreadystatechange = function () {
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        
                         document.getElementById("result").innerHTML =
                          "<pre>" + xmlHttp.responseText + "</pre>";
                     }
