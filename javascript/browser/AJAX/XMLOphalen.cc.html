@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX: XML ophalen</title>
+    <script>
+
+        function dataOphalen() {
+            fetch("ploeg.xml").then(function (response) {
+                return response.text(); // enkel xml of txt
+            }).then(function (responseText) {
+                haalOp(responseText);
+            });
+        }
+
+        function haalOp(resp) {
+            var domParser = new DOMParser();
+            let domtree = domParser.parseFromString(resp, "text/xml");
+            // create DOM TREE NOW 
+           let ploeg = domtree.getElementsByTagName('speler')
+           var result = "<h1>Overzicht spelers</h1>";
+          for( let i =0; i < ploeg.length; i++){
+              let speler = ploeg[i];
+              // enzz zie hieronder! 
+          }
+        }
+
+             /*
+             var spelers = xmlDoc.getElementsByTagName("speler");
+            var result = "<h1>Overzicht spelers</h1>";
+                        for (var i = 0; i < spelers.length; i++) {
+                            var speler = spelers[i];
+                            var id = speler.attributes["id"].nodeValue;
+                            var naamNodes = speler.getElementsByTagName("naam");
+                            var naam = naamNodes[0].firstChild.nodeValue;
+                            result += "(" + id + ")&nbsp;" + naam + "<br/>";
+                        }
+                        document.getElementById("result").innerHTML = result;
+                    }
+                }
+                xmlHttp.send();
+            }*/
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Haal XML op" onclick="dataOphalen()" />
+    <div id="result">
+    </div>
+</body>
+
+</html>

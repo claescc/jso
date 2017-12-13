@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX: data ophalen met fetch</title>
+    <script>
+        function dataOphalen() {
+            fetch("https://opendata.brussel.be/api/records/1.0/search/?dataset=ereburgers1&rows=33").then(function (response) {
+                return response.text(); // enkel xml of txt
+            }).then(function (responseText) {
+                getEreburger(responseText);
+            });
+        }
+
+      function getEreburger(resp){
+           var domParser = new DOMParser();
+           let x = resp;
+           let domtree = domParser.parseFromString(x, "text/xml");
+        //var serializer = new XMLSerializer();
+        //var str = serializer.serializeToString(resp);
+            // create DOM TREE NOW 
+            let nom = domtree.getElementsByTagName('nom');
+            let func = domtree.getElementsByTagName('function');
+            console.log(domtree);
+            console.log();
+            console.log(func);
+         /*
+            for (let i = 0; i < domtree.length; i++) {
+                let dom = domtree[i];
+            }*/
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Haal data op" onclick="dataOphalen()" />
+    <div id="result">
+        <table id="ereTabel">
+            <tr>
+                <td>naam</td>
+                <td>functie</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX: XML ophalen openbaar Toiletten</title>
+    <script>
+
+
+        window.onload = getWcs;
+
+        // ok als je file via webserver opvraagt (niet ok als je file opent in browser)
+        function getWcs() {
+            var url = "http://datasets.antwerpen.be/v4/gis/openbaartoilet.json";
+            fetch(url).then(function (response) {
+                return response.json();
+            }).then(function (responseAsJSON) {
+                updateWcs(responseAsJSON);
+            });
+        }
+
+        function updateWcs(responseAsJSON) {
+            let tabel = document.getElementById('wcTabel');
+            let dataArray = responseAsJSON;
+            for (let i = 0; i <  dataArray.data.length; i++) {
+                let wc = dataArray.data[i];
+                let om = wc.omschrijving;
+                let str = wc.straat;
+                let nr = wc.huisnummer;
+                let dist = wc.district;
+                // CREATE NEW TABLE 
+
+                let row = document.createElement('tr');
+                tabel.appendChild(row);
+
+                //CREATE INFO FOR 1 ROW 
+                let pos1 = document.createElement('td');
+                let pos2 = document.createElement('td');
+                let pos3 = document.createElement('td');
+                let pos4 = document.createElement('td');
+                let pos5 = document.createElement('td');
+                pos1.innerText = om;
+                pos2.innerText = str;
+                pos3.innerText = nr;
+                pos4.innerText = post;
+                pos5.innerText = dist;
+                // ADD TO ROW 
+                row.appendChild(pos1);
+                row.appendChild(pos2);
+                row.appendChild(pos3);
+                row.appendChild(pos4);
+                row.appendChild(pos5);
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="WC JSON ophalen" onclick="updateWcs()" />
+    <table id="wcTabel" border="1">
+
+    </table>
+</body>
+
+</html>

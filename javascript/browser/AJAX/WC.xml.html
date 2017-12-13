@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX: XML ophalen openbaar Toiletten</title>
+    <script>
+
+        window.onload = loadXMLHttpRequest;
+
+        var xmlHttp = false;
+        function loadXMLHttpRequest() {
+            try {  // Firefox/Opera/Safari/IE7+
+                xmlHttp = new XMLHttpRequest();
+            }
+            catch (e) {
+                try { // IE5
+                    xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    try { // IE6
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch (e) {
+                        alert("Deze browser ondersteunt geen AJAX");
+                    }
+                }
+            }
+        }
+
+      
+
+        function dataOphalen() {
+
+            if (xmlHttp) {
+                xmlHttp.open("GET", "http://datasets.antwerpen.be/v4/gis/openbaartoilet.xml");
+                xmlHttp.onreadystatechange = function () {
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        var xmlDoc = xmlHttp.responseXML;
+                        var record = xmlDoc.getElementsByTagName("record");
+                        // Go DOOR HEEL DATA voor ELK RECORD te krijgen 
+                        let tabel = document.getElementById('wcTabel');
+                        // door ALLE 122 RECORD gaan 
+                        for (let i = 0; i < record.length; i++) {
+                            let wc = record[i];
+                            let om = wc.getElementsByTagName('omschrijving');
+                            om = om[0].innerHTML; // 0 want er is maar 1 tag van in lijst 
+                            let str = wc.getElementsByTagName('straat');
+                            str = str[0].innerHTML;
+                            let nr = wc.getElementsByTagName('huisnummer');
+                            nr = nr[0].innerHTML;
+                            let post = wc.getElementsByTagName('postcode');
+                            post = post[0].innerHTML;
+                            let dist = wc.getElementsByTagName('district');
+                            dist = dist[0].innerHTML;
+
+                            // CREATE NEW TABLE 
+
+                            let row = document.createElement('tr');
+                            tabel.appendChild(row);
+
+                            //CREATE INFO FOR 1 ROW 
+                            let pos1 = document.createElement('td');
+                            let pos2 = document.createElement('td');
+                            let pos3 = document.createElement('td');
+                            let pos4 = document.createElement('td');
+                            let pos5 = document.createElement('td');
+                            pos1.innerText = om;
+                            pos2.innerText = str;
+                            pos3.innerText = nr;
+                            pos4.innerText = post;
+                            pos5.innerText = dist;
+                            // ADD TO ROW 
+                            row.appendChild(pos1);
+                            row.appendChild(pos2);
+                            row.appendChild(pos3);
+                            row.appendChild(pos4);
+                            row.appendChild(pos5);
+
+
+
+                        }
+
+
+
+
+                    }
+                }
+            }
+            xmlHttp.send();
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="WC xml ophalen" onclick="dataOphalen()" />
+    <table id="wcTabel" border="1">
+
+    </table>
+</body>
+
+</html>
