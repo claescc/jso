@@ -9,12 +9,26 @@ var names = [
     "Elizabeth", "Ellen", "Wenche", "Vicky"];
 
 function findHints(q) {
+    let nameFound = [];
+    let j = 0;
     var hint = "";
     // TODO: return string with all names starting with q.  Separate different names by a comma.
-    if (hint == ""){
+    for (var i = 0; i < names.length; i++) {
+        if ( names[i].toLowerCase().startsWith(q.toLowerCase())){
+            nameFound[j++] = names[i];
+        }
+      /*  if (q == names[i].charAt(0)) {
+            nameFound[j++] = names[i];
+        }
+        */
+    }
+    // MAKE ARRAY INTO STRING + COMMA
+    hint = nameFound.join();
+
+    if (hint == "") {
         return "No suggestion found.";
     }
-    else{
+    else {
         return hint;
     }
 }
@@ -26,17 +40,26 @@ app.all('/*', function (req, res, next) {
     next();
 });
 
-app.get(['/*.htm*', '/*.css', '/scripts/*.js'], function (req, res) {
+// na poort komt PATH --> ['/*.htm*', '/*.css', '/scripts/*.js']  komma , is = of 
+app.get(['/*.htm*', '/*.css', '/scripts/*.js'], function (req, res) { // deze server get request
     res.sendFile(path.join(__dirname + url.parse(req.url).pathname));
-});
+});// sturen naar browser .sendFile enz....
 
-app.get('/getHint.js', function (req, res) {
+app.get('/getHint.js', function (req, res) { // letterlijk pat opgegeven !!
     console.log('request received');
+    console.log("querystring: ", req.query);
     console.log("Looking for names starting with %s", req.query.q);
     res.end(findHints(req.query.q));
 });
 
-var server = app.listen(1337, function () {
+app.get('/sales.json', function (req, res) { // letterlijk pat opgegeven !!
+    console.log('request received');
+    console.log("querystring: ", req.query);
+    console.log("Looking for names starting with %s", req.query.q);
+    res.end(findHints(req.query.q));
+});
+
+var server = app.listen(1337, function () { // vrijepoort !
     var host = server.address().address;
     var port = server.address().port;
 
