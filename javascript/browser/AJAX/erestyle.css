@@ -1,0 +1,14 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: lightgrey;
+
+}
+
+a {
+    margin: 10px;
+}
+
+#zoeken {
+    padding: 10px;
+    margin-bottom: 10px;
+}
