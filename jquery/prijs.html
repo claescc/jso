@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google</title>
+    <style>
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        let totaal = 0;
+       
+        // FUNCTIE TOEVOEGEN AAN BUTTON
+        $(function () {
+            $('#btn').click(() => {
+                // VOEG VALUES TOE AAN LIJST
+                let voorwerp = $('#voorwerp').val();
+                let prijs = $('#prijs').val();
+                let deleteBtn = $('<input type="button" value="delete">');
+
+                //ADD FUNCTION TO DELETE BUTTON
+                deleteBtn.click(function (){
+                    totaal -= $(this).parent().prev().text();
+                    $("#totaal").val(totaal);
+                    $(this).parent().parent().remove();
+                   
+                })
+                totaal += parseInt(prijs);
+                // CREATE NEW CELLS
+                let rowO = $("<td>").text(voorwerp);
+                let rowP = $("<td>").text(prijs);
+                let del = $("<td>").append(deleteBtn);
+                // ADD TO PARENT
+                let row = $('<tr>').append(rowO).append(rowP).append(del);
+                $('#tabel').append(row);
+                $("#totaal").val(totaal);
+           
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <form id="frm">
+        <label>Naam</label>
+        <input type="text" id="voorwerp">
+        <br>
+        <br>
+        <label>Prijs</label>
+        <input type="text" id="prijs">
+        <br>
+        <br>
+        <input type="button" id="btn" value="ADD">
+        <br>
+    </form>
+    <table id="tabel">
+        <tr>
+            <th>Voorwerp</th>
+            <th>Prijs</th>
+            <th></th>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <label>TOTAAL:</label>
+    <input type="text" id="totaal">
+</body>
+
+</html>
