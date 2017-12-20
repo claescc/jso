@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google</title>
+    <style>
+        form {
+            display: grid;
+            grid-template-columns: 500px 200px auto;
+            margin-top: 100px;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+        }
+
+        label {
+            grid-column-start: 1;
+            text-align: right;
+        }
+
+        input[type=submit] {
+            grid-column-start: 2;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        // FUNCTIE TOEVOEGEN AAN BUTTON
+        $(function () {
+            $('#btn').click((e) => { //de functie wordt uitgevoerd wanneer er geklikt wordt op de knop
+                // ALS LEEG IS ERROR 
+                if ($("#zoekbalk").val() == '') {
+                    e.preventDefault();
+                    $("#zoekbalk").css({ "background-color": "red" });
+                    $("#error1").text("zoekveld leeg!").css({ "color": "red" });
+                    // FOUT BIJ NL EN FRANS
+                    if ($("#landen").val() === "countryNL" && $("#talen").val() === "lang_fr") {
+                        $("#landen").css("background-color", "red");
+                        $("#error2").text("Geen FR in Nederland!").css({ "color": "red" });
+                        e.preventDefault();
+                    }
+                    // NIET LEEG CHECK LAND EN TAAL 
+                } else {
+                    $("#error1").text("");
+
+                    // FOUT BIJ NL EN FRANS
+                    if ($("#landen").val() === "countryNL" && $("#talen").val() === "lang_fr") {
+                        $("#landen").css("background-color", "red");
+                        $("#error2").text("Geen FR in Nederland!").css({ "color": "red" });
+                        e.preventDefault();
+                    }
+                    // ANDERS OKAY 
+                    //  let choiceLand = $("#landen").val();
+                    //   let choiceLang = $("#talen").val()
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <form id="frm" action="https://www.google.be/search">
+        <label>Zoekterm</label>
+        <input type="text" name="q" id="zoekbalk">
+        <span id="error1"> </span>
+
+        <label>Taal</label>
+        <select name="lr" id="talen">
+            <option value="">Alle talen</option>
+            <option value="lang_nl">Nederlands</option>
+            <option value="lang_fr">Frans</option>
+        </select>
+
+        <label>Land</label>
+        <select name="cr" id="landen">
+            <option value="">Alle landen</option>
+            <option value="countryBE">België</option>
+            <option value="countryFR">Frankrijk</option>
+            <option value="countryNL">Nederland</option>
+        </select>
+        <span id="error2"></span>
+
+        <input type="submit" id="btn" value="zoek">
+
+    </form>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,49 +11,64 @@
         /*$(document).ready(function(){ //voor oudere mensen
             console.log($('h1').text());
         });*/
-        /*$(function(){ //aangeraden voor jonge, hippe mensen
+
+        //  $(function(){ //aangeraden voor jonge, hippe mensen
+        //      console.log($('h1').text());
+        //  });
+        //____________________________________________________________________________
+        $(() => { //aangeraden voor jonge, hippe mensen die willen opscheppen
             console.log($('h1').text());
-        });*/
-        /*$(() => { //aangeraden voor jonge, hippe mensen die willen opscheppen
-          console.log($('h1').text());
-        });*/
-        /*$(function(){
-            $('#btn').click(function(){ //de functie wordt uitgevoerd wanneer er geklikt wordt op de knop
+        });
+
+        // FUNCTIE TOEVOEGEN AAN BUTTON
+        $(function () {
+            $('#btn').click(() => { //de functie wordt uitgevoerd wanneer er geklikt wordt op de knop
                 alert('Wie heb ik aan de lijn, hallo, hallo?');
             });
-        });*/
-        /*$(function(){  //we kunnen klikken op eender welk element
-            $('h1').click(function(){
+        });
+
+        // FUNCTIE TOEVOEGEN OP CLICK
+        $(function () {  //we kunnen klikken op eender welk element
+            $('h1').click(function () {
                 $(this).text('Aaaauw'); //this verwijst naar het element zelf
             });
-        });*/
-        /*$(function(){
-            $(':submit', '#form').click(function(evt){
+        });
+
+        // MET  FORMS WERKEN 
+        $(function () {
+            $(':submit', '#form').click(function (evt) { // evt = eventobject
                 evt.preventDefault();// we willen geen form submit
-                let naam = $('#txtNaam').val();
+                let naam = $('#txtNaam').val();// .value
                 let $li = $('<li>').text(naam);
-                $('#namen').append($li);
+                $('#namen').append($li); // toevoegen aan ul- ID als een li 
+                $("#txtNaam").val(''); // maakt gwn textvak leeg waar naam in stond
             });
-        });*/
-        /*$(function(){
-            $('input[type!=submit]', '#form').mouseenter(function(){
+        });
+
+
+        $(function(){ // alle elmenten die van het NIET submit zijn 
+            $('input[type!=submit]', '#form').mouseenter(function(){ 
                 $(this).css('background-color', 'red');
             });
             $('input[type!=submit]', '#form').mouseleave(function(){
                 $(this).css('background-color', 'white');
             });
-        });*/
+        });
+
+//document.addEventListener("DOMContentLoaded", function ()) { }; // ipv Window.onload
     </script>
 </head>
+
 <body>
-  <h1>Werken met events</h1>
-  <button id="btn">Hallo?</button>
-  <form id="form">
+    <h1>Werken met events</h1>
+    <button id="btn">Hallo?</button>
+    <form id="form">
         <label for="txtNaam">Naam:</label>
-        <input type="text" name="txtNaam" id ="txtNaam"/>
-         <input type="submit" name="btnVerzenden" value="Verzenden"/>
-  </form>
-  <ul id="namen">
-  </ul>
+        <input type="text" name="txtNaam" id="txtNaam" />
+        <input type="submit" name="btnVerzenden" value="Verzenden" />
+    </form>
+    <ul id="namen">
+    </ul>
 </body>
+
 </html>

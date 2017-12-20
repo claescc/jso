@@ -17,12 +17,19 @@
         <time datetime="2017-01-01">1/01/2017</time>
     </p>
     <script>
-        /*let $li = $('<li>'); // maak nieuw li element
+        let $li = $('<li>'); // maak nieuw li element           = MAAK
+        $li.attr("id", "idName");
+        // omzetten 
+       // let liElement = $li[0];
+      //  liElement.id= "derde";
+
         $li.text('Derde'); //zet tekst
-        $('ul').append($li); // voeg nieuw element toe aan ul*/
+        $('ul').append($li); // voeg nieuw element toe aan ul   = SELECTEER
+        // append child 
         
-        //$('#start').before($('<p>').text('Nee, dit is de start')); // zet een nieuw p-element voor #start
-        //$('ul').css('list-style','none');//list style van alle ul-elementen wordt afgezet
+        // before voeg sybling toe 
+        $('#start').before($('<p>').text('Nee, dit is de start')); // zet een nieuw p-element voor #start
+        $('ul').css('list-style','none');//list style van alle ul-elementen wordt afgezet
     </script>
 </body>
 </html>
