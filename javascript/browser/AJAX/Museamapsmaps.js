@@ -1,112 +1,63 @@
 'use strict';
 
+window.addEventListener('load', createMaps);
+
+function createMaps() {
+	createMapA();
+	createMapB();
+}
+
 //--------------------------GET COORDS-----------------------------------------
-function getAntCoords(){
-	for(let i=0; i<globalAnt.length; i++){ // GLOBAL OPROEPEN VAN ANDER LOCATIE
-		let lat = globalAnt[0].lat;
-		let long = globalAnt[0].long;
-		//CREATE LOCATION MARKER
+function getAntCoords() {
+	for (let i = 0; i < globalAnt.length; i++) {
+		// GLOBAL OPROEPEN VAN ANDER LOCATIE
+		var latlong = new google.maps.LatLng(globalAnt[i].lat, globalAnt[i].long);
+		let naamA = globalAnt[i].naam;
+		createMarkersA(latlong, naamA);
 	}
 }
-function getBruCoords(){
-	for(let i=0; i<globalBru.length; i++){ // GLOBAL OPROEPEN VAN ANDER LOCATIE
-		let lat = globalBru[0].lat;
-		let long = globalBru[0].long;
-		//CREATE LOCATION MARKER
+function getBruCoords() {
+	// GLOBAL OPROEPEN VAN ANDER LOCATIE
+	for (let i = 0; i < globalBru.length; i++) {
+		var latlong = new google.maps.LatLng(globalBru[i].lat, globalBru[i].long);
+		let naamB = globalAnt[i].naam;
+		createMarkersB(latlong, naamB);
 	}
 }
-
-
-
-var map = null;
-var ourCoords =  {
-	latitude: 51.179607,
-	longitude: 4.336697
-};
-window.addEventListener('load', getMyLocation);
-
-function getMyLocation() {
-	
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(
-			displayLocation, 
-			displayError);
-	}
-	else {
-		alert("Oops, no geolocation support");
-	}
+//--------------------------CREATE MAP -----------------------------------------
+let mapA = null;
+let mapB = null;
+function createMapA() {
+	var antwerpen = { lat: 51.260197, lng: 4.402771 };
+	mapA = new google.maps.Map(document.getElementById('antwerpen'), {
+		zoom: 10,
+		center: antwerpen
+	});
 }
 
-function displayLocation(position) {
-	var latitude = position.coords.latitude;
-	var longitude = position.coords.longitude;
-
-	var div = document.getElementById("location");
-	div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude;
-    div.innerHTML += " (with " + position.coords.accuracy + " meters accuracy)";
-
-	showMap(position.coords);
-}
-
-function showMap(coords) {
-	var googleLatAndLong = new google.maps.LatLng(coords.latitude, 
-												  coords.longitude);
-	var mapOptions = {
-		// zoom: 10,
-        zoom: 15,
-		center: googleLatAndLong,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	var mapDiv = document.getElementById("map");
-	map = new google.maps.Map(mapDiv, mapOptions);
-
-	// add the user marker
-	var title = "Your Location";
-	var content = "You are here: " + coords.latitude + ", " + coords.longitude;
-    addMarker(map, googleLatAndLong, title, content);
-    
-    /**/ map.addListener('click', showCoordinates);
-}
-
-function showCoordinates(event){
-    var latLng = event.latLng;
-    var coord = document.getElementById("coord");
-    coord.innerHTML = "The coordinates of the location you clicked on are "+ latLng.lat() + ", " + latLng.lng();
-}
-
-function addMarker(map, latlong, title, content) {
-	var markerOptions = {
-		position: latlong,
-		map: map,
-		title: title,
-		clickable: true
-	};
-	var marker = new google.maps.Marker(markerOptions);
-
-	var infoWindowOptions = {
-		content: content,
-		position: latlong
-	};
-
-	var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-
-	google.maps.event.addListener(marker, 'click', function() {
-		infoWindow.open(map);
+function createMapB() {
+	var brussel = { lat: 50.85045, lng: 4.34878 };
+	mapB = new google.maps.Map(document.getElementById('brussel'), {
+		zoom: 10,
+		center: brussel
 	});
 }
 
 
-function displayError(error) {
-	var errorTypes = {
-		0: "Unknown error",
-		1: "Permission denied",
-		2: "Position is not available",
-		3: "Request timeout"
-	};
-	var errorMessage = errorTypes[error.code];
-	if (error.code == 0 || error.code == 2) {
-		errorMessage = errorMessage + " " + error.message;
-	}
-	var div = document.getElementById("location");
-	div.innerHTML = errorMessage;
+//--------------------------CREATE MARKERS -----------------------------------------
+
+function createMarkersA(latlong, naamA) {
+	var marker = new google.maps.Marker({
+		position: latlong,
+		map: mapA,
+		title: naamA
+	});
+}
+
+function createMarkersB(latlong, naamB) {
+	var marker = new google.maps.Marker({
+		position: latlong,
+		map: mapB,
+		title: naamB
+	});
 }

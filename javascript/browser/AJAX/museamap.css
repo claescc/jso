@@ -13,7 +13,20 @@ a {
     margin-bottom: 10px;
 }
 
-div#map {
+div {
+    display: inline-block;
+}
+#buttons {
+    display: block;
+}
+div#antwerpen {
+	margin: 5px;
+	width: 400px;
+	height: 400px;
+	border: 1px solid black;
+}
+
+div#brussel {
 	margin: 5px;
 	width: 400px;
 	height: 400px;
