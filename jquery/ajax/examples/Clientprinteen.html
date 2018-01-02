@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Ajax client</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+
+
+        $(function () { // onload
+            $('#btnget').click(function () {
+                $.ajax('http://localhost:8080/namen', {
+                    method: 'GET',
+                    dataType: 'json'
+                  
+                }).done(function (data) { // alles binnengehaald = DONE 
+                    let $tbody = $('#tabel'); //TIP: NEW VAR + $ FOR JQUERY VARIABLES    
+                    // $tbody.html(''); // CLEAR VORIGE TABEL
+                    $tbody.empty()
+                    for (let i = 0; i < data.length; i++) { //  CREATE: $('<tr>')  FIND: $('tr')
+                        // CREATE TAGS
+                        let $newRow = $('<tr>');
+                        let $newid = $('<td>');
+                        let $newN = $('<td>');
+                        let $newA = $('<td>');
+                        let $actie = $('<td>')
+                            let button = $('<button>delete</button>').click(function (){
+                               let cijfer =  $(this).parent().parent().first().text();
+                               $(this).parent().parent().remove();
+                               serverDelete(cijfer);
+                            })
+                        $actie.append(button);
+                        //    let $newA = $('<td>').text(data[i].achternaam);
+                        // TEXT TOEVOEGEN --> FUNCTIE TEXT()
+                        $newid.text(data[i].id);  // ArrayData met objecten {id:1  vn:  an: }
+                        $newN.text(data[i].voornaam);
+                        $newA.text(data[i].achternaam);
+                        // APPEND 
+                        $newRow.append($newid).append($newN).append($newA).append($actie);
+                        $tbody.append($newRow)
+                    }
+
+                    //    console.dir(data); // .dir ipv .log
+                    //    console.table(data); // .table -> in terminal tabel te zien
+                }).fail(function (msg) { // FOUTMELDING
+                    console.dir(msg);
+                })
+            });
+            // Onload
+            $('#btnid').click(function () {
+                // let input = document.getElementById('nr');
+                // var nummer = input.value;
+                let nummer = parseInt($('#nr').val());
+                if (nummer >= 1 && nummer <= 3) {
+                    $.ajax('http://localhost:8080/namen', {
+                        method: 'GET',
+                        dataType: 'json',
+                        data: { id: nummer }
+                    }).done(function (data) {
+                        let $tbody = $('#tabel');
+                        $tbody.empty();
+                        let $newRow = $('<tr>');
+                        let $newid = $('<td>').text(data.id);
+                        let $newN = $('<td>').text(data.voornaam);
+                        let $newA = $('<td>').text(data.achternaam);
+                        // APPEND 
+                        $newRow.append($newid).append($newN).append($newA);
+                        $tbody.append($newRow)
+
+                    }).fail(function (obj, err, msg) {
+                        console.dir(msg);
+                    });
+                } else {
+                    console.dir('Error wrong nr');
+                }
+
+            });
+            // Onload
+            $('#btndelete').click(function () {
+                $.ajax('http://localhost:8080/namen?id=3', { // QUERY STRING
+                    method: 'DELETE',  // moet cijfer mee in de Querystring staan
+                    dataType: 'json',
+                }).done(function (data) {
+                    console.log(data);
+                }).fail(function (obj, err, msg) {
+                    console.dir(msg);
+                });
+            });
+        });
+
+        function serverDelete(cijfer){
+            let string = 'http://localhost:8080/namen?id=' + cijfer;
+            $.ajax(string, { // QUERY STRING
+                    method: 'DELETE',  // moet cijfer mee in de Querystring staan
+                    dataType: 'json',
+                });
+
+        }
+    </script>
+</head>
+
+<body>
+    <button id='btnget'>Get data via Ajax</button>
+    <button id='btndelete'>delete</button>
+    <br><br>
+    <button id='btnid'>Get data via ID </button>
+    <input type='number' id='nr'>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Actie</th>
+            </tr>
+        </thead>
+        <tbody id='tabel'>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
