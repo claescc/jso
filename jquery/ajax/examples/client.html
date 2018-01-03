@@ -51,7 +51,6 @@
                 $.ajax('http://localhost:8080/namen',{
                     method:'POST',
                     data:JSON.stringify({id: 4, voornaam: 'Josje', achternaam: 'Huisman'})
-                    
                 }).done(function(){
                     console.log('item is toegevoegd');
                 }).fail(function(obj, error, msg){
