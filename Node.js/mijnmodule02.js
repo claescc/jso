@@ -1,6 +1,6 @@
 'use strict';
 
-function Ding(p1) {
+function Ding(p1) { // constructor
     this.naam = "Je kent mij nog niet";
     this.eigenschap = p1;
 }

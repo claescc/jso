@@ -16,6 +16,6 @@ mod1.helloInDutch("Grote smurf");
  console.log(mod1.v1);  // undefined; want v is niet geëxporteerd
  console.log(mod1.v2); 
 
-var Mod2 = require('./mijnmodule02.js')
+var Mod2 = require('./mijnmodule02.js') // altijd beginnen met --> ./ 
 var obj = new Mod2("ik kan door een waterkraan, en ook door een sleutelgat");
 obj.m();

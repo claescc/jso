@@ -3,7 +3,9 @@
 /*  In NodeJs bestaat impliciet een leeg object  exports
     module.exports is initieel een andere naam voor dat object
     (exports en module.exports verwijzen initieel naar hetzelfde object)
-    var exports = module.exports = {}
+   
+    NODE JS DENKT DIT BIJ ELK DING BIJ:
+    var exports = module.exports = {} // leeg object
 */
 
 'use strict';
