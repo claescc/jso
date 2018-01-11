@@ -1,4 +1,4 @@
-var http = require('http');
+var http = require('http'); // ALTIJD NODIG !!!!
 
 // Options to be used by request 
 var options = {
@@ -21,5 +21,11 @@ var callback = function(response){
    });
 };
 // Make a request to the server
-var req = http.request(options, callback);
+var req = http.request(options, callback); // option = waar heen // Callback = 
 req.end();
+
+/* 
+OPEN IN TERMINAL 
+RUN 
+CREATES PAGE IN HTML CODE IN TERMINAL
+*/
