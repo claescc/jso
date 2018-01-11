@@ -28,3 +28,15 @@ evEmit.on('fire', function (){
 
 evEmit.emit('fire');
 console.log('last emit extra func');
+
+
+console.log('long live the mice');
+evEmit.emit('muis'); // doesnt work needs Event. on 
+
+evEmit.on('muis', findMouse); // add On to function 
+// NOW CALL FUNCTION TO WORK
+evEmit.emit('muis');
+
+function findMouse(){
+    console.log('run away');
+}
