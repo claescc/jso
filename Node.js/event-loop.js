@@ -22,3 +22,6 @@ eventEmitter.on('data_received', function(){
 eventEmitter.emit('connection');
 
 console.log("Program Ended.");
+
+// ON --> (name + function )
+// EMIT () call name linked to function 

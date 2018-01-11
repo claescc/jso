@@ -27,13 +27,19 @@ evEmit.on('fire', function (){
 });
 
 evEmit.emit('fire');
-console.log('last emit extra func');
+console.log('last emit "fire1"\n');
 
 
-console.log('long live the mice');
+
+// ______________________________________________________
+//              ADD NEW FUNCTION 
+// ______________________________________________________
+
+console.log('Adding a new function to original "fire2"\n');
 evEmit.emit('muis'); // doesnt work needs Event. on 
 
-evEmit.on('muis', findMouse); // add On to function 
+
+evEmit.on('muis', findMouse); // add On to new function 
 // NOW CALL FUNCTION TO WORK
 evEmit.emit('muis');
 
