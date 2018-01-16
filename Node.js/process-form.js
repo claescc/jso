@@ -4,15 +4,20 @@ var app = express();
 /* bodyParser: 
   nodig om invoervelden van form die met method='post' verstuurd is te kunnen verwerken 
 */
-var bodyParser = require('body-parser');
+
+
+// ALTIJD TOEVOEGEN !!
+// req.body CREATE !!!!!
+var bodyParser = require('body-parser'); 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
+// altijd app. 
 app.get('/index.html', function(req, res) {
 	res.sendFile(__dirname + "/" + "index.html");
 });
 
+// altijd app. 
 app.get('/process_get', function(req, res) {
 	console.log("get");
 	// Prepare output in JSON format
@@ -24,11 +29,13 @@ app.get('/process_get', function(req, res) {
 	res.end(JSON.stringify(response));
 });
 
+
+// altijd app. 
 app.post('/process_post', function(req, res) {
 	console.log("post");
 	// Prepare output in JSON format
 	var response = {
-		first_name : req.body.first_name,
+		first_name : req.body.first_name,		// req.body ipv req.query
 		last_name : req.body.last_name
 	};
 	console.log(response);

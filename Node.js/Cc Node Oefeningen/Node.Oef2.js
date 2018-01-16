@@ -6,7 +6,6 @@ var url = require('url');
 
 http.createServer(function (request, response) {
     var pathname = url.parse(request.url).pathname; // PATH = /ect..
-
     
         fs.readFile(pathname.substr(1), function (err, data) {
             if (err) {

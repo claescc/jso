@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>OP REIS</title>
+</head>
+
+<body>
+    <h1>Geef de info over uw fav bestemming</h1>
+
+
+    <!-- POST  maakt automatisch een Query string aan 'string'-->
+    <form action="http://127.0.0.1:8081/process_post" method="post">
+
+        Naam:
+        <input type="text" name="first_name">
+        <br> geslacht:
+        <br>
+        <input type="radio" name="MV" value="M"> mannelijk
+        <br>
+        <input type="radio" name="MV" value="V"> vrouwelijk
+        <br> bestemming:
+        <br>
+        <select name='select'>
+            <option value="zee" >De Zee</option>
+            <option value="sneeuw">De Sneeuw</option>
+            <option value="bossen">De Bossen</option>
+        </select>
+        <br>
+        <input type="checkbox" name="box"> lid
+        <input type="submit" value="Registreer">
+    </form>
+
+</body>
+
+</html>
