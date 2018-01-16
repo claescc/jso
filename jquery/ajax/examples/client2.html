@@ -77,7 +77,6 @@
             $.ajax('http://localhost:8080/namen',{
                     method: 'GET',
                     dataType: 'json'
-<<<<<<< HEAD
                     // DONE AND FAIL INBOUWEN
                 }).done(function (data) { // alles binnengehaald = DONE 
                     let $tbody = $('#tabel'); //TIP: NEW VAR + $ FOR JQUERY VARIABLES    
@@ -104,7 +103,6 @@
                         // APPEND 
                         $newRow.append($newid).append($newN).append($newA).append($actie);
                         $tbody.append($newRow)
-=======
                 }).done(function(data){
                     let $tbody = $('tbody', '#tabel');
                     //$tbody.html('');
@@ -128,7 +126,6 @@
                         //
                         //$rij.html('<td>'+data[i].id + '</td><td>'+data[i].voornaam+'</td><td>'+ data[i].achternaam+'</td>');
                         $tbody.append($rij);
->>>>>>> 368b06db75113eb06dc8cf41506ae7bf62c255f3
                     }
                     //    console.dir(data); // .dir ipv .log
                     //    console.table(data); // .table -> in terminal tabel te zien
