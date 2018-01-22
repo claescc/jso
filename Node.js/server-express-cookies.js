@@ -7,19 +7,19 @@ var express = require('express');
 var app = express();
 var path = require("path");
 var url = require("url");
-var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser'); // extra voor cookies
+ 
+app.use(cookieParser()); //: gebruik in alles app.use 
 
-app.use(cookieParser());
-
-app.get('/setCookie', function (req, res){
-    res.cookie('policyOK', 'true');
-    res.end("cookie set");
+app.get('/setCookie', function (req, res){ /// 1st cookie zetten dan rest 
+    res.cookie('policyOK', 'true'); //no naam + waarde = (string)
+    res.end("cookie set"); // cookie enkelvoud bij versturen
 });
 
 app.get('/*', function(req, res){
-    console.log(req.cookies);
+    console.log(req.cookies); // cookies  meervoud bij ontvangen 
     if (req.cookies.policyOK != 'true'){
-        res.sendFile(path.join(__dirname +'/cookies.html'));
+        res.sendFile(path.join(__dirname +'/cookies.html'));// toestemming te vragen voor gebruik
     }
     else{
         res.sendFile( path.join(__dirname + url.parse(req.url).pathname));

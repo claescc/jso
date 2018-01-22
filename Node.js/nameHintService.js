@@ -11,7 +11,7 @@ var names = [
 function findHints(q) {
     var hint = "";
     if (q.length > 0) {
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < names.length; i++) {
             if (names[i].toUpperCase().startsWith(q.toUpperCase())) {
                 if (hint == "") {
                     hint = names[i];
@@ -37,13 +37,15 @@ app.all('/*', function (req, res, next) {
     next();
 });
 
+// bestanden die letterlijk naar client moeten verstuurd worden.
+// array met alle mogelijke paths
 app.get(['/*.htm*', '/*.css', '/scripts/*.js'], function (req, res) {
     res.sendFile(path.join(__dirname + url.parse(req.url).pathname));
 });
 
 app.get('/getHint.js', function (req, res) {
     console.log('request received');
-    console.log("Looking for names starting with %s", req.query.q);
+    console.log("Looking for names starting with %s", req.query.q);// querystring
     res.end(findHints(req.query.q));
 });
 

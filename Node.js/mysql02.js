@@ -11,6 +11,10 @@ var connection = mysql.createConnection({
   port: 3307
 });
 
+// beveiliging tegen SQL injectie 
+// ?? = plaatshouder voor kollom of tabel naam
+// array = naam van die tabelen of kollomen moet overeenkomen mte vraagtekens !!
+// ?? = A ?? = B ?? = C
 connection.connect();
 var identifiers = ['plantennaam', 'kleur','planten'];
 connection.query('SELECT ??, ?? from ??', identifiers, function (err, rows, fields) {
@@ -21,6 +25,5 @@ connection.query('SELECT ??, ?? from ??', identifiers, function (err, rows, fiel
   else {
     console.log('Error while performing query.');
   }
+  connection.end();
 });
-
-connection.end();

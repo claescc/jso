@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Ajax client</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () { // onload
+            // ----------------------- BTN GET DATA -----------------------------------
+            $('#btnget').click(function () {
+                toonlijst();
+                toonlijst2();
+            })
+
+            // ----------------------- TOONLIJST---------------------------------
+            function toonlijst() {
+                $.ajax('http://localhost:1337/planten', {
+                    method: 'GET',
+                    dataType: 'json'
+
+                    // DONE AND FAIL INBOUWEN
+                }).done(function (data) {
+                    alert('toonlijst 1 done');
+                    let $ul = $('#list');
+                    $ul.empty();
+                    for (let i = 0; i < data.length; i++) {
+                        let $li = $('<li>');
+                        let string = '';
+                        string = (data[i].PLANTENNAAM + ' - ' +data[i].KLEUR + '');
+                        $li.text(string);
+
+                        //$li.text(data[i].PLANTENNAAM);
+                        $ul.append($li);
+                    }
+
+
+                }).fail(function (obj, err, msg) { // FOUTMELDING
+                    alert('toonlijst fail: ' + msg);
+                    toonlijst();
+                    console.dir(msg);
+                });
+            }
+                    // ----------------------- TOONLIJST---------------------------------
+                    function toonlijst2() {
+                $.ajax('http://datasets.antwerpen.be/v4/gis/volwassenonderwijs.json', {
+                    method: 'GET',
+                    dataType: 'json'
+
+                    // DONE AND FAIL INBOUWEN
+                }).done(function (data) {
+                    alert('toonlijst 2 done');
+                    let $ul = $('#list2');
+                    $ul.empty();
+                    for (let i = 0; i < data.data.length; i++) {
+                        let $li = $('<li>');
+                        let string = '';
+                      //  string = (data.data[i].naam + " " + data.data[i].postcode + ", " + data.data[i].straat );
+                        string = (data.data[i].naam);
+                       let x = (data.data[++i].naam);
+                        if ( string == x){
+                            console.log('copy found and deleted');
+                        }else {
+                            $li.text(string);
+                            $ul.append($li);
+                        }
+                    }
+
+
+                }).fail(function (obj, err, msg) { // FOUTMELDING
+                    alert('toonlijst fail: ' + msg);
+                    toonlijst();
+                    console.dir(msg);
+                });
+            }
+        });
+
+    </script>
+</head>
+<html>
+
+<body>
+    <button id='btnget'>Get planten via Ajax</button>
+    <ul id='list'>
+
+    </ul>
+    <ul id='list2'>
+
+    </ul>
+
+
+</body>
+
+</html>

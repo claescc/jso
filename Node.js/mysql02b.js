@@ -14,6 +14,9 @@ var connection = mysql.createConnection({
 var kleur = "rood";
 connection.connect();
 var identifiers = ['plantennaam', 'planten', 'kleur', kleur];
+// 1 ? = hier moet een waarde komen 
+// ?? + ? , array 
+// voordeel ? --> hacken nt mogelijk geen sql injectie meer  
 connection.query('SELECT ?? from ?? WHERE ?? = ?', identifiers, function (err, rows, fields) {
   if (!err) {
     var result = JSON.stringify(rows);
@@ -22,6 +25,5 @@ connection.query('SELECT ?? from ?? WHERE ?? = ?', identifiers, function (err, r
   else {
     console.log('Error while performing query.');
   }
+  connection.end();
 });
-
-connection.end();

@@ -1,6 +1,10 @@
 /*
  * vooraf:  npm install mysql 
  */
+
+var toetsenbord = require('readline-sync');
+let kleur = toetsenbord.question("Geef een kleur: ");
+
 var mysql      = require('mysql');
 var connection = mysql.createConnection({ // geef object aan door
   host     : 'localhost',
@@ -12,19 +16,14 @@ var connection = mysql.createConnection({ // geef object aan door
 
 connection.connect(); // 1st 
 
-// 1ste parameter = string met SQL commando !! 
-// bij antwoord wordt functie uitgevoerd 
-// error obj , rows is het antwoord zonder fout array met 1 object, fields kolom opvraging
-connection.query('SELECT * from planten', function(err, rows, fields) {
+connection.query("SELECT plantennaam, kleur from planten WHERE kleur='" + kleur + "'", function(err, rows, fields) {
   if (!err){
     var result = JSON.stringify(rows); // maak een string want clients sturen moet string zijn 
     console.log(result);
   }
   else{
     console.log('Error while performing query.');
+    console.log(err.message);
 	}
+    connection.end(); // 2ed 
 });
-
-connection.end(); // 2ed 
-
-// max 2 connection toegelaten

@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+// define constant path by express static
 app.use(express.static('public'));  // pad relatief tov pad van dit bestand
 
 app.get('/', function (req, res) {

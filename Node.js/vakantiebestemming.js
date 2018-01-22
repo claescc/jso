@@ -4,8 +4,8 @@ var express = require('express');
 var app = express();
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({
-    extended: true
+app.use(bodyParser.urlencoded({ /// voor elke oproep doe dit 
+    extended: true				// url encode = read invoer velden 
 }));
 
 app.get('/vakantiebestemming.html', function(req, res) {
