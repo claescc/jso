@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Ajax RESTOS</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () { // onload
+            // ----------------------- BTN GET DATA -----------------------------------
+            $('#btnget').click(function () {
+                toonlijst()
+            })
+            // ----------------------- TOONLIJST ---------------------------------
+               function toonlijst() {
+                    $.ajax('http://localhost:8081/restos', {
+                        method: 'GET',
+                        dataType: 'json'
+
+                        // DONE AND FAIL INBOUWEN
+                    }).done(function (data) {
+                        console.log('Yes --> .done (func)');
+                        let $select = $('#cuisine');
+                        $select .html("");
+                        for (let i = 0; i < data.length; i++) {
+                            let $newOption = $('<option>');// <option value="volvo">Volvo</option>
+                            $newOption.val(data[i]);    
+                            $newOption.html(data[i]);
+                            // APPEND  
+                            $select.append($newOption)
+                        }
+
+                    }).fail(function (obj, err, msg) { // FOUTMELDING
+                        alert('toonlijst fail: ' + msg);
+                        toonlijst();
+                        console.dir(msg);
+                    });
+                }
+        });
+    </script>
+</head>
+<html>
+
+<body>
+    <button id='btnget'>Zoek nr: </button>
+    <select id="cuisine" name="cuisines">
+      </select>
+      <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>address</th>
+                <th>Borough</th>
+                <th>Cuisine</th>
+            </tr>
+        </thead>
+        <tbody id='table'>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

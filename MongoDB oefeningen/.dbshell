@@ -1,0 +1,33 @@
+use admin
+DBQuery.shellBatchSize = 10000
+db.getCollectionNames()
+use local
+DBQuery.shellBatchSize = 10000
+db.version()
+use local
+DBQuery.shellBatchSize = 10000
+db.getCollectionNames()
+use test
+DBQuery.shellBatchSize = 10000
+db.version()
+use test
+DBQuery.shellBatchSize = 10000
+db.getCollectionNames()
+use admin
+DBQuery.shellBatchSize = 10000
+db.version()
+use admin
+DBQuery.shellBatchSize = 10000
+db.getCollectionNames()
+use local
+DBQuery.shellBatchSize = 10000
+db.version()
+use local
+DBQuery.shellBatchSize = 10000
+db.getCollectionNames()
+use test
+DBQuery.shellBatchSize = 10000
+db.version()
+use test
+DBQuery.shellBatchSize = 10000
+db.getCollectionNames()

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Runner</title>
+</head>
+
+<body>
+ <!--   <h2>Form using method=get</h2> -->
+
+<!-- GET maakt automatisch een Query string aan 'string'-->
+ <!--   <form action="http://127.0.0.1:8081/process_get" method="get">
+        Name:
+        <input type="text" name="name">
+        <br> surname:
+        <input type="text" name="surname">
+        <br> gender:
+        <select>
+            <option value='true'>Female</option>
+            <option value='false'>Male</option>
+        </select>
+        <br> Time:<br>
+        Hours: <input type="text" name="hours">
+        Min: <input type="text" name="min">
+        <input type="submit" value="Submit">
+    </form> -->
+
+<!-- POST  maakt automatisch een Query string aan 'string'-->
+    <h2>Form using method=post</h2>
+    <form action="http://127.0.0.1:8081/process_post" method="post">
+        Name:
+        <input type="text" name="name">
+        <br> surname:
+        <input type="text" name="surname">
+        <br> gender:
+        <select>
+            <option value='true'>Female</option>
+            <option value='false'>Male</option>
+        </select>
+        <br> TIME: Hours <input type="text" name="hours"> Min<input type="text" name="min">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

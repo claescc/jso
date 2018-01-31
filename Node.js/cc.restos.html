@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Ajax RESTOS</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () { // onload
+            // ----------------------- BTN GET DATA -----------------------------------
+            $('#btnget').click(function () {
+                //toonlijst();
+                toonlijst2()
+            })
+
+            // ----------------------- TOONLIJST---------------------------------
+            function toonlijst() {
+                $.ajax('http://localhost:8081/restos', {
+                    method: 'GET',
+                    dataType: 'json'
+
+                    // DONE AND FAIL INBOUWEN
+                }).done(function (data) {
+                    alert('toonlijst 1 done');
+                    let $ul = $('#list');
+                    $ul.empty();
+                    for (let i = 0; i < data.length; i++) {
+                        let $li = $('<li>');
+                        let string = '';
+                        string = (data[i].name + '\t '
+                            + data[i].address.street + ' '
+                            + data[i].address.building + ' '
+                            + data[i].address.zipcode + '\t '
+                            + data[i].borough + '\t '
+                            + data[i].cuisine);
+                        $li.text(string);
+                        $ul.append($li);
+                    }
+                    console.log('hier loopt het fout');
+                    let $tbody = $('#table');
+                    $tbody.empty();
+                    for (let i = 0; i < data.length; i++) {
+                        let $newRow = $('<tr>');
+                        let $name = $('<td>').append(data[i].name);
+                        let $address = $('<td>').text(data[i].address.street + '' +
+                            data[i].address.building + '' + data[i].address.zipcode);
+                        let $borough = $('<td>').text(data[i].borough);
+                        let $cuisine = $('<td>').text(data[i].cuisine);
+                        // APPEND  
+                        $newRow.append($name).append($address).append($borough).append($cuisine);
+                        $tbody.append($newRow)
+
+                    }
+
+                }).fail(function (obj, err, msg) { // FOUTMELDING
+                    alert('toonlijst fail: ' + msg);
+                    toonlijst();
+                    console.dir(msg);
+                });
+
+            }
+            // ----------------------- TOONLIJST 2---------------------------------
+               function toonlijst2() {
+                    $.ajax('http://localhost:8081/restos', {
+                        method: 'GET',
+                        dataType: 'json'
+
+                        // DONE AND FAIL INBOUWEN
+                    }).done(function (data) {
+                       // alert('hier loopt het fout');
+                        let $tbody = $('#table');
+                        $tbody.html("");
+                        for (let i = 0; i < data.length; i++) {
+                            let $newRow = $('<tr>');
+                            let $name = $('<td>').append(data[i].name);
+                            let $address = $('<td>').text(data[i].address.street + '' +
+                                data[i].address.building + '' + data[i].address.zipcode);
+                            let $borough = $('<td>').text(data[i].borough);
+                            let $cuisine = $('<td>').text(data[i].cuisine);
+                            // APPEND  
+                            $newRow.append($name).append($address).append($borough).append($cuisine);
+                            $tbody.append($newRow)
+                        }
+
+                    }).fail(function (obj, err, msg) { // FOUTMELDING
+                        alert('toonlijst fail: ' + msg);
+                        toonlijst();
+                        console.dir(msg);
+                    });
+                }
+        });
+    </script>
+</head>
+<html>
+
+<body>
+    <button id='btnget'>Get restos cuisines via Ajax</button>
+    <ul id='list'>
+
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Actie</th>
+            </tr>
+        </thead>
+        <tbody id='table'>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

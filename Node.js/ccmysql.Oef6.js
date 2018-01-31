@@ -1,9 +1,10 @@
 'use strict';
-var mysql = require('mysql');
+
 let express = require('express');
 var app = express();
 
 app.get('/*.html', function (req, res) {
+    console.log('here');
 res.sendFile(path.join(__dirname + url.parse(req.url).pathname));    
 });
 
