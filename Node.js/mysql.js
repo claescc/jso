@@ -22,9 +22,15 @@ connection.query('SELECT * from planten', function(err, rows, fields) {
   }
   else{
     console.log('Error while performing query.');
+<<<<<<< HEAD
 	}
 });
 
 connection.end(); // 2ed 
 
 // max 2 connection toegelaten
+=======
+  }
+  connection.end();
+});
+>>>>>>> c21dbb7c4e747cf399005e6c9da346aaa38e1b19
