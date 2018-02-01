@@ -31,7 +31,7 @@ onbekend = Math.random() > 0.5;
 console.log(onbekend);
 
 // returntype van function aangeven
-function willekeurigBericht(): string{
+function willekeurigBericht(): string{// :string -> is het return type !!! 
     let berichten: Array<string> = ["hallo", "nou moe", "en dan?", "boeit nie", "yeah"];
     let x: number = Math.floor(Math.random()*berichten.length);
     return berichten[x];
@@ -43,6 +43,7 @@ getal = willekeurigBericht();  // compileerfout
 
 // function zonder return
 // enkel undefined en null mogen toegekend worden aan een var van type void
+// VOID is een geen return functie -> geeft undefinde terug = geen uitkomst ! 
 function fieZonderReturn(): void{
     console.log("Dit is een functie zonder return statement");
 }

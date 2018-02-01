@@ -3,11 +3,12 @@ class Bankrekening {
     private nummer: string; // private => can only be accessed inside containing class
     private saldo: number;
     houder: string;  // default visibiliteit: public
-    constructor(nummer: string, houder = "", saldo = 0) {
+    constructor(nummer: string, houder:string = "", saldo:number = 0) {
         this.nummer = nummer;
+        this.houder = houder;
         this.saldo = saldo;
     }
-    toString(): string{
+    toString(): string{ // functie : returntype
         return "het saldo van rekening " + this.nummer + " is "+ this.saldo;
     }
     getSaldo(): number{
@@ -21,10 +22,13 @@ class Bankrekening {
     }
 }
 
+// maak rekening !! 
 let rekening1: Bankrekening = new Bankrekening("0001", "Joske", 500);
+
 console.log("rekening van Joske na creatie:")
 console.log(rekening1.toString());  
-// rekening1.saldo = 1000;  // compileerfout (saldo is private)
+rekening1.saldo = 1000;  // compileerfout (saldo is private)
+
 rekening1.houder = "Joske Vermeulen";
 console.log("rekening na wijziging van props:")
 console.log(rekening1);

@@ -1,7 +1,7 @@
 /* readonly prop */
 
 class Cirkel{
-    readonly straal: number;
+    readonly straal: number; // mag ENKEL in constructor waarde krijgen !!
     constructor(straal){
         this.straal = straal;
     }

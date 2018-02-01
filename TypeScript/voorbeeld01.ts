@@ -22,7 +22,7 @@ console.log(greeter01(100));
 
 
 /* TypeScript met type annotatie */
-function greeter02(name: string){
+function greeter02(name: string){ // string , boolean, number
      return "Hello, " + name;
 }
 
