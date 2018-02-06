@@ -59,6 +59,7 @@ class AdresWijziging implements Registreerbaar {
 }
 
 let registraties: Registreerbaar[] = new Array<Registreerbaar>();
+
 registraties.push(new LaatsteWilsbeschikking("1234567", "Pierre", "Dooie", false, "RK woord- en communiedienst", "familiegraf op het Schoonselhof"));
 registraties.push(new ZonnepanelenInstallatie(9, "Zonneplein 123, Zonnewende"));
 registraties.push(new AdresWijziging("89122839857", "Gemeenteplein 13", "Nieuwstraat 56A", 31, 1, 2018));
@@ -67,3 +68,12 @@ for (let registratie of registraties) {
     console.log("\n*** Bezig met verwerking van " + registratie.id + " ***");
     registratie.registreer();
 }
+/*
+class BootPontoon implements Registreerbaar{
+    id: string;
+    registratieDatum: Date;
+    registreer(): void {
+        throw new Error("Method not implemented.");
+    }
+    
+}*/

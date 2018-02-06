@@ -12,3 +12,5 @@ console.log("%s is%s a valid Belgian zipcode", zipCode,
 zipCode = "abcd";
 console.log("%s is%s a valid Belgian zipcode", zipCode, 
     myStringValidator.isAcceptable(zipCode) ? "": " not");
+
+    

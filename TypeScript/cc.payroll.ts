@@ -72,7 +72,7 @@ werknemers.push(marie);
 
 for (let employee of werknemers){
     console.log('Maandloon: %s  naam: %s %s',employee.salaris, employee.name, employee.surname );
-    if (employee instanceof wVastPercent){
+    if (employee instanceof wVastPercent){ // x instanceof class
         employee.loon += (employee.loon*0.10) ;
      console.log('\n Nieuw maandloon: %s  naam: %s %s',employee.salaris, employee.name, employee.surname );
     }
