@@ -9,6 +9,13 @@ abstract class Animal {
     }
 }
 
+
+class Panda extends Animal{
+    makeSound(): void{
+        console.log('njam njam');
+    }
+}
+
 class Snake extends Animal {
     constructor(name: string) { super(name); }
     move(distanceInMeters = 5) {
