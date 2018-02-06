@@ -8,6 +8,10 @@ class Lint {
     get nuLint(): number{
         return this.lengte;
     }
+
+    get nuKleur():string{
+        return this.kleur;
+    }
     
     stukken(delen:number){
        let deelbaar = this.lengte % delen;
@@ -24,7 +28,8 @@ let newLint: Lint = new Lint("Rood", 10);
 console.log(newLint); // {...}
 
 newLint.knip = 2;
-console.log(newLint.nuLint);
+console.log(newLint.nuLint);// 8
+console.log(newLint.nuKleur);// Rood
 
 console.log(newLint.stukken(2));
 
