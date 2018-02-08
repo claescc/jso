@@ -1,0 +1,41 @@
+
+<h1>Broodjes Oefening</h1>
+
+<form>
+  <label for="broeikes">type: </label>
+
+  <select *ngIf="broodjes.length > 0" [(ngModel)]= "val" name="val">
+      <option *ngFor="let brood of broodjes; let i = index;" value="{{ i }}"> {{ brood.naam }}</option>
+    </select>
+
+    <label for="aantal">aantal: </label>
+    <input type="text"  id="count" [(ngModel)]="teller" name="aantal" >
+    
+  
+    <button (click)="bestellen()">Bestellen</button>
+ 
+    
+    <br> <br>
+    <h2>Broodjes</h2>
+
+
+    <table *ngIf="lijst.length > 0">
+        <tr>
+          <th>Naam</th>
+          <th>Prijs</th> 
+          <th>Aantal</th>
+        </tr>
+        <tr *ngFor="let bestlijn of lijst"> 
+            <th>{{ bestlijn.broodje.naam }} </th>
+            <th>{{ bestlijn.broodje.prijs }} </th> 
+            <th>{{ bestlijn.aantal }} </th>
+          </tr>
+  
+      </table>
+    <span>De totaalprijs is:  {{ totaal }}</span>
+
+  
+  </form>
+
+ <!--  <li  *ngFor="let bestellijn of lijst">{{ bestellijn }} 
+      <span><button (click)="delete()">X</button></span> </li>-->

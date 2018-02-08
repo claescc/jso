@@ -1,0 +1,19 @@
+
+
+<h1>Numberz</h1>
+<br><br>
+<form>
+
+  <label for="aantal">Aantal: 
+  </label><input type="text"  id="count" [(ngModel)]="count" name="aantal" ><br/>
+
+  <label for="eenheid">Eenheid: 
+  </label><input type="text"  id="const" [(ngModel)]="const" name="eenheid" >
+  <br> <br>
+  <span><b>Totaal: </b> {{ bereken() }}</span>
+
+</form>
+
+
+<!-- [ (banaan)] two way binding [(ngModel)]-->
+

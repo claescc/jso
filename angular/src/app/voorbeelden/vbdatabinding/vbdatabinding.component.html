@@ -1,6 +1,10 @@
+
+<!-- STUKJES DIE WORDEN INGEPUSHED -->
+<!-- DIT KOMT IN DE TAG TERECHT -->
+
 <h1>Databinding in Angular 4</h1>
 <h2>oneway binding met interpolatie</h2>
-<span>{{ volledigeNaam() }}</span> 
+<span>{{ volledigeNaam() }}</span>  <!--EXPRESSIE MET FUNCTIE volledigenaam() -->
 <form>
   <h2>twoway binding</h2>
   <p><strong>let op!  element moet een name hebben voor twoway binding</strong></p>
@@ -14,3 +18,12 @@
 
 
 <!-- [ (banaan)] two way binding [(ngModel)]-->
+
+<!-- INVOERVAK 2 WAY BINDING BELANGRIJK 
+<input type="text"  id="txtVoornaam" [(ngModel)]="voornaam" name="txtVoornaam" >
+<input type="text"  id="txtNaam" [(ngModel)]="naam" name="txtNaam" 
+
+export class VbDatabindingComponent implements OnInit {
+  kolomhoofding: string;
+  naam: string;
+  voornaam: string;// NAAM PROPERTY MOET IDENTIEK ZIJN AAN COMPONENT.HTML -->

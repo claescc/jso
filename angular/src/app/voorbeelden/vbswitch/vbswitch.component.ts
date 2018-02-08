@@ -17,3 +17,4 @@ export class VbSwitchComponent implements OnInit {
     return datum.getHours();
   }
 }
+

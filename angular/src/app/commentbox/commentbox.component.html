@@ -1,0 +1,21 @@
+<h1>Comment Box</h1>
+<br><br>
+<form>
+
+  <label for="aantal">Oefening: notitie  </label> <br>
+
+  <textarea #hier (focus)="hier.setSelectionRange(0,0);" id="textbox" 
+  [(ngModel)]="txtbox" cols="20" rows="10" maxlength="100" name="textbox">
+</textarea>
+ 
+
+  <br> <br>
+  
+  <button [disabled]="txtbox.length == 0" (click)="save(); hier.focus();">Bewaar</button>
+  <button [disabled]="disableBtn" (click)="delete(); hier.focus();">Wis</button>
+  <br> <br>
+  <span><b>Aantal beschikbare karakters:  </b> {{ bereken() }}</span>
+</form>
+
+
+<!--  <input type="text"  id="count" [(ngModel)]="count" name="aantal" ><br/> -->

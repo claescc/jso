@@ -1,0 +1,11 @@
+form, h1 {
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    width: 300px;
+    margin: 0 auto;
+
+}
+
+label, span {
+    grid-column: 1/2;
+}

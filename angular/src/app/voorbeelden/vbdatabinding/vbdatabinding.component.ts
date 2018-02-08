@@ -1,14 +1,16 @@
+//SPECIFICATIONS VB00 functies ect..
+
 import { Component, OnInit } from '@angular/core';
 
-@Component({
+@Component({ // DECORATOR COMPONENT
   selector: 'vbdatabinding',
-  templateUrl: './vbdatabinding.component.html',
+  templateUrl: './vbdatabinding.component.html', // IPV VAN TAG {{ }}
   styleUrls: ['./vbdatabinding.component.css']
 })
 export class VbDatabindingComponent implements OnInit {
   kolomhoofding: string;
   naam: string;
-  voornaam: string;
+  voornaam: string;// NAAM PROPERTY MOET IDENTIEK ZIJN AAN COMPONENT.HTML 
 
   constructor() { 
     this.naam = "Vermeulen";
