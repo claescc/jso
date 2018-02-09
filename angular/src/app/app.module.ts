@@ -19,6 +19,11 @@ import { Oef00Component } from './oefeningen/oef00/oef00.component';
 import { OefNotitieComponent } from './oefeningen/oefnotitie/oefnotitie.component';
 import { VbForuitbrComponent } from './voorbeelden/vbfor/vbforuitbr.component';
 import { OefBroodjesComponent } from './oefeningen/oefbroodjes/oefbroodjes.component';
+import {VbFormValidationComponent} from './voorbeelden/vbformvalidation/form-validation.component';
+import { HlComponent } from './voorbeelden/vbformvalidation/hl/hl.component';
+import { HttpClientModule } from '@angular/common/http';
+import {VbHttpComponent} from './voorbeelden/vbhttp/vbhttp.component';
+import { CchttpComponent } from './voorbeelden/cchttp/cchttp.component';
 // TODO: alle componenten die in deze module gedefinieerd zijn importeren
 
 @NgModule({
@@ -31,14 +36,19 @@ import { OefBroodjesComponent } from './oefeningen/oefbroodjes/oefbroodjes.compo
     VbForComponent,
     VbSwitchComponent,
     VbPipesComponent,
-    BroodjesComponent 
+    BroodjesComponent,
+    VbFormValidationComponent,
+    HlComponent,
+    VbHttpComponent,
+    CchttpComponent
   
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
- bootstrap: [ BroodjesComponent ]
+ bootstrap: [ CchttpComponent ]
 })
 export class AppModule { }

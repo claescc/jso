@@ -25,6 +25,7 @@ export class BroodjesComponent implements OnInit {
     this.lijst.push(bestlijn);
     
   }
+  
   get totaal(): number {
     let totaal: number = 0;
     for (let lijn of this.lijst){

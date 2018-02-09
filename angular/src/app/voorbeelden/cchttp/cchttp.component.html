@@ -1,0 +1,19 @@
+
+<h1>CC HttpClient</h1>
+
+<table>
+    <tr>
+        <th colspan="2">Naam</th>
+        <th>City</th>
+        <th>Picture</th>
+      </tr>
+  <tr *ngFor="let person of mensen; let i=index">
+    <td>{{person.id}}</td>
+    <td>{{person.name}}</td>
+    <td>{{person.address.city}}</td>
+  </tr>
+</table>
+<table>
+  <tr *ngFor="let pic of fotos; let i=index">
+    <td><img src='{{pic.thumbnailUrl}}'></td>
+    </tr></table>

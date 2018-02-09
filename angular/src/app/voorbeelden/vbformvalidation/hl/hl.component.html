@@ -1,0 +1,17 @@
+<br><br>
+<h1>🎲  Hoger und Lager Spielen?  🎲</h1>
+<br><br>
+<form>
+  <label for="aantal">Uw Gok (1-100): </label>
+  <input type="text"  id="bet" [(ngModel)]="gok" name="gokken" >
+  
+  <button (click)="gokken()">Gok</button>
+  <button (click)="restart()">↻ Noch einmal spielen?</button>
+  <br><br> <br><br>
+  <span>{{ returnString }} </span>
+  <br><br> <br><br>
+  <span>Aantal gespielt: {{ beurten }}  </span>
+  <br><br> <br><br>
+  <span *ngFor="let gokcijfer of hogerlager.guessArray; ">{{ gokcijfer }}  </span>
+  
+</form>

@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class VbHttpComponent implements OnInit {
   customers: any[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } 
 
   ngOnInit() {
     this.http.get('https://www.w3schools.com/angular/customers.php').subscribe(
@@ -23,3 +23,4 @@ export class VbHttpComponent implements OnInit {
   }
 
 }
+
