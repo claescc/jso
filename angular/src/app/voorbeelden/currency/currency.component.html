@@ -1,0 +1,28 @@
+
+<h1>  currency Converter?  </h1>
+<br><br>
+<form>
+  <!-- INPUT HOEVEELHEID GELD : 100 -->
+  <input type="text"  id="hoeveel" [(ngModel)]="hoeveel" name="hoeveel" >
+
+  <!-- Dynamisch currency lijst  -->
+  
+  <select *ngIf="arrayMoney.length > 0" [(ngModel)]= "val" name="val" [(ngModel)]="preview">
+      <option *ngFor="let munt of arrayMoney; let i = index;" value="{{ i }}"> {{ munt }}</option>
+    </select>
+
+  
+  <button (click)="converteer()">↻ Converteer</button>
+
+
+  <!-- Dynamisch currency lijst  -->
+  <select *ngIf="arrayMunten.length > 0" [(ngModel)]= "val" name="val">
+      <option *ngFor="let munt of arrayMunten.naam; let i = index;" value="{{ i }}"> {{ munt }}</option>
+    </select>
+
+  <input type="text" [disabled]='true' id="uitkomst" [(ngModel)]="uitkomst" name="uitkomst" >
+
+
+
+  
+</form>

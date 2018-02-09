@@ -19,21 +19,24 @@ import { Oef00Component } from './oefeningen/oef00/oef00.component';
 import { OefNotitieComponent } from './oefeningen/oefnotitie/oefnotitie.component';
 import { VbForuitbrComponent } from './voorbeelden/vbfor/vbforuitbr.component';
 import { OefBroodjesComponent } from './oefeningen/oefbroodjes/oefbroodjes.component';
-<<<<<<< HEAD
 import {VbFormValidationComponent} from './voorbeelden/vbformvalidation/form-validation.component';
 import { HlComponent } from './voorbeelden/vbformvalidation/hl/hl.component';
 import { HttpClientModule } from '@angular/common/http';
 import {VbHttpComponent} from './voorbeelden/vbhttp/vbhttp.component';
 import { CchttpComponent } from './voorbeelden/cchttp/cchttp.component';
-=======
-import { OefHogerLagerComponent } from './oefeningen/oefhogerlager/oefhogerlager.component';
->>>>>>> 4a86bde40f28328d9c9d5a0a3dfca95f3595ea06
+import { VbScholenService01 } from './voorbeelden/vbservice/vbservice01';
+import {VbServiceComponent01 } from './voorbeelden/vbservice/vbservice01.component';
+import { VbServiceComponent02 } from './voorbeelden/vbservice/vbservice02.component';
+import { VbScholenService02 } from './voorbeelden/vbservice/vbservice02';
+import { VbScholenService03 } from './voorbeelden/vbservice/vbservice03';
+import { VbServiceComponent03 } from './voorbeelden/vbservice/vbservice03.component';
+import { CurrencyComponent } from './voorbeelden/currency/currency.component';
+
 // TODO: alle componenten die in deze module gedefinieerd zijn importeren
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     VbDatabindingComponent,
     NumberzComponent,
     CommentboxComponent,
@@ -45,29 +48,20 @@ import { OefHogerLagerComponent } from './oefeningen/oefhogerlager/oefhogerlager
     VbFormValidationComponent,
     HlComponent,
     VbHttpComponent,
-    CchttpComponent
+    CchttpComponent,
+    VbServiceComponent01,
+    VbServiceComponent02,
+    VbServiceComponent03,
+    CurrencyComponent
+    
   
-=======
-    Oef00Component,
-    OefNotitieComponent,
-    VbForuitbrComponent,
-    OefBroodjesComponent,
-    OefHogerLagerComponent
-    // TODO: alle componenten die in deze module gedefinieerd zijn hier importeren
->>>>>>> 4a86bde40f28328d9c9d5a0a3dfca95f3595ea06
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
-<<<<<<< HEAD
- bootstrap: [ CchttpComponent ]
-=======
-  // TODO: in bootstrap array (enkel) alle componenten opsommen
-  // die horen bij user defined tags die in index.html gebruikt worden
-  bootstrap: [OefHogerLagerComponent]
->>>>>>> 4a86bde40f28328d9c9d5a0a3dfca95f3595ea06
+  providers: [VbScholenService03],
+ bootstrap: [ CurrencyComponent ]
 })
 export class AppModule { }
