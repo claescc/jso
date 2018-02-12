@@ -28,11 +28,15 @@ import { VbroutingReqparamComponent } from './voorbeelden/vbrouting/vbrouting-re
 import { PageNotFoundComponent } from './voorbeelden/vbrouting/page-not-found.component';
 import { Vbrouting0Component } from './voorbeelden/vbrouting/vbrouting0.component';
 import { VbroutingComponent } from './voorbeelden/vbrouting/vbrouting.component';
+import { VbRoutingModule } from './voorbeelden/vbrouting/vbrouting.module';
+import { HeroComponent } from './voorbeelden/hero/hero.component';
+import { HeroesComponent } from './voorbeelden/heroes/heroes.component';
 // TODO: alle componenten die in deze module gedefinieerd zijn importere
   // zie vbrouting.module.ts
-const appRoutes: Routes = [
+  /*
+const appRoutes: Routes = [ // array
   {
-    path: 'vb01',
+    path: 'vb01', // url/ href
     component: VbDatabindingComponent
   },
   {
@@ -43,6 +47,10 @@ const appRoutes: Routes = [
     path: 'routing/:id',
     component: VbroutingReqparamComponent
   },
+  {
+    path: 'broodje',
+    component: OefBroodjesComponent
+  },
   { 
     path: '',   // start path
     redirectTo: '/vb01',  // REDIRECT
@@ -52,31 +60,36 @@ const appRoutes: Routes = [
     pathMatch: 'full'  // whole URL must match
   },
   { 
-    path: '**', 
+    path: '**', // al de rest > Any path 
     component: PageNotFoundComponent 
+
   } 
 ];
-
+*/
 @NgModule({
   declarations: [
     VbDatabindingComponent,
     VbIfComponent,
     OefCurrencyconvertorComponent,
     PageNotFoundComponent,
-    Vbrouting0Component,
-    VbroutingComponent,
-    VbroutingReqparamComponent
+    //Vbrouting0Component,
+    //VbroutingComponent,
+    //VbroutingReqparamComponent,
+   // OefBroodjesComponent,
+   // HeroComponent,
+    HeroesComponent 
     // TODO: alle componenten die in deze module gedefinieerd zijn hier importeren
   ],
   imports: [
     BrowserModule,
     FormsModule,  //  nodig om 2 way binding te kunnen doen
-    HttpClientModule,
-    RouterModule.forRoot( appRoutes ),
+    HttpClientModule
+   // RouterModule.forRoot( appRoutes ), // approute = x /smurf
+  
   ],
-  providers: [CurrencyService],
+  providers: [],
   // TODO: in bootstrap array (enkel) alle componenten opsommen
   // die horen bij user defined tags die in index.html gebruikt worden
-  bootstrap: [Vbrouting0Component]
+  bootstrap: [HeroesComponent] // moet getoont worden 
 })
 export class AppModule { }

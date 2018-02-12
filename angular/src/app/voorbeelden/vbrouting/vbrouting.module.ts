@@ -6,6 +6,7 @@ import { VbDatabindingComponent } from '../vbdatabinding/vbdatabinding.component
 import { VbIfComponent } from '../vbif/vbif.component';
 import { VbroutingReqparamComponent } from './vbrouting-reqparam.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { OefBroodjesComponent } from '../../oefeningen/oefbroodjes/oefbroodjes.component';
 
 const appRoutes: Routes = [
   {
@@ -19,6 +20,11 @@ const appRoutes: Routes = [
   {
     path: 'routing/:id',
     component: VbroutingReqparamComponent
+  },
+ 
+  {
+    path: 'broodje',
+    component: OefBroodjesComponent
   },
   { 
     path: '',   // start path
@@ -38,9 +44,9 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot( appRoutes )
+    RouterModule.forRoot( appRoutes ) // new module
   ],
   declarations: [],
-  exports: [RouterModule]
+  exports: [RouterModule] // belangrijk
 })
 export class VbRoutingModule { }

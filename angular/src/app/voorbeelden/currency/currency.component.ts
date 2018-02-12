@@ -19,14 +19,16 @@ export class CurrencyComponent implements OnInit {
   ngOnInit() {
     this.http.get('https://api.fixer.io/latest').subscribe(
       data => {
-        this.arrayMoney = (Object.keys(data['rates']));
+     //   this.arrayMoney = (Object.keys(data['rates']));
        // this.arrayMoney2 = (Object.keys(data['rates']));
        // console.log(this.arrayMoney);
         //  preview = this.arrayMoney[0];
+        
 
         // CREATE CLASS 
-        this.arrayMunten.push(new MuntEenheid(Object.keys(data['rates']),
-                                              (Object.values(data['rates']))));
+    //    this.arrayMunten.push(new MuntEenheid(Object.keys(data['rates']),
+      //                                        (Object.values(data['rates']))));
+                                              
 
         console.log(this.arrayMunten);
 
@@ -40,6 +42,6 @@ export class CurrencyComponent implements OnInit {
 
 
 export class MuntEenheid {
-  constructor(public naam: string, public waarde: number) {
+  constructor(public naam: any, public waarde: any) {
   }
 }

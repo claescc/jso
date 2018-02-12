@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'; // :id 
 
 @Component({
   selector: 'vbrouting-reqparam',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class VbroutingReqparamComponent implements OnInit {
   reqParamId: string;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute) { // inject activatedroute
       this.reqParamId = this.route.snapshot.paramMap.get('id');
     }
 
