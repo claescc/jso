@@ -19,49 +19,64 @@ import { Oef00Component } from './oefeningen/oef00/oef00.component';
 import { OefNotitieComponent } from './oefeningen/oefnotitie/oefnotitie.component';
 import { VbForuitbrComponent } from './voorbeelden/vbfor/vbforuitbr.component';
 import { OefBroodjesComponent } from './oefeningen/oefbroodjes/oefbroodjes.component';
-import {VbFormValidationComponent} from './voorbeelden/vbformvalidation/form-validation.component';
-import { HlComponent } from './voorbeelden/vbformvalidation/hl/hl.component';
+import { OefHogerLagerComponent } from './oefeningen/oefhogerlager/oefhogerlager.component';
+import { OefCurrencyconvertorComponent } from './oefeningen/oefcurrencyconvertor/oefcurrencyconvertor.component';
+import { CurrencyService } from './oefeningen/oefcurrencyconvertor/currency.service';
 import { HttpClientModule } from '@angular/common/http';
-import {VbHttpComponent} from './voorbeelden/vbhttp/vbhttp.component';
-import { CchttpComponent } from './voorbeelden/cchttp/cchttp.component';
-import { VbScholenService01 } from './voorbeelden/vbservice/vbservice01';
-import {VbServiceComponent01 } from './voorbeelden/vbservice/vbservice01.component';
-import { VbServiceComponent02 } from './voorbeelden/vbservice/vbservice02.component';
-import { VbScholenService02 } from './voorbeelden/vbservice/vbservice02';
-import { VbScholenService03 } from './voorbeelden/vbservice/vbservice03';
-import { VbServiceComponent03 } from './voorbeelden/vbservice/vbservice03.component';
-import { CurrencyComponent } from './voorbeelden/currency/currency.component';
-
-// TODO: alle componenten die in deze module gedefinieerd zijn importeren
+import { Routes, RouterModule } from '@angular/router';
+import { VbroutingReqparamComponent } from './voorbeelden/vbrouting/vbrouting-reqparam.component';
+import { PageNotFoundComponent } from './voorbeelden/vbrouting/page-not-found.component';
+import { Vbrouting0Component } from './voorbeelden/vbrouting/vbrouting0.component';
+import { VbroutingComponent } from './voorbeelden/vbrouting/vbrouting.component';
+// TODO: alle componenten die in deze module gedefinieerd zijn importere
+  // zie vbrouting.module.ts
+const appRoutes: Routes = [
+  {
+    path: 'vb01',
+    component: VbDatabindingComponent
+  },
+  {
+    path: 'vb02',
+    component: VbIfComponent
+  },
+  {
+    path: 'routing/:id',
+    component: VbroutingReqparamComponent
+  },
+  { 
+    path: '',   // start path
+    redirectTo: '/vb01',  // REDIRECT
+    //  A redirect route requires a pathMatch property to tell the router 
+    //   how to match a URL to the path of a route. The router throws an error 
+    //   if you don't. 
+    pathMatch: 'full'  // whole URL must match
+  },
+  { 
+    path: '**', 
+    component: PageNotFoundComponent 
+  } 
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
     VbDatabindingComponent,
-    NumberzComponent,
-    CommentboxComponent,
     VbIfComponent,
-    VbForComponent,
-    VbSwitchComponent,
-    VbPipesComponent,
-    BroodjesComponent,
-    VbFormValidationComponent,
-    HlComponent,
-    VbHttpComponent,
-    CchttpComponent,
-    VbServiceComponent01,
-    VbServiceComponent02,
-    VbServiceComponent03,
-    CurrencyComponent
-    
-  
+    OefCurrencyconvertorComponent,
+    PageNotFoundComponent,
+    Vbrouting0Component,
+    VbroutingComponent,
+    VbroutingReqparamComponent
+    // TODO: alle componenten die in deze module gedefinieerd zijn hier importeren
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule,  //  nodig om 2 way binding te kunnen doen
+    HttpClientModule,
+    RouterModule.forRoot( appRoutes ),
   ],
-  providers: [VbScholenService03],
- bootstrap: [ CurrencyComponent ]
+  providers: [CurrencyService],
+  // TODO: in bootstrap array (enkel) alle componenten opsommen
+  // die horen bij user defined tags die in index.html gebruikt worden
+  bootstrap: [Vbrouting0Component]
 })
 export class AppModule { }
