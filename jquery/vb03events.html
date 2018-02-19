@@ -11,6 +11,7 @@
         /*$(document).ready(function(){ //voor oudere mensen
             console.log($('h1').text());
         });*/
+<<<<<<< HEAD
 
         //  $(function(){ //aangeraden voor jonge, hippe mensen
         //      console.log($('h1').text());
@@ -37,9 +38,35 @@
         // MET  FORMS WERKEN 
         $(function () {
             $(':submit', '#form').click(function (evt) { // evt = eventobject
+=======
+        $(function(){ //aangeraden voor jonge, hippe mensen
+            console.log($('h1').text());
+        });
+        /*$(() => { //aangeraden voor jonge, hippere mensen
+          console.log($('h1').text());
+        });*/
+        $(function(){
+            $('h1').click(function(){
+                console.log($(this));
+            });
+        });
+        $(function(){
+            $('#btn').click(function(){ //de functie wordt uitgevoerd wanneer er geklikt wordt op de knop
+                alert('Wie heb ik aan de lijn, hallo, hallo?');
+            });
+        });
+        $(function(){  //we kunnen klikken op eender welk element
+            $('h1').click(function(){
+                $(this).text('Aaaauw'); //this verwijst naar het element zelf
+            });
+        });
+        $(function(){
+            $(':submit', '#form').click(function(evt){
+>>>>>>> 10ac3980364e43c4b98d486fad80f662a90331f3
                 evt.preventDefault();// we willen geen form submit
                 let naam = $('#txtNaam').val();// .value
                 let $li = $('<li>').text(naam);
+<<<<<<< HEAD
                 $('#namen').append($li); // toevoegen aan ul- ID als een li 
                 $("#txtNaam").val(''); // maakt gwn textvak leeg waar naam in stond
             });
@@ -48,14 +75,26 @@
 
         $(function(){ // alle elmenten die van het NIET submit zijn 
             $('input[type!=submit]', '#form').mouseenter(function(){ 
+=======
+                $('#namen').append($li);
+                $('#txtNaam').val('');
+            });
+        });
+        $(function(){
+            $('input[type!=submit]', '#form').mouseenter(function(){
+>>>>>>> 10ac3980364e43c4b98d486fad80f662a90331f3
                 $(this).css('background-color', 'red');
             });
             $('input[type!=submit]', '#form').mouseleave(function(){
                 $(this).css('background-color', 'white');
             });
         });
+<<<<<<< HEAD
 
 //document.addEventListener("DOMContentLoaded", function ()) { }; // ipv Window.onload
+=======
+        
+>>>>>>> 10ac3980364e43c4b98d486fad80f662a90331f3
     </script>
 </head>
 

@@ -12,24 +12,40 @@
         <li class="active">Eerste</li>
         <li>Tweede</li>
     </ul>
+    <ul class="mijnklas">
+
+    </ul>
     <p id="start">Dit is de start</p>
     <p>Dit is de laatste paragraaf op
         <time datetime="2017-01-01">1/01/2017</time>
     </p>
     <script>
+<<<<<<< HEAD
         let $li = $('<li>'); // maak nieuw li element           = MAAK
         $li.attr("id", "idName");
         // omzetten 
        // let liElement = $li[0];
       //  liElement.id= "derde";
 
+=======
+        /*let $li = $('<li>'); // maak nieuw li element
+        let liElement = $li[0];
+        liElement.id = "derde";
+        $li=$(liElement);
+>>>>>>> 10ac3980364e43c4b98d486fad80f662a90331f3
         $li.text('Derde'); //zet tekst
         $('ul').append($li); // voeg nieuw element toe aan ul   = SELECTEER
         // append child 
         
+<<<<<<< HEAD
         // before voeg sybling toe 
         $('#start').before($('<p>').text('Nee, dit is de start')); // zet een nieuw p-element voor #start
         $('ul').css('list-style','none');//list style van alle ul-elementen wordt afgezet
+=======
+        //$('#start').before($('<p>').text('Nee, dit is de start')); // zet een nieuw p-element voor #start
+        //$('ul').css('list-style','none');//list style van alle ul-elementen wordt afgezet
+        $('ul').toggleClass("mijnklas");
+>>>>>>> 10ac3980364e43c4b98d486fad80f662a90331f3
     </script>
 </body>
 </html>
