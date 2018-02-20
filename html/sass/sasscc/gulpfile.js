@@ -3,6 +3,7 @@ let gulp = require('gulp');
 let sass = require('gulp-sass')
 let cleanCSS = require('gulp-clean-css');
 let rename = require('gulp-rename');
+let browserSync = require('browser-sync').create();
 
 //----------------- PATHS  ---------------------
 let  paths = {
@@ -37,3 +38,17 @@ gulp.task('sass:watch', function (){ // laatste taak !
     gulp.watch(paths.styles.src,['sass']) // array van elementen
     
 });
+
+
+
+// Static Server + watching scss/html files
+gulp.task('serve', ['sass'], function() {
+
+    browserSync.init({
+        server: "./"
+    });
+
+    gulp.watch(paths.styles.src, ['sass']);
+    gulp.watch('*.html').on('change', browserSync.reload);
+});
+gulp.task('default', ['serve']);
